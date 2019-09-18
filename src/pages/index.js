@@ -22,7 +22,6 @@ const IndexPage = () => (
       }
     `}
     render={data => {
-      // Set ImageData.
       const imageData = data.mobile.childImageSharp.fluid
       return (
         <StyledBackground

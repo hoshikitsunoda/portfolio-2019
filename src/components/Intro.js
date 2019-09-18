@@ -45,6 +45,7 @@ const TextWrapper = styled.div`
     font-family: "Manjari", sans-serif;
     margin-bottom: 0;
     letter-spacing: 0.1rem;
+    line-height: 1.6rem;
   }
 `
 

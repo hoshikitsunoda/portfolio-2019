@@ -1,23 +1,13 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 
 import styled from "styled-components"
 
-const Header = ({ siteTitle }) => (
+import SocialIcons from "./SocialIcons"
+
+const Header = () => (
   <Wrapper>
     <Container>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+      <SocialIcons />
     </Container>
   </Wrapper>
 )
@@ -30,15 +20,7 @@ const Wrapper = styled.header`
 const Container = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  padding: 1.45rem 1.0875rem;
+  padding: 1.6rem 1.0875rem 0.4rem;
 `
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

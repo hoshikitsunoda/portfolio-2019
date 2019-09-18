@@ -9,28 +9,28 @@ const Image = () => {
     query {
       emailIcon: file(relativePath: { eq: "icon-email.png" }) {
         childImageSharp {
-          fixed(width: 40, height: 40) {
+          fixed(width: 50, height: 50) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       githubIcon: file(relativePath: { eq: "icon-github.png" }) {
         childImageSharp {
-          fixed(width: 40, height: 40) {
+          fixed(width: 50, height: 50) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       linkedinIcon: file(relativePath: { eq: "icon-linkedin.png" }) {
         childImageSharp {
-          fixed(width: 40, height: 40) {
+          fixed(width: 50, height: 50) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       twitterIcon: file(relativePath: { eq: "icon-twitter.png" }) {
         childImageSharp {
-          fixed(width: 40, height: 40) {
+          fixed(width: 50, height: 50) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -57,7 +57,7 @@ const Image = () => {
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 `
 

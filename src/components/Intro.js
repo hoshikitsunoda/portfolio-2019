@@ -22,7 +22,7 @@ const Intro = () => {
       <TextWrapper>
         <p>
           My name is Hosh’ki Tsunoda. <br></br>Front End Developer. UI Designer.
-          <b></b>Based in Orange County, CA.
+          <br></br>Based in Orange County, CA.
         </p>
       </TextWrapper>
     </div>
@@ -37,7 +37,7 @@ const ProfileImg = styled(Img)`
 const TextWrapper = styled.div`
   background-color: rgba(77, 77, 77, 0.3);
   text-align: center;
-  padding: 1.8rem 1rem 0.8rem;
+  padding: 1.7rem 1rem 0.8rem;
 
   p {
     color: #fff;

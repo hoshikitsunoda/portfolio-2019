@@ -20,7 +20,7 @@ const Wrapper = styled.header`
 const Container = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  padding: 1.6rem 1.0875rem 0.4rem;
+  padding: 1.2rem 2.2rem 0.4rem;
 `
 
 export default Header

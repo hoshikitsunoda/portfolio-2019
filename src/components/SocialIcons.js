@@ -9,28 +9,28 @@ const Image = () => {
     query {
       emailIcon: file(relativePath: { eq: "icon-email.png" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 38, height: 38) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       githubIcon: file(relativePath: { eq: "icon-github.png" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 38, height: 38) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       linkedinIcon: file(relativePath: { eq: "icon-linkedin.png" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 38, height: 38) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       twitterIcon: file(relativePath: { eq: "icon-twitter.png" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 38, height: 38) {
             ...GatsbyImageSharpFixed
           }
         }

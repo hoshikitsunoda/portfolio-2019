@@ -1,17 +1,53 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
+
+import styled from "styled-components"
+
+import BackgroundImage from "gatsby-background-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+  <StaticQuery
+    query={graphql`
+      query {
+        mobile: file(relativePath: { eq: "bg-image-hoshki-kana.png" }) {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 500) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      // Set ImageData.
+      const imageData = data.mobile.childImageSharp.fluid
+      return (
+        <StyledBackground
+          Tag="section"
+          fluid={imageData}
+          backgroundColor={`#FFD64D`}
+        >
+          <Layout>
+            <SEO title="Home" />
+            <h1>Hi people</h1>
+            <p>Welcome to your new Gatsby site.</p>
+            <p>Now go build something great.</p>
+          </Layout>
+        </StyledBackground>
+      )
+    }}
+  />
 )
+
+const StyledBackground = styled(BackgroundImage)`
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: repeat-y;
+  background-size: cover;
+`
 
 export default IndexPage

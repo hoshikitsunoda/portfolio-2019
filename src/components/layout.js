@@ -4,6 +4,8 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Intro from "./Intro"
+import Skills from "./Skills"
+import { Helmet } from "react-helmet"
 
 import "./layout.css"
 
@@ -22,9 +24,16 @@ const Layout = ({ children }) => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css?family=Coda:800|Manjari&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Container>
         <Intro />
+        <Skills />
         <footer></footer>
       </Container>
     </Wrapper>

@@ -37,11 +37,11 @@ const ProfileImg = styled(Img)`
 const TextWrapper = styled.div`
   background-color: rgba(77, 77, 77, 0.3);
   text-align: center;
-  padding: 1.65rem 0.5rem 0.8rem;
+  padding: 1.55rem 0.5rem 0.5rem;
 
   p {
     color: #fff;
-    font-size: 1.06rem;
+    font-size: 1.1rem;
     font-family: "Manjari", sans-serif;
     margin-bottom: 0;
     letter-spacing: 0.1rem;

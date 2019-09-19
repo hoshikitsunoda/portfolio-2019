@@ -9,42 +9,42 @@ const Skills = () => {
     query {
       javascriptIcon: file(relativePath: { eq: "skills/icon-javascript.png" }) {
         childImageSharp {
-          fixed(width: 28, height: 28) {
+          fixed(width: 32, height: 32) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       reactIcon: file(relativePath: { eq: "skills/icon-react.png" }) {
         childImageSharp {
-          fixed(width: 28, height: 28) {
+          fixed(width: 32, height: 32) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       nodejsIcon: file(relativePath: { eq: "skills/icon-nodejs.png" }) {
         childImageSharp {
-          fixed(width: 28, height: 28) {
+          fixed(width: 32, height: 32) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       mongodbIcon: file(relativePath: { eq: "skills/icon-mongoDB.png" }) {
         childImageSharp {
-          fixed(width: 28, height: 28) {
+          fixed(width: 32, height: 32) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       sassIcon: file(relativePath: { eq: "skills/icon-sass.png" }) {
         childImageSharp {
-          fixed(width: 28, height: 28) {
+          fixed(width: 32, height: 32) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       photoshopIcon: file(relativePath: { eq: "skills/icon-photoshop.png" }) {
         childImageSharp {
-          fixed(width: 28, height: 28) {
+          fixed(width: 32, height: 32) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -53,14 +53,14 @@ const Skills = () => {
         relativePath: { eq: "skills/icon-illustrator.png" }
       ) {
         childImageSharp {
-          fixed(width: 28, height: 28) {
+          fixed(width: 32, height: 32) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       figmaIcon: file(relativePath: { eq: "skills/icon-figma.png" }) {
         childImageSharp {
-          fixed(width: 28, height: 28) {
+          fixed(width: 32, height: 32) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -106,7 +106,7 @@ const IconWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 0 0.4rem;
+  padding: 0.75rem 0 0.2rem;
 `
 
 export default Skills

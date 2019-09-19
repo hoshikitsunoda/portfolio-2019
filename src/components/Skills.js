@@ -96,7 +96,7 @@ const Background = styled.div`
 
   h1 {
     font-family: "Coda", cursive;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #fff;
     margin: 0;
   }
@@ -106,7 +106,7 @@ const IconWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0 0.5rem;
+  padding: 0.75rem 0 0.4rem;
 `
 
 export default Skills

@@ -26,7 +26,13 @@ const Resume = () => (
           fluid={imageData}
           backgroundColor={`#FFD64D`}
         >
-          <Overlay></Overlay>
+          <Inner>
+            <a href="">
+              <button>
+                Download<br></br>Resume
+              </button>
+            </a>
+          </Inner>
         </StyledBackground>
       )
     }}
@@ -41,9 +47,29 @@ const StyledBackground = styled(BackgroundImage)`
   background-size: contain;
 `
 
-const Overlay = styled.div`
+const Inner = styled.div`
   width: 100%;
   height: 100vh;
+
+  a {
+    text-decoration: none;
+
+    button {
+      display: block;
+      width: 80%;
+      position: relative;
+      top: 3.5rem;
+      margin: 0 auto;
+      padding: 0.8rem 1rem;
+      border: 0.3rem solid #f52549;
+      background: transparent;
+      color: #f52549;
+      font-family: "Coda", cursive;
+      text-transform: uppercase;
+      font-size: 2.2rem;
+      line-height: 2.9rem;
+    }
+  }
 `
 
 export default Resume

@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
     <Wrapper>
       <Helmet>
         <link
-          href="https://fonts.googleapis.com/css?family=Coda:800|Manjari&display=swap"
+          href="https://fonts.googleapis.com/css?family=Coda:800|Turret+Road:500&display=swap"
           rel="stylesheet"
         />
       </Helmet>
@@ -45,6 +45,7 @@ const Layout = ({ children }) => {
 const Wrapper = styled.div`
   height: 100vh;
   outline: none;
+  overflow: hidden;
 `
 
 const Container = styled.div`

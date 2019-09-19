@@ -41,8 +41,9 @@ const TextWrapper = styled.div`
 
   p {
     color: #fff;
-    font-size: 1.1rem;
-    font-family: "Manjari", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "Turret Road", cursive;
     margin-bottom: 0;
     letter-spacing: 0.1rem;
     line-height: 1.6rem;

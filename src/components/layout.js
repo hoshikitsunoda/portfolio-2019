@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Intro from "./Intro"
 import Skills from "./Skills"
+import Resume from "./Resume"
 import { Helmet } from "react-helmet"
 
 import "./layout.css"
@@ -34,6 +35,7 @@ const Layout = ({ children }) => {
       <Container>
         <Intro />
         <Skills />
+        <Resume />
         <footer></footer>
       </Container>
     </Wrapper>

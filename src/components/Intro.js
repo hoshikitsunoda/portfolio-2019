@@ -43,7 +43,7 @@ const TextWrapper = styled.div`
     color: #fff;
     font-size: 1rem;
     font-weight: 600;
-    font-family: "Turret Road", cursive;
+    font-family: "Open Sans", sans-serif;
     margin-bottom: 0;
     letter-spacing: 0.1rem;
     line-height: 1.6rem;

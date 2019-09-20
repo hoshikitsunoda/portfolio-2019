@@ -27,9 +27,15 @@ const Resume = () => (
           backgroundColor={`#FFD64D`}
         >
           <Inner>
-            <a href="">
+            <a
+              rel="noopener noreferrer"
+              href={
+                "https://www.dropbox.com/s/xmhtxzpgh7dwhx8/resume-hoshki-tsunoda-0819.pdf?dl=0"
+              }
+              target="_blank"
+            >
               <button>
-                Download<br></br>Resume
+                View My<br></br>Resume
               </button>
             </a>
           </Inner>
@@ -68,6 +74,7 @@ const Inner = styled.div`
       text-transform: uppercase;
       font-size: 2.2rem;
       line-height: 2.9rem;
+      outline: none;
     }
   }
 `

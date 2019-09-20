@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Intro from "./Intro"
 import Skills from "./Skills"
+import Resume from "./Resume"
 import { Helmet } from "react-helmet"
 
 import "./layout.css"
@@ -26,7 +27,7 @@ const Layout = ({ children }) => {
     <Wrapper>
       <Helmet>
         <link
-          href="https://fonts.googleapis.com/css?family=Coda:800|Manjari&display=swap"
+          href="https://fonts.googleapis.com/css?family=Coda:800|Open+Sans:400,600&display=swap"
           rel="stylesheet"
         />
       </Helmet>
@@ -34,6 +35,7 @@ const Layout = ({ children }) => {
       <Container>
         <Intro />
         <Skills />
+        <Resume />
         <footer></footer>
       </Container>
     </Wrapper>
@@ -43,6 +45,7 @@ const Layout = ({ children }) => {
 const Wrapper = styled.div`
   height: 100vh;
   outline: none;
+  overflow: hidden;
 `
 
 const Container = styled.div`

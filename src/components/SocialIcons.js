@@ -7,30 +7,30 @@ import styled from "styled-components"
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      emailIcon: file(relativePath: { eq: "icon-email.png" }) {
+      emailIcon: file(relativePath: { eq: "social/icon-email.png" }) {
         childImageSharp {
-          fixed(width: 38, height: 38) {
+          fixed(width: 42, height: 42) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      githubIcon: file(relativePath: { eq: "icon-github.png" }) {
+      githubIcon: file(relativePath: { eq: "social/icon-github.png" }) {
         childImageSharp {
-          fixed(width: 38, height: 38) {
+          fixed(width: 42, height: 42) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      linkedinIcon: file(relativePath: { eq: "icon-linkedin.png" }) {
+      linkedinIcon: file(relativePath: { eq: "social/icon-linkedin.png" }) {
         childImageSharp {
-          fixed(width: 38, height: 38) {
+          fixed(width: 42, height: 42) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      twitterIcon: file(relativePath: { eq: "icon-twitter.png" }) {
+      twitterIcon: file(relativePath: { eq: "social/icon-twitter.png" }) {
         childImageSharp {
-          fixed(width: 38, height: 38) {
+          fixed(width: 42, height: 42) {
             ...GatsbyImageSharpFixed
           }
         }

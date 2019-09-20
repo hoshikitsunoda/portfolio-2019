@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
     <Wrapper>
       <Helmet>
         <link
-          href="https://fonts.googleapis.com/css?family=Coda:800|Turret+Road:500&display=swap"
+          href="https://fonts.googleapis.com/css?family=Coda:800|Open+Sans:400,600&display=swap"
           rel="stylesheet"
         />
       </Helmet>

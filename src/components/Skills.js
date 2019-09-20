@@ -96,7 +96,7 @@ const Background = styled.div`
 
   h1 {
     font-family: "Coda", cursive;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #fff;
     margin: 0;
   }

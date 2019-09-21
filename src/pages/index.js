@@ -9,6 +9,21 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class IndexPage extends Component {
+  state = { isDesktop: false }
+
+  componentDidMount() {
+    this.checkWindowWidth()
+    window.addEventListener("resize", this.checkWindowWidth)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.checkWindowWidth)
+  }
+
+  checkWindowWidth = () => {
+    this.setState({ isDesktop: window.innerWidth > 767 })
+  }
+
   render() {
     return (
       <StaticQuery
@@ -31,7 +46,10 @@ class IndexPage extends Component {
           }
         `}
         render={data => {
-          const imageData = data.mobile.childImageSharp.fluid
+          const isDesktop = this.state.isDesktop
+          const imageData = isDesktop
+            ? data.desktop.childImageSharp.fluid
+            : data.mobile.childImageSharp.fluid
           return (
             <StyledBackground
               Tag="section"

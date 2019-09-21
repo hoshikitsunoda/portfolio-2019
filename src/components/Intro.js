@@ -32,6 +32,8 @@ const Intro = () => {
 const ProfileImg = styled(Img)`
   display: block !important;
   margin: 0 auto -1rem;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #011a27;
 `
 
 const TextWrapper = styled.div`

@@ -19,6 +19,13 @@ const IndexPage = () => (
             }
           }
         }
+        desktop: file(relativePath: { eq: "bg-desktop-full.png" }) {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 1440) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     `}
     render={data => {

@@ -45,7 +45,9 @@ const Layout = ({ children }) => {
 const Wrapper = styled.div`
   height: 100vh;
   outline: none;
-  overflow: hidden;
+  overflow-y: hidden;
+  max-width: 1440px;
+  margin: 0 auto;
 `
 
 const Container = styled.div`

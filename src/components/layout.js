@@ -48,6 +48,7 @@ const Wrapper = styled.div`
   overflow-y: hidden;
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0 3rem;
 `
 
 const Container = styled.div`

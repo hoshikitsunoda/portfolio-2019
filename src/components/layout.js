@@ -31,9 +31,11 @@ const Layout = ({ children }) => {
           rel="stylesheet"
         />
       </Helmet>
-      <Header siteTitle={data.site.siteMetadata.title} />
       <Container>
-        <Intro />
+        <Flex>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <Intro />
+        </Flex>
         <Skills />
         <Resume />
         <footer></footer>
@@ -48,13 +50,24 @@ const Wrapper = styled.div`
   overflow-y: hidden;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 3rem;
+
+  @media (min-width: 767px) {
+    padding: 0 3rem;
+  }
 `
 
 const Container = styled.div`
   margin: 0 auto;
   max-width: 960px;
   padding: 1.35rem 1.0875rem 1.45rem;
+`
+
+const Flex = styled.div`
+  @media (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `
 
 Layout.propTypes = {

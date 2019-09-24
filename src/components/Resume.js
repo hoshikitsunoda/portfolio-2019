@@ -51,6 +51,12 @@ const StyledBackground = styled(BackgroundImage)`
   background-position: top center;
   background-repeat: no-repeat;
   background-size: contain;
+
+  @media (min-width: 768px) {
+    &::before {
+      background-size: cover !important;
+    }
+  }
 `
 
 const Inner = styled.div`
@@ -75,8 +81,18 @@ const Inner = styled.div`
       font-size: 2.2rem;
       line-height: 2.9rem;
       outline: none;
+
+      @media (min-width: 767px) {
+        width: 40%;
+      }
     }
   }
+
+  /* @media (min-width: 767px) {
+    button {
+      width: 40% !important;
+    }
+  } */
 `
 
 export default Resume

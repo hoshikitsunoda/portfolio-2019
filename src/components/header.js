@@ -13,8 +13,23 @@ const Header = () => (
 )
 
 const Wrapper = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #ffd64d;
   box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.5);
+
+  @media (min-width: 767px) {
+    position: relative;
+    max-width: 24.278rem;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  @media (min-width: 1024px) {
+    order: 1;
+  }
 `
 
 const Container = styled.div`

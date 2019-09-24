@@ -9,42 +9,42 @@ const Skills = () => {
     query {
       javascriptIcon: file(relativePath: { eq: "skills/icon-javascript.png" }) {
         childImageSharp {
-          fixed(width: 32, height: 32) {
+          fixed(width: 74, height: 74) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       reactIcon: file(relativePath: { eq: "skills/icon-react.png" }) {
         childImageSharp {
-          fixed(width: 32, height: 32) {
+          fixed(width: 74, height: 74) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       nodejsIcon: file(relativePath: { eq: "skills/icon-nodejs.png" }) {
         childImageSharp {
-          fixed(width: 32, height: 32) {
+          fixed(width: 74, height: 74) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       mongodbIcon: file(relativePath: { eq: "skills/icon-mongoDB.png" }) {
         childImageSharp {
-          fixed(width: 32, height: 32) {
+          fixed(width: 74, height: 74) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       sassIcon: file(relativePath: { eq: "skills/icon-sass.png" }) {
         childImageSharp {
-          fixed(width: 32, height: 32) {
+          fixed(width: 74, height: 74) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       photoshopIcon: file(relativePath: { eq: "skills/icon-photoshop.png" }) {
         childImageSharp {
-          fixed(width: 32, height: 32) {
+          fixed(width: 74, height: 74) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -53,14 +53,14 @@ const Skills = () => {
         relativePath: { eq: "skills/icon-illustrator.png" }
       ) {
         childImageSharp {
-          fixed(width: 32, height: 32) {
+          fixed(width: 74, height: 74) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       figmaIcon: file(relativePath: { eq: "skills/icon-figma.png" }) {
         childImageSharp {
-          fixed(width: 32, height: 32) {
+          fixed(width: 74, height: 74) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -71,20 +71,23 @@ const Skills = () => {
     <Background>
       <h1>SKILLS:</h1>
       <IconWrapper>
-        <Img
+        <Icons
           fixed={data.javascriptIcon.childImageSharp.fixed}
           alt="javascript"
         />
-        <Img fixed={data.reactIcon.childImageSharp.fixed} alt="react" />
-        <Img fixed={data.nodejsIcon.childImageSharp.fixed} alt="nodejs" />
-        <Img fixed={data.mongodbIcon.childImageSharp.fixed} alt="mongodb" />
-        <Img fixed={data.sassIcon.childImageSharp.fixed} alt="sass" />
-        <Img fixed={data.photoshopIcon.childImageSharp.fixed} alt="photoshop" />
-        <Img
+        <Icons fixed={data.reactIcon.childImageSharp.fixed} alt="react" />
+        <Icons fixed={data.nodejsIcon.childImageSharp.fixed} alt="nodejs" />
+        <Icons fixed={data.mongodbIcon.childImageSharp.fixed} alt="mongodb" />
+        <Icons fixed={data.sassIcon.childImageSharp.fixed} alt="sass" />
+        <Icons
+          fixed={data.photoshopIcon.childImageSharp.fixed}
+          alt="photoshop"
+        />
+        <Icons
           fixed={data.illustratorIcon.childImageSharp.fixed}
           alt="illustrator"
         />
-        <Img fixed={data.figmaIcon.childImageSharp.fixed} alt="figma" />
+        <Icons fixed={data.figmaIcon.childImageSharp.fixed} alt="figma" />
       </IconWrapper>
     </Background>
   )
@@ -92,7 +95,7 @@ const Skills = () => {
 
 const Background = styled.div`
   background-color: rgba(77, 77, 77, 0.3);
-  padding: 0 0.75rem 0.5rem;
+  padding: 1.5rem 0.75rem 0.5rem;
 
   h1 {
     font-family: "Coda", cursive;
@@ -107,6 +110,16 @@ const IconWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 0 0.2rem;
+`
+
+const Icons = styled(Img)`
+  width: 32px !important;
+  height: 32px !important;
+
+  @media (min-width: 767px) {
+    width: 74px !important;
+    height: 74px !important;
+  }
 `
 
 export default Skills

@@ -17,7 +17,7 @@ const Intro = () => {
     }
   `)
   return (
-    <div>
+    <Wrapper>
       <ProfileImg fixed={data.profile.childImageSharp.fixed} alt="Profile" />
       <TextWrapper>
         <p>
@@ -25,13 +25,32 @@ const Intro = () => {
           <br></br>Based in Orange County, CA.
         </p>
       </TextWrapper>
-    </div>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  margin-top: 5.5rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0;
+  }
+`
 
 const ProfileImg = styled(Img)`
   display: block !important;
   margin: 0 auto -1rem;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #011a27;
+
+  @media (min-width: 768px) {
+    margin: 0;
+    border-radius: 0 0 0 0;
+    border: none;
+  }
 `
 
 const TextWrapper = styled.div`
@@ -47,6 +66,16 @@ const TextWrapper = styled.div`
     margin-bottom: 0;
     letter-spacing: 0.1rem;
     line-height: 1.6rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 1.175rem 1.3rem 1.1rem;
+
+    p {
+      text-align: left;
+      font-size: 0.9rem;
+      line-height: 1.3rem;
+    }
   }
 `
 

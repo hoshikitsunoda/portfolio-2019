@@ -36,7 +36,7 @@ class IndexPage extends Component {
                 }
               }
             }
-            desktop: file(relativePath: { eq: "bg-desktop-full.png" }) {
+            desktop: file(relativePath: { eq: "bg-desktop.png" }) {
               childImageSharp {
                 fluid(quality: 90, maxWidth: 1440) {
                   ...GatsbyImageSharpFluid_withWebp
@@ -73,6 +73,10 @@ const StyledBackground = styled(BackgroundImage)`
   background-position: center center;
   background-repeat: repeat-y;
   background-size: cover;
+
+  @media (min-width: 767px) {
+    background-position: top center !important;
+  }
 `
 
 export default IndexPage

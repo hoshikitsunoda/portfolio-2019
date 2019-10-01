@@ -107,6 +107,12 @@ const Background = styled.div`
   @media (min-width: 768px) {
     padding: 1.25rem 1.75rem 0.5rem;
   }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 1rem;
+    }
+  }
 `
 
 const IconWrapper = styled.div`

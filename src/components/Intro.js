@@ -77,6 +77,16 @@ const TextWrapper = styled.div`
       line-height: 1.3rem;
     }
   }
+
+  @media (min-width: 1024px) {
+    padding: 1.175rem 1rem 1.1rem;
+
+    p {
+      text-align: left;
+      font-size: 0.8rem;
+      line-height: 1.3rem;
+    }
+  }
 `
 
 export default Intro

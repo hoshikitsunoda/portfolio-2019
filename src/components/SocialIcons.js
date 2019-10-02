@@ -77,7 +77,7 @@ const Icons = styled(Img)`
   width: 42px !important;
   height: 42px !important;
 
-  @media (min-width: 767px) {
+  @media (min-width: 1200px) {
     width: 60px !important;
     height: 60px !important;
   }

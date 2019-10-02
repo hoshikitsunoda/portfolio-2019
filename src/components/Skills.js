@@ -95,13 +95,23 @@ const Skills = () => {
 
 const Background = styled.div`
   background-color: rgba(77, 77, 77, 0.3);
-  padding: 1.5rem 0.75rem 0.5rem;
+  padding: 0 0.75rem 0.5rem;
 
   h1 {
     font-family: "Coda", cursive;
     font-size: 1.2rem;
     color: #fff;
     margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    padding: 1.25rem 1.75rem 0.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 1rem;
+    }
   }
 `
 
@@ -116,7 +126,7 @@ const Icons = styled(Img)`
   width: 32px !important;
   height: 32px !important;
 
-  @media (min-width: 767px) {
+  @media (min-width: 1024px) {
     width: 74px !important;
     height: 74px !important;
   }

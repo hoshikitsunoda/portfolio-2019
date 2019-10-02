@@ -82,17 +82,11 @@ const Inner = styled.div`
       line-height: 2.9rem;
       outline: none;
 
-      @media (min-width: 767px) {
+      @media (min-width: 768px) {
         width: 40%;
       }
     }
   }
-
-  /* @media (min-width: 767px) {
-    button {
-      width: 40% !important;
-    }
-  } */
 `
 
 export default Resume

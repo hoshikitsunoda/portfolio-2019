@@ -54,12 +54,6 @@ const StyledBackground = styled(BackgroundImage)`
 
   @media (min-width: 768px) {
     &::before {
-      background-size: contain !important;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    &::before {
       background-size: cover !important;
     }
   }

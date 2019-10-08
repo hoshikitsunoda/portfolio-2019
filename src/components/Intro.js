@@ -7,7 +7,7 @@ import styled from "styled-components"
 const Intro = () => {
   const data = useStaticQuery(graphql`
     query {
-      profile: file(relativePath: { eq: "profile.jpeg" }) {
+      profile: file(relativePath: { eq: "profile.png" }) {
         childImageSharp {
           fixed(width: 110, height: 110) {
             ...GatsbyImageSharpFixed

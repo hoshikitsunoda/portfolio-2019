@@ -9,7 +9,9 @@ class Skills extends Component {
     hovered: false,
   }
 
-  onHover = () => {}
+  onHover = () => {
+    console.log(this.state.hovered)
+  }
 
   render() {
     return (
@@ -88,6 +90,7 @@ class Skills extends Component {
                 <Icons
                   fixed={data.javascriptIcon.childImageSharp.fixed}
                   alt="javascript"
+                  onMouseOver={this.onHover}
                 />
                 <Icons
                   fixed={data.reactIcon.childImageSharp.fixed}
@@ -165,6 +168,8 @@ const IconWrapper = styled.div`
 const Icons = styled(Img)`
   width: 32px !important;
   height: 32px !important;
+  border: 0.125rem solid #ffd64d;
+  border-radius: 50%;
   transition: 0.2s ease-in-out;
 
   :hover {

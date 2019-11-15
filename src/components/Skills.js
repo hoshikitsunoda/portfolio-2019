@@ -166,6 +166,7 @@ const IconWrapper = styled.div`
 `
 
 const Icons = styled(Img)`
+  box-sizing: content-box;
   width: 32px !important;
   height: 32px !important;
   border: 0.125rem solid #ffd64d;

@@ -176,7 +176,7 @@ const Icons = styled(Img)`
   z-index: 1;
 
   :hover {
-    transform: scale(1.5);
+    transform: scale(1.25);
     z-index: 3;
   }
 

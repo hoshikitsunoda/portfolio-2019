@@ -49,7 +49,6 @@ const ProfileImg = styled(Img)`
   @media (min-width: 768px) {
     margin: 0;
     border-radius: 0 0 0 0;
-    border: none;
   }
 `
 

@@ -139,6 +139,7 @@ const Background = styled.div`
     font-size: 1.2rem;
     color: #fff;
     margin: 0;
+    text-shadow: 6px 6px 0 #011a27;
   }
 
   @media (min-width: 768px) {
@@ -162,6 +163,11 @@ const IconWrapper = styled.div`
 
   @media (min-width: 768px) {
     margin-left: 1rem;
+    box-shadow: 6px 6px 0 #011a27;
+    border: 0.025rem solid #011a27;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.3);
   }
 `
 

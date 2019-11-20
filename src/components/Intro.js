@@ -47,8 +47,11 @@ const ProfileImg = styled(Img)`
   border: 0.1rem solid #011a27;
 
   @media (min-width: 768px) {
-    margin: 0;
+    margin: -12px 0 0 -6px;
     border-radius: 0 0 0 0;
+    box-shadow: 6px 6px 0 #011a27;
+    margin-left: -6px;
+    margin-top: -12px;
   }
 `
 
@@ -65,6 +68,7 @@ const TextWrapper = styled.div`
     margin-bottom: 0;
     letter-spacing: 0.1rem;
     line-height: 1.6rem;
+    text-shadow: 6px 6px 0 #011a27;
   }
 
   @media (min-width: 768px) {

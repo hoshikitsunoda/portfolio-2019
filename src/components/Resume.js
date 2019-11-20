@@ -81,6 +81,7 @@ const Inner = styled.div`
       font-size: 2.2rem;
       line-height: 2.9rem;
       outline: none;
+      cursor: pointer;
 
       @media (min-width: 768px) {
         width: 40%;

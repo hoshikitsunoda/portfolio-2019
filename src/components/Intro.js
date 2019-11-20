@@ -72,7 +72,7 @@ const TextWrapper = styled.div`
   }
 
   @media (min-width: 768px) {
-    padding: 1.175rem 1.3rem 1.1rem;
+    padding: 1.175rem 1.3rem 1.1rem 1.7rem;
 
     p {
       text-align: left;
@@ -82,7 +82,7 @@ const TextWrapper = styled.div`
   }
 
   @media (min-width: 1024px) {
-    padding: 1.175rem 1rem 1.1rem;
+    padding: 1.175rem 1rem 1.1rem 1.7rem;
 
     p {
       text-align: left;

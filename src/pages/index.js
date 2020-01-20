@@ -29,7 +29,7 @@ class IndexPage extends Component {
       <StaticQuery
         query={graphql`
           query {
-            mobile: file(relativePath: { eq: "bg-image-hoshki-kana.png" }) {
+            mobile: file(relativePath: { eq: "bg-mobile.png" }) {
               childImageSharp {
                 fluid(quality: 90, maxWidth: 500) {
                   ...GatsbyImageSharpFluid_withWebp

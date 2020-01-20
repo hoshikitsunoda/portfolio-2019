@@ -81,6 +81,17 @@ const Inner = styled.div`
       font-size: 2.2rem;
       line-height: 2.9rem;
       outline: none;
+      cursor: pointer;
+      background-image: linear-gradient(#f52549, #f52549);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: 0% 100%;
+      transition: background-size 0.5s, color 0.5s;
+
+      &:hover {
+        background-size: 100% 100%;
+        color: #031c27;
+      }
 
       @media (min-width: 768px) {
         width: 40%;

@@ -7,7 +7,7 @@ import styled from "styled-components"
 const Intro = () => {
   const data = useStaticQuery(graphql`
     query {
-      profile: file(relativePath: { eq: "profile.jpeg" }) {
+      profile: file(relativePath: { eq: "profile.png" }) {
         childImageSharp {
           fixed(width: 110, height: 110) {
             ...GatsbyImageSharpFixed
@@ -21,7 +21,8 @@ const Intro = () => {
       <ProfileImg fixed={data.profile.childImageSharp.fixed} alt="Profile" />
       <TextWrapper>
         <p>
-          My name is Hosh’ki Tsunoda. <br></br>Front End Developer. UI Designer.
+          My name is Hosh’ki Tsunoda. <br></br>Front End Developer.{" "}
+          <br className="break"></br>UI Developer.
           <br></br>Based in Orange County, CA.
         </p>
       </TextWrapper>
@@ -47,9 +48,11 @@ const ProfileImg = styled(Img)`
   border: 0.1rem solid #011a27;
 
   @media (min-width: 768px) {
-    margin: 0;
+    margin: -12px 0 0 -6px;
     border-radius: 0 0 0 0;
-    border: none;
+    box-shadow: 6px 6px 0 #011a27;
+    margin-left: -6px;
+    margin-top: -12px;
   }
 `
 
@@ -66,20 +69,25 @@ const TextWrapper = styled.div`
     margin-bottom: 0;
     letter-spacing: 0.1rem;
     line-height: 1.6rem;
+    text-shadow: 6px 6px 0 #011a27;
   }
 
   @media (min-width: 768px) {
-    padding: 1.175rem 1.3rem 1.1rem;
+    padding: 1.175rem 1.3rem 1.1rem 1.7rem;
 
     p {
       text-align: left;
       font-size: 0.9rem;
       line-height: 1.3rem;
+
+      .break {
+        display: none;
+      }
     }
   }
 
   @media (min-width: 1024px) {
-    padding: 1.175rem 1rem 1.1rem;
+    padding: 1.175rem 1rem 1.1rem 1.7rem;
 
     p {
       text-align: left;

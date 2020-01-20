@@ -21,7 +21,8 @@ const Intro = () => {
       <ProfileImg fixed={data.profile.childImageSharp.fixed} alt="Profile" />
       <TextWrapper>
         <p>
-          My name is Hosh’ki Tsunoda. <br></br>Front End Developer. UI Designer.
+          My name is Hosh’ki Tsunoda. <br></br>Front End Developer.{" "}
+          <br className="break"></br>UI Developer.
           <br></br>Based in Orange County, CA.
         </p>
       </TextWrapper>
@@ -78,6 +79,10 @@ const TextWrapper = styled.div`
       text-align: left;
       font-size: 0.9rem;
       line-height: 1.3rem;
+
+      .break {
+        display: none;
+      }
     }
   }
 

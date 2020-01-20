@@ -181,10 +181,10 @@ const Icons = styled(Img)`
   transition: 0.2s ease-in-out;
   z-index: 1;
 
-  :hover {
+  /* :hover {
     transform: scale(1.25);
     z-index: 3;
-  }
+  } */
 
   @media (min-width: 1024px) {
     width: 74px !important;

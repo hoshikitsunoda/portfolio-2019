@@ -57,7 +57,7 @@ const Image = () => {
         <Icons fixed={data.linkedinIcon.childImageSharp.fixed} alt="linkedin" />
       </a>
       <a
-        href="https://twitter.com/hoshki_tzu"
+        href="https://twitter.com/hoshkitsunoda"
         target="_blank"
         rel="noopener noreferrer"
       >

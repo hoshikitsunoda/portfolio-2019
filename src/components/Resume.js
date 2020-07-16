@@ -18,7 +18,7 @@ const Resume = () => (
         }
       }
     `}
-    render={data => {
+    render={(data) => {
       const imageData = data.mobile.childImageSharp.fluid
       return (
         <StyledBackground
@@ -29,9 +29,7 @@ const Resume = () => (
           <Inner>
             <a
               rel="noopener noreferrer"
-              href={
-                "https://www.dropbox.com/s/xmhtxzpgh7dwhx8/resume-hoshki-tsunoda-0819.pdf?dl=0"
-              }
+              href={"https://bit.ly/394gtfy"}
               target="_blank"
             >
               <button>

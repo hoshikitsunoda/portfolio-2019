@@ -29,7 +29,7 @@ const Resume = () => (
           <Inner>
             <a
               rel="noopener noreferrer"
-              href={"https://bit.ly/394gtfy"}
+              href={"https://bit.ly/2CjRVmV"}
               target="_blank"
             >
               <button>

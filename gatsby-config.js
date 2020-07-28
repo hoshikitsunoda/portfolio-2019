@@ -9,6 +9,7 @@ module.exports = {
       "https://www.linkedin.com/in/hoshki-tsunoda/",
       "https://twitter.com/hoshkitsunoda",
     ],
+    resumeUrl: "https://bit.ly/2CjRVmV",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

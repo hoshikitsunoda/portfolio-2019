@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 // import Img from "gatsby-image"
 
 import Icon from "./UI/Icon"
@@ -7,94 +7,85 @@ import Icon from "./UI/Icon"
 import styled from "styled-components"
 
 const Skills = () => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          javascriptIcon: file(
-            relativePath: { eq: "skills/icon-javascript.png" }
-          ) {
-            childImageSharp {
-              fixed(width: 74, height: 74) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          reactIcon: file(relativePath: { eq: "skills/icon-react.png" }) {
-            childImageSharp {
-              fixed(width: 74, height: 74) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          nodejsIcon: file(relativePath: { eq: "skills/icon-nodejs.png" }) {
-            childImageSharp {
-              fixed(width: 74, height: 74) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          mongodbIcon: file(relativePath: { eq: "skills/icon-mongoDB.png" }) {
-            childImageSharp {
-              fixed(width: 74, height: 74) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          sassIcon: file(relativePath: { eq: "skills/icon-sass.png" }) {
-            childImageSharp {
-              fixed(width: 74, height: 74) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          photoshopIcon: file(
-            relativePath: { eq: "skills/icon-photoshop.png" }
-          ) {
-            childImageSharp {
-              fixed(width: 74, height: 74) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          illustratorIcon: file(
-            relativePath: { eq: "skills/icon-illustrator.png" }
-          ) {
-            childImageSharp {
-              fixed(width: 74, height: 74) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          figmaIcon: file(relativePath: { eq: "skills/icon-figma.png" }) {
-            childImageSharp {
-              fixed(width: 74, height: 74) {
-                ...GatsbyImageSharpFixed
-              }
-            }
+  const data = useStaticQuery(graphql`
+    query {
+      javascriptIcon: file(relativePath: { eq: "skills/icon-javascript.png" }) {
+        childImageSharp {
+          fixed(width: 74, height: 74) {
+            ...GatsbyImageSharpFixed
           }
         }
-      `}
-      render={data => {
-        return (
-          <Background>
-            <h1>SKILLS:</h1>
-            <IconWrapper>
-              {Object.keys(data).map((item, i) => {
-                return (
-                  <Icon
-                    section="skills"
-                    key={i}
-                    fixed={data[item].childImageSharp.fixed}
-                    alt={item.substring(0, item.length - 4)}
-                  />
-                )
-              })}
-            </IconWrapper>
-          </Background>
-        )
-      }}
-    />
+      }
+      reactIcon: file(relativePath: { eq: "skills/icon-react.png" }) {
+        childImageSharp {
+          fixed(width: 74, height: 74) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      nodejsIcon: file(relativePath: { eq: "skills/icon-nodejs.png" }) {
+        childImageSharp {
+          fixed(width: 74, height: 74) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      mongodbIcon: file(relativePath: { eq: "skills/icon-mongoDB.png" }) {
+        childImageSharp {
+          fixed(width: 74, height: 74) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      sassIcon: file(relativePath: { eq: "skills/icon-sass.png" }) {
+        childImageSharp {
+          fixed(width: 74, height: 74) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      photoshopIcon: file(relativePath: { eq: "skills/icon-photoshop.png" }) {
+        childImageSharp {
+          fixed(width: 74, height: 74) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      illustratorIcon: file(
+        relativePath: { eq: "skills/icon-illustrator.png" }
+      ) {
+        childImageSharp {
+          fixed(width: 74, height: 74) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      figmaIcon: file(relativePath: { eq: "skills/icon-figma.png" }) {
+        childImageSharp {
+          fixed(width: 74, height: 74) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <Background>
+      <h1>SKILLS:</h1>
+      <IconWrapper>
+        {Object.keys(data).map((item, i) => {
+          return (
+            <Icon
+              section="skills"
+              key={i}
+              fixed={data[item].childImageSharp.fixed}
+              alt={item.substring(0, item.length - 4)}
+            />
+          )
+        })}
+      </IconWrapper>
+    </Background>
   )
 }
 

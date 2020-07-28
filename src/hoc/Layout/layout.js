@@ -5,8 +5,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "../../components/header"
 import Intro from "../../components/Intro"
 import Skills from "../../components/Skills"
-import Resume from "../../components/Page/Resume/Resume"
 import { Helmet } from "react-helmet"
+import SEO from "../../components/seo"
 
 import "./layout.css"
 
@@ -30,6 +30,7 @@ const Layout = ({ children }) => {
           href="https://fonts.googleapis.com/css?family=Coda:800|Open+Sans:400,600&display=swap"
           rel="stylesheet"
         />
+        <SEO title="Home" />
       </Helmet>
       <Container>
         <Flex>
@@ -37,8 +38,7 @@ const Layout = ({ children }) => {
           <Intro />
         </Flex>
         <Skills />
-        <Resume />
-        <footer></footer>
+        {children}
       </Container>
     </Wrapper>
   )

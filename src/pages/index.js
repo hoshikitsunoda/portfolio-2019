@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import { graphql, StaticQuery } from "gatsby"
 
+import Resume from "../components/Page/Resume/Resume"
+
 import styled from "styled-components"
 
 import BackgroundImage from "gatsby-background-image"
 
 import Layout from "../hoc/Layout/layout"
-import SEO from "../components/seo"
 
 class IndexPage extends Component {
   state = { isDesktop: false }
@@ -57,7 +58,7 @@ class IndexPage extends Component {
               backgroundColor={`#FFD64D`}
             >
               <Layout>
-                <SEO title="Home" />
+                <Resume />
               </Layout>
             </StyledBackground>
           )

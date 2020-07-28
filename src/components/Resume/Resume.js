@@ -1,47 +1,49 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import styled from "styled-components"
 
 import BackgroundImage from "gatsby-background-image"
 
-const Resume = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        mobile: file(relativePath: { eq: "blurred-resume.png" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 500) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+const Resume = () => {
+  const { mobile, site } = useStaticQuery(graphql`
+    query {
+      mobile: file(relativePath: { eq: "blurred-resume.png" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 500) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
-    `}
-    render={(data) => {
-      const imageData = data.mobile.childImageSharp.fluid
-      return (
-        <StyledBackground
-          Tag="section"
-          fluid={imageData}
-          backgroundColor={`#FFD64D`}
+      site {
+        siteMetadata {
+          resumeUrl
+        }
+      }
+    }
+  `)
+
+  const imageData = mobile.childImageSharp.fluid
+  return (
+    <StyledBackground
+      Tag="section"
+      fluid={imageData}
+      backgroundColor={`#FFD64D`}
+    >
+      <Inner>
+        <a
+          rel="noopener noreferrer"
+          href={site.siteMetadata.resumeUrl}
+          target="_blank"
         >
-          <Inner>
-            <a
-              rel="noopener noreferrer"
-              href={"https://bit.ly/2CjRVmV"}
-              target="_blank"
-            >
-              <button>
-                View My<br></br>Resume
-              </button>
-            </a>
-          </Inner>
-        </StyledBackground>
-      )
-    }}
-  />
-)
+          <button>
+            View My<br></br>Resume
+          </button>
+        </a>
+      </Inner>
+    </StyledBackground>
+  )
+}
 
 const StyledBackground = styled(BackgroundImage)`
   width: 100%;

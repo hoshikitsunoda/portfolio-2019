@@ -3,6 +3,12 @@ module.exports = {
     title: `Hosh'ki Tsunoda`,
     description: `Portfolio`,
     author: `Hosh'ki Tsunoda`,
+    socialLinks: [
+      "mailto: contact@hoshki.me",
+      "https://github.com/hoshikitsunoda",
+      "https://www.linkedin.com/in/hoshki-tsunoda/",
+      "https://twitter.com/hoshkitsunoda",
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

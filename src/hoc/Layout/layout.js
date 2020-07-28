@@ -5,8 +5,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "../../components/header"
 import Intro from "../../components/Intro"
 import Skills from "../../components/Skills"
-import Resume from "../../components/Page/Resume/Resume"
 import { Helmet } from "react-helmet"
+import SEO from "../../components/seo"
 
 import "./layout.css"
 
@@ -32,13 +32,13 @@ const Layout = ({ children }) => {
         />
       </Helmet>
       <Container>
+        <SEO title="Home" />
         <Flex>
           <Header siteTitle={data.site.siteMetadata.title} />
           <Intro />
         </Flex>
         <Skills />
-        <Resume />
-        <footer></footer>
+        {children}
       </Container>
     </Wrapper>
   )

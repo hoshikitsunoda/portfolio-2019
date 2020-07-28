@@ -1,70 +1,67 @@
-import React, { Component } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, StaticQuery } from "gatsby"
+
+import Layout from "../hoc/Layout/layout"
+import Resume from "../components/Page/Resume/Resume"
 
 import styled from "styled-components"
 
 import BackgroundImage from "gatsby-background-image"
 
-import Layout from "../hoc/Layout/layout"
-import SEO from "../components/seo"
+const IndexPage = () => {
+  const [isDesktop, setIsDesktop] = useState(false)
 
-class IndexPage extends Component {
-  state = { isDesktop: false }
-
-  componentDidMount() {
-    this.checkWindowWidth()
-    window.addEventListener("resize", this.checkWindowWidth)
+  const checkWindowWidth = () => {
+    setIsDesktop(window.innerWidth > 767)
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.checkWindowWidth)
-  }
+  useEffect(() => {
+    checkWindowWidth()
+    window.addEventListener("resize", checkWindowWidth())
+  }, [])
 
-  checkWindowWidth = () => {
-    this.setState({ isDesktop: window.innerWidth > 767 })
-  }
+  useEffect(() => {
+    window.removeEventListener("resize", checkWindowWidth())
+  }, [])
 
-  render() {
-    return (
-      <StaticQuery
-        query={graphql`
-          query {
-            mobile: file(relativePath: { eq: "bg-mobile.png" }) {
-              childImageSharp {
-                fluid(quality: 90, maxWidth: 500) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-            desktop: file(relativePath: { eq: "bg-desktop.png" }) {
-              childImageSharp {
-                fluid(quality: 90, maxWidth: 1440) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          mobile: file(relativePath: { eq: "bg-mobile.png" }) {
+            childImageSharp {
+              fluid(quality: 90, maxWidth: 500) {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
-        `}
-        render={data => {
-          const isDesktop = this.state.isDesktop
-          const imageData = isDesktop
-            ? data.desktop.childImageSharp.fluid
-            : data.mobile.childImageSharp.fluid
-          return (
-            <StyledBackground
-              Tag="section"
-              fluid={imageData}
-              backgroundColor={`#FFD64D`}
-            >
-              <Layout>
-                <SEO title="Home" />
-              </Layout>
-            </StyledBackground>
-          )
-        }}
-      />
-    )
-  }
+          desktop: file(relativePath: { eq: "bg-desktop.png" }) {
+            childImageSharp {
+              fluid(quality: 90, maxWidth: 1440) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      `}
+      render={({ desktop, mobile }) => {
+        const imageData = isDesktop
+          ? desktop.childImageSharp.fluid
+          : mobile.childImageSharp.fluid
+        return (
+          <StyledBackground
+            Tag="section"
+            fluid={imageData}
+            backgroundColor={`#FFD64D`}
+          >
+            <Layout>
+              <Resume />
+            </Layout>
+          </StyledBackground>
+        )
+      }}
+    />
+  )
 }
 
 const StyledBackground = styled(BackgroundImage)`

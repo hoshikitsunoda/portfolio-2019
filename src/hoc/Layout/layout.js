@@ -30,9 +30,9 @@ const Layout = ({ children }) => {
           href="https://fonts.googleapis.com/css?family=Coda:800|Open+Sans:400,600&display=swap"
           rel="stylesheet"
         />
-        <SEO title="Home" />
       </Helmet>
       <Container>
+        <SEO title="Home" />
         <Flex>
           <Header siteTitle={data.site.siteMetadata.title} />
           <Intro />

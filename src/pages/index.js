@@ -5,7 +5,7 @@ import styled from "styled-components"
 
 import BackgroundImage from "gatsby-background-image"
 
-import Layout from "../components/layout"
+import Layout from "../hoc/Layout/layout"
 import SEO from "../components/seo"
 
 class IndexPage extends Component {

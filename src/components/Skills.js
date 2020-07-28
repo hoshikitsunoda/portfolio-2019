@@ -1,129 +1,101 @@
-import React, { Component } from "react"
+import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
+
+import Icon from "./UI/Icon"
 
 import styled from "styled-components"
 
-class Skills extends Component {
-  state = {
-    hovered: false,
-  }
-
-  onHover = () => {
-    console.log(this.state.hovered)
-  }
-
-  render() {
-    return (
-      <StaticQuery
-        query={graphql`
-          query {
-            javascriptIcon: file(
-              relativePath: { eq: "skills/icon-javascript.png" }
-            ) {
-              childImageSharp {
-                fixed(width: 74, height: 74) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-            reactIcon: file(relativePath: { eq: "skills/icon-react.png" }) {
-              childImageSharp {
-                fixed(width: 74, height: 74) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-            nodejsIcon: file(relativePath: { eq: "skills/icon-nodejs.png" }) {
-              childImageSharp {
-                fixed(width: 74, height: 74) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-            mongodbIcon: file(relativePath: { eq: "skills/icon-mongoDB.png" }) {
-              childImageSharp {
-                fixed(width: 74, height: 74) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-            sassIcon: file(relativePath: { eq: "skills/icon-sass.png" }) {
-              childImageSharp {
-                fixed(width: 74, height: 74) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-            photoshopIcon: file(
-              relativePath: { eq: "skills/icon-photoshop.png" }
-            ) {
-              childImageSharp {
-                fixed(width: 74, height: 74) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-            illustratorIcon: file(
-              relativePath: { eq: "skills/icon-illustrator.png" }
-            ) {
-              childImageSharp {
-                fixed(width: 74, height: 74) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-            figmaIcon: file(relativePath: { eq: "skills/icon-figma.png" }) {
-              childImageSharp {
-                fixed(width: 74, height: 74) {
-                  ...GatsbyImageSharpFixed
-                }
+const Skills = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          javascriptIcon: file(
+            relativePath: { eq: "skills/icon-javascript.png" }
+          ) {
+            childImageSharp {
+              fixed(width: 74, height: 74) {
+                ...GatsbyImageSharpFixed
               }
             }
           }
-        `}
-        render={data => {
-          return (
-            <Background>
-              <h1>SKILLS:</h1>
-              <IconWrapper>
-                <Icons
-                  fixed={data.javascriptIcon.childImageSharp.fixed}
-                  alt="javascript"
-                  onMouseOver={this.onHover}
-                />
-                <Icons
-                  fixed={data.reactIcon.childImageSharp.fixed}
-                  alt="react"
-                />
-                <Icons
-                  fixed={data.nodejsIcon.childImageSharp.fixed}
-                  alt="nodejs"
-                />
-                <Icons
-                  fixed={data.mongodbIcon.childImageSharp.fixed}
-                  alt="mongodb"
-                />
-                <Icons fixed={data.sassIcon.childImageSharp.fixed} alt="sass" />
-                <Icons
-                  fixed={data.photoshopIcon.childImageSharp.fixed}
-                  alt="photoshop"
-                />
-                <Icons
-                  fixed={data.illustratorIcon.childImageSharp.fixed}
-                  alt="illustrator"
-                />
-                <Icons
-                  fixed={data.figmaIcon.childImageSharp.fixed}
-                  alt="figma"
-                />
-              </IconWrapper>
-            </Background>
-          )
-        }}
-      />
-    )
-  }
+          reactIcon: file(relativePath: { eq: "skills/icon-react.png" }) {
+            childImageSharp {
+              fixed(width: 74, height: 74) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          nodejsIcon: file(relativePath: { eq: "skills/icon-nodejs.png" }) {
+            childImageSharp {
+              fixed(width: 74, height: 74) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          mongodbIcon: file(relativePath: { eq: "skills/icon-mongoDB.png" }) {
+            childImageSharp {
+              fixed(width: 74, height: 74) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          sassIcon: file(relativePath: { eq: "skills/icon-sass.png" }) {
+            childImageSharp {
+              fixed(width: 74, height: 74) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          photoshopIcon: file(
+            relativePath: { eq: "skills/icon-photoshop.png" }
+          ) {
+            childImageSharp {
+              fixed(width: 74, height: 74) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          illustratorIcon: file(
+            relativePath: { eq: "skills/icon-illustrator.png" }
+          ) {
+            childImageSharp {
+              fixed(width: 74, height: 74) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          figmaIcon: file(relativePath: { eq: "skills/icon-figma.png" }) {
+            childImageSharp {
+              fixed(width: 74, height: 74) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        return (
+          <Background>
+            <h1>SKILLS:</h1>
+            <IconWrapper>
+              {Object.keys(data).map((item, i) => {
+                return (
+                  <Icon
+                    section="skills"
+                    key={i}
+                    fixed={data[item].childImageSharp.fixed}
+                    alt={item.substring(0, item.length - 4)}
+                  />
+                )
+              })}
+            </IconWrapper>
+          </Background>
+        )
+      }}
+    />
+  )
 }
 
 const Background = styled.div`
@@ -168,27 +140,6 @@ const IconWrapper = styled.div`
     margin-bottom: 1rem;
     padding: 0.75rem;
     background-color: rgba(0, 0, 0, 0.3);
-  }
-`
-
-const Icons = styled(Img)`
-  box-sizing: content-box;
-  width: 32px !important;
-  height: 32px !important;
-  /* border: 0.125rem solid #ffd64d; */
-  /* background-color: #ffd64d; */
-  border-radius: 50%;
-  transition: 0.2s ease-in-out;
-  z-index: 1;
-
-  /* :hover {
-    transform: scale(1.25);
-    z-index: 3;
-  } */
-
-  @media (min-width: 1024px) {
-    width: 74px !important;
-    height: 74px !important;
   }
 `
 

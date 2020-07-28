@@ -49,6 +49,7 @@ const Image = () => {
       {Object.keys(data).map((item, i) => {
         return item === "site" ? null : (
           <Icon
+            section="social"
             href={data.site.siteMetadata.socialLinks[i]}
             key={i}
             fixed={data[item].childImageSharp.fixed}

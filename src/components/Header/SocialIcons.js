@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Icon from "./UI/Icon"
+import Icon from "../UI/Icon"
 
 import styled from "styled-components"
 

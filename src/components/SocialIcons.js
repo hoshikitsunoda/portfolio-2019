@@ -1,12 +1,13 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+
+import Icon from "./UI/Icon"
 
 import styled from "styled-components"
 
 const Image = () => {
   const data = useStaticQuery(graphql`
-    query {
+    query Images {
       emailIcon: file(relativePath: { eq: "social/icon-email.png" }) {
         childImageSharp {
           fixed(width: 60, height: 60) {
@@ -35,34 +36,26 @@ const Image = () => {
           }
         }
       }
+      site {
+        siteMetadata {
+          socialLinks
+        }
+      }
     }
   `)
+
   return (
     <Wrapper>
-      <a href="mailto: contact@hoshki.me">
-        <Icons fixed={data.emailIcon.childImageSharp.fixed} alt="email" />
-      </a>
-      <a
-        href="https://github.com/hoshikitsunoda"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Icons fixed={data.githubIcon.childImageSharp.fixed} alt="github" />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/hoshki-tsunoda/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Icons fixed={data.linkedinIcon.childImageSharp.fixed} alt="linkedin" />
-      </a>
-      <a
-        href="https://twitter.com/hoshkitsunoda"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Icons fixed={data.twitterIcon.childImageSharp.fixed} alt="twitter" />
-      </a>
+      {Object.keys(data).map((item, i) => {
+        return item === "site" ? null : (
+          <Icon
+            href={data.site.siteMetadata.socialLinks[i]}
+            key={i}
+            fixed={data[item].childImageSharp.fixed}
+            alt={item.substring(0, item.length - 4)}
+          />
+        )
+      })}
     </Wrapper>
   )
 }
@@ -71,16 +64,6 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
-
-const Icons = styled(Img)`
-  width: 42px !important;
-  height: 42px !important;
-
-  @media (min-width: 1200px) {
-    width: 60px !important;
-    height: 60px !important;
-  }
 `
 
 export default Image

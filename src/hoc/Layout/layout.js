@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "../../components/header"
+import Header from "../../components/Header/header"
 import Intro from "../../components/Intro"
-import Skills from "../../components/Skills"
+import Menu from "../../components/Menu/Menu"
 import { Helmet } from "react-helmet"
 import SEO from "../../components/seo"
 
@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
           <Header siteTitle={data.site.siteMetadata.title} />
           <Intro />
         </Flex>
-        <Skills />
+        <Menu />
         {children}
       </Container>
     </Wrapper>

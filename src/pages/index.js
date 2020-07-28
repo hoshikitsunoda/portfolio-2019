@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../hoc/Layout/layout"
-import Resume from "../components/Page/Resume/Resume"
+import Resume from "../components/Resume/Resume"
 
 import styled from "styled-components"
 

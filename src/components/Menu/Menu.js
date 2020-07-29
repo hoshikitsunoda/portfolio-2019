@@ -111,16 +111,18 @@ const MenuItem = styled.div`
   outline: none;
   opacity: 0.5;
 
-  &:hover {
-    opacity: 1;
-  }
-
   &.resume {
     opacity: ${props => (props.isShowing === "resume" ? 1 : 0.5)};
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &.skills {
     opacity: ${props => (props.isShowing === "skills" ? 1 : 0.5)};
+    &:hover {
+      opacity: 1;
+    }
   }
 `
 

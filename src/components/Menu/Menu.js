@@ -1,15 +1,42 @@
-import React from "react"
+import React, { useState } from "react"
 
 import Skills from "./MenuItem/Skills"
+import Resume from "./MenuItem/Resume"
 
 import styled from "styled-components"
 
 const Menu = () => {
+  const [isShowing, setIsShowing] = useState("skills")
+
+  const clickHandler = event => {
+    event.preventDefault()
+    event.stopPropagation()
+    const text = event.target.innerHTML
+    setIsShowing(text.toLowerCase().slice(0, text.length - 1))
+  }
+
   return (
     <Background>
-      <h1>SKILLS:</h1>
+      <ul>
+        {["skills", "resume"].map(item => {
+          return (
+            <li key={item}>
+              <MenuItem
+                role="button"
+                tabIndex={0}
+                onClick={event => clickHandler(event)}
+                onKeyDown={event => clickHandler(event)}
+                isShowing={isShowing}
+                className={item}
+              >
+                <h2>{item.toUpperCase()}:</h2>
+              </MenuItem>
+            </li>
+          )
+        })}
+      </ul>
       <IconWrapper>
-        <Skills />
+        {isShowing === "skills" ? <Skills /> : <Resume />}
       </IconWrapper>
     </Background>
   )
@@ -22,13 +49,29 @@ const Background = styled.div`
   background-color: rgba(77, 77, 77, 0.3);
   padding: 0 0.75rem 0.5rem;
 
-  h1 {
-    flex: 0 1 10%;
-    font-family: "Coda", cursive;
-    font-size: 1.2rem;
-    color: #fff;
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 0;
-    text-shadow: 6px 6px 0 #011a27;
+
+    h2 {
+      flex: 0 1 10%;
+      font-family: "Coda", cursive;
+      font-size: 1.2rem;
+      color: #fff;
+      margin: 0;
+      text-shadow: 3px 3px 0 #011a27;
+    }
+
+    @media (min-width: 768px) {
+      flex-direction: column;
+
+      h2 {
+        text-shadow: 6px 6px 0 #011a27;
+      }
+    }
   }
 
   @media (min-width: 768px) {
@@ -47,16 +90,37 @@ const IconWrapper = styled.div`
   flex: 0 1 90%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 0 0.2rem;
+  align-items: flex-end;
+  padding: 0.2rem 0.5rem;
+  min-height: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 0 #011a27;
+  border: 0.025rem solid #011a27;
 
   @media (min-width: 768px) {
+    align-items: center;
     margin-left: 1rem;
-    box-shadow: 6px 6px 0 #011a27;
-    border: 0.025rem solid #011a27;
     margin-bottom: 1rem;
     padding: 0.75rem;
-    background-color: rgba(0, 0, 0, 0.3);
+    min-height: 105px;
+    box-shadow: 6px 6px 0 #011a27;
+  }
+`
+
+const MenuItem = styled.div`
+  outline: none;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.resume {
+    opacity: ${props => (props.isShowing === "resume" ? 1 : 0.5)};
+  }
+
+  &.skills {
+    opacity: ${props => (props.isShowing === "skills" ? 1 : 0.5)};
   }
 `
 

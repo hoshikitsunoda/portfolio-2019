@@ -3,6 +3,7 @@ import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../hoc/Layout/layout"
 import Resume from "../components/Resume/Resume"
+import Projects from "../components/Projects/Projects"
 
 import styled from "styled-components"
 
@@ -56,6 +57,7 @@ const IndexPage = () => {
           >
             <Layout>
               <Resume />
+              <Projects />
             </Layout>
           </StyledBackground>
         )

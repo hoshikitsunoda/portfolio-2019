@@ -1,18 +1,20 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 
 import Skills from "./MenuItem/Skills"
 import Resume from "./MenuItem/Resume"
 
+import { MenuContext } from "../../context/menu"
+
 import styled from "styled-components"
 
 const Menu = () => {
-  const [isShowing, setIsShowing] = useState("skills")
+  const { isSelected, setIsSelected } = useContext(MenuContext)
 
   const clickHandler = event => {
     event.preventDefault()
     event.stopPropagation()
     const text = event.target.innerHTML
-    setIsShowing(text.toLowerCase().slice(0, text.length - 1))
+    setIsSelected(text.toLowerCase().slice(0, text.length - 1))
   }
 
   return (
@@ -26,7 +28,7 @@ const Menu = () => {
                 tabIndex={0}
                 onClick={event => clickHandler(event)}
                 onKeyDown={event => clickHandler(event)}
-                isShowing={isShowing}
+                isShowing={isSelected}
                 className={item}
               >
                 <h2>{item.toUpperCase()}:</h2>
@@ -36,7 +38,7 @@ const Menu = () => {
         })}
       </ul>
       <IconWrapper>
-        {isShowing === "skills" ? <Skills /> : <Resume />}
+        {isSelected === "skills" ? <Skills /> : <Resume />}
       </IconWrapper>
     </Background>
   )

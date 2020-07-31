@@ -6,11 +6,14 @@ import Resume from "../components/Resume/Resume"
 import Projects from "../components/Projects/Projects"
 
 import styled from "styled-components"
+import { MenuContext } from "../context/menu"
 
 import BackgroundImage from "gatsby-background-image"
 
 const IndexPage = () => {
   const [isDesktop, setIsDesktop] = useState(false)
+  const [isSelected, setIsSelected] = useState("skills")
+  const value = { isSelected, setIsSelected }
 
   const checkWindowWidth = () => {
     setIsDesktop(window.innerWidth > 767)
@@ -51,16 +54,15 @@ const IndexPage = () => {
     : mobile.childImageSharp.fluid
 
   return (
-    <StyledBackground
-      Tag="section"
-      fluid={imageData}
-      backgroundColor={`#FFD64D`}
-    >
-      <Layout>
-        <Resume />
-        <Projects />
-      </Layout>
-    </StyledBackground>
+    <MenuContext.Provider value={value}>
+      <StyledBackground
+        Tag="section"
+        fluid={imageData}
+        backgroundColor={`#FFD64D`}
+      >
+        <Layout>{isSelected === "skills" ? <Projects /> : <Resume />}</Layout>
+      </StyledBackground>
+    </MenuContext.Provider>
   )
 }
 

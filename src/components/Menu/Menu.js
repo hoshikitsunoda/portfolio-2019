@@ -110,6 +110,7 @@ const IconWrapper = styled.div`
 const MenuItem = styled.div`
   outline: none;
   opacity: 0.5;
+  transition: 0.1s ease-in;
 
   &.resume {
     opacity: ${props => (props.isShowing === "resume" ? 1 : 0.5)};

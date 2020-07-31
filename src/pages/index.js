@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../hoc/Layout/layout"
 import Resume from "../components/Resume/Resume"
@@ -25,44 +25,42 @@ const IndexPage = () => {
     window.removeEventListener("resize", checkWindowWidth())
   }, [])
 
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          mobile: file(relativePath: { eq: "bg-mobile.png" }) {
-            childImageSharp {
-              fluid(quality: 90, maxWidth: 500) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-          desktop: file(relativePath: { eq: "bg-desktop.png" }) {
-            childImageSharp {
-              fluid(quality: 90, maxWidth: 1440) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+  const data = useStaticQuery(graphql`
+    query {
+      mobile: file(relativePath: { eq: "bg-mobile.png" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 500) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
-      `}
-      render={({ desktop, mobile }) => {
-        const imageData = isDesktop
-          ? desktop.childImageSharp.fluid
-          : mobile.childImageSharp.fluid
-        return (
-          <StyledBackground
-            Tag="section"
-            fluid={imageData}
-            backgroundColor={`#FFD64D`}
-          >
-            <Layout>
-              <Resume />
-              <Projects />
-            </Layout>
-          </StyledBackground>
-        )
-      }}
-    />
+      }
+      desktop: file(relativePath: { eq: "bg-desktop.png" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1440) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
+
+  const { desktop, mobile } = data
+
+  const imageData = isDesktop
+    ? desktop.childImageSharp.fluid
+    : mobile.childImageSharp.fluid
+
+  return (
+    <StyledBackground
+      Tag="section"
+      fluid={imageData}
+      backgroundColor={`#FFD64D`}
+    >
+      <Layout>
+        <Resume />
+        <Projects />
+      </Layout>
+    </StyledBackground>
   )
 }
 

@@ -9,32 +9,16 @@ const Image = () => {
   const data = useStaticQuery(graphql`
     query Images {
       emailIcon: file(relativePath: { eq: "social/icon-email.png" }) {
-        childImageSharp {
-          fixed(width: 60, height: 60) {
-            ...GatsbyImageSharpFixed
-          }
-        }
+        ...socialImage
       }
       githubIcon: file(relativePath: { eq: "social/icon-github.png" }) {
-        childImageSharp {
-          fixed(width: 60, height: 60) {
-            ...GatsbyImageSharpFixed
-          }
-        }
+        ...socialImage
       }
       linkedinIcon: file(relativePath: { eq: "social/icon-linkedin.png" }) {
-        childImageSharp {
-          fixed(width: 60, height: 60) {
-            ...GatsbyImageSharpFixed
-          }
-        }
+        ...socialImage
       }
       twitterIcon: file(relativePath: { eq: "social/icon-twitter.png" }) {
-        childImageSharp {
-          fixed(width: 60, height: 60) {
-            ...GatsbyImageSharpFixed
-          }
-        }
+        ...socialImage
       }
       site {
         siteMetadata {

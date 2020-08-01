@@ -21,9 +21,13 @@ const Intro = () => {
       <ProfileImg fixed={data.profile.childImageSharp.fixed} alt="Profile" />
       <TextWrapper>
         <p>
-          My name is Hosh’ki Tsunoda. <br></br>Front End Developer.{" "}
-          <br className="break"></br>UI Developer.
-          <br></br>Based in Orange County, CA.
+          My name is<span className="accent-text"> Hosh’ki Tsunoda</span>.{" "}
+          <br></br>
+          <span className="accent-text">Front End</span> Developer.{" "}
+          <br className="break"></br>
+          <span className="accent-text">UI</span> Developer.
+          <br></br>Based in{" "}
+          <span className="white-text">Orange County, CA</span>.
         </p>
       </TextWrapper>
     </Wrapper>
@@ -59,17 +63,20 @@ const ProfileImg = styled(Img)`
 const TextWrapper = styled.div`
   background-color: rgba(77, 77, 77, 0.3);
   text-align: center;
-  padding: 1.55rem 0.5rem 0.5rem;
+  padding: 1.55rem 0.5rem 1.5rem;
 
   p {
     color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 800;
     font-family: "Open Sans", sans-serif;
     margin-bottom: 0;
-    letter-spacing: 0.1rem;
-    line-height: 1.6rem;
-    text-shadow: 6px 6px 0 #011a27;
+    letter-spacing: 0.05rem;
+    line-height: 1.5rem;
+
+    .accent-text {
+      font-family: "Coda", cursive;
+    }
   }
 
   @media (min-width: 768px) {
@@ -78,7 +85,7 @@ const TextWrapper = styled.div`
     p {
       text-align: left;
       font-size: 0.9rem;
-      line-height: 1.3rem;
+      line-height: 1.2rem;
 
       .break {
         display: none;
@@ -92,7 +99,7 @@ const TextWrapper = styled.div`
     p {
       text-align: left;
       font-size: 0.8rem;
-      line-height: 1.3rem;
+      line-height: 1.2rem;
     }
   }
 `

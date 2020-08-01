@@ -1,18 +1,20 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 
 import Skills from "./MenuItem/Skills"
 import Resume from "./MenuItem/Resume"
 
+import { MenuContext } from "../../context/menu"
+
 import styled from "styled-components"
 
 const Menu = () => {
-  const [isShowing, setIsShowing] = useState("skills")
+  const { isSelected, setIsSelected } = useContext(MenuContext)
 
   const clickHandler = event => {
     event.preventDefault()
     event.stopPropagation()
     const text = event.target.innerHTML
-    setIsShowing(text.toLowerCase().slice(0, text.length - 1))
+    setIsSelected(text.toLowerCase().slice(0, text.length - 1))
   }
 
   return (
@@ -26,7 +28,7 @@ const Menu = () => {
                 tabIndex={0}
                 onClick={event => clickHandler(event)}
                 onKeyDown={event => clickHandler(event)}
-                isShowing={isShowing}
+                isShowing={isSelected}
                 className={item}
               >
                 <h2>{item.toUpperCase()}:</h2>
@@ -36,7 +38,7 @@ const Menu = () => {
         })}
       </ul>
       <IconWrapper>
-        {isShowing === "skills" ? <Skills /> : <Resume />}
+        {isSelected === "skills" ? <Skills /> : <Resume />}
       </IconWrapper>
     </Background>
   )
@@ -96,6 +98,7 @@ const IconWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 3px 3px 0 #011a27;
   border: 0.025rem solid #011a27;
+  overflow: hidden;
 
   @media (min-width: 768px) {
     align-items: center;
@@ -110,6 +113,7 @@ const IconWrapper = styled.div`
 const MenuItem = styled.div`
   outline: none;
   opacity: 0.5;
+  transition: 0.1s ease-in;
 
   &.resume {
     opacity: ${props => (props.isShowing === "resume" ? 1 : 0.5)};

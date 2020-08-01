@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import styled from "styled-components"
@@ -12,6 +13,26 @@ const Icon = ({ section, href, fixed, alt }) => {
     <Icons section={section} fixed={fixed} alt={alt} />
   )
 }
+
+export const socialImage = graphql`
+  fragment socialImage on File {
+    childImageSharp {
+      fixed(width: 60, height: 60) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+`
+
+export const skillsImage = graphql`
+  fragment skillsImage on File {
+    childImageSharp {
+      fixed(width: 74, height: 74) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+`
 
 const Icons = styled(Img)`
   ${({ section }) =>

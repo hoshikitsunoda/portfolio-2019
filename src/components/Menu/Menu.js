@@ -98,6 +98,7 @@ const IconWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 3px 3px 0 #011a27;
   border: 0.025rem solid #011a27;
+  overflow: hidden;
 
   @media (min-width: 768px) {
     align-items: center;

@@ -65,7 +65,7 @@ const FlexContainer = styled.div`
 
 const ImageWrapper = styled.div`
   width: 100%;
-  padding-bottom: 1rem;
+  padding: 0 1rem;
 
   @media (min-width: 960px) {
     width: 50%;

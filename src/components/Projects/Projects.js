@@ -18,6 +18,8 @@ const Projects = () => {
               slug
               title
               description
+              projectUrl
+              githubUrl
               technologies
             }
           }
@@ -58,7 +60,11 @@ const Projects = () => {
 const Wrapper = styled.section`
   overflow: auto;
   height: 60vh;
-  padding: 0 4rem 2rem;
+  padding: 0 1rem 2rem;
+
+  @media (min-width: 768px) {
+    padding: 0 4rem 2rem;
+  }
 `
 
 export default Projects

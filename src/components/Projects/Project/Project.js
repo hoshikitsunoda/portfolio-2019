@@ -149,6 +149,7 @@ const List = styled.ul`
     margin: 0.25rem 0;
     font-size: 14px;
     border: 3px solid #011a27;
+    text-transform: capitalize;
   }
 `
 

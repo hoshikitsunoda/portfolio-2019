@@ -40,7 +40,11 @@ const Project = ({ data, images }) => {
       </ImageWrapper>
       <TextWrapper>
         <Title>{data.title}</Title>
-        <p>{data.description}</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: data.description,
+          }}
+        />
         <SubHeading>technologies used:</SubHeading>
         <List>
           {data.technologies.map(tech => {
@@ -57,6 +61,10 @@ const FlexContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  box-shadow: inset 20px 20px 60px #d9b641, inset -20px -20px 60px #fff659;
+  border-radius: 2rem;
 
   @media (min-width: 960px) {
     flex-direction: row;
@@ -81,7 +89,7 @@ const LinkWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-family: "Coda", cursive;
-  margin-top: 1rem;
+  margin: 1rem 0;
 
   & a {
     padding: 0 0.5rem;

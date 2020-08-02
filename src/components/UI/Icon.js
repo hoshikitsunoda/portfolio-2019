@@ -49,7 +49,8 @@ const Icons = styled(Img)`
     }
 
     &:hover {
-      border: 3px solid #011a27;
+      transform: scale(1.05);
+      box-shadow: 0 6px 8px -5px rgba(0, 0, 0, 0.5);
     }
   `}
 
@@ -66,11 +67,6 @@ const Icons = styled(Img)`
     @media (min-width: 1024px) {
       width: 74px !important;
       height: 74px !important;
-    }
-
-    &:hover {
-      border: 3px solid #FFD64D;
-      border-radius: 50%;
     }
   `}
 `

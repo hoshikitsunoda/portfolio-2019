@@ -11,6 +11,7 @@ const Resume = () => {
 }
 
 const Heading = styled.h2`
+  font-family: "Coda", cursive;
   margin: 0;
   padding: 0.125rem 0.125rem 0.125rem 0;
   color: #fff;

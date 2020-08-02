@@ -15,14 +15,12 @@ const Heading = styled.h2`
   margin: 0;
   padding: 0.125rem 0.125rem 0.125rem 0;
   color: #fff;
-  text-shadow: 3px 3px 0 #011a27;
   font-size: 16px;
   margin-left: -2rem;
 
   @media (min-width: 768px) {
     padding-left: 1rem;
     font-size: 32px;
-    text-shadow: 6px 6px 0 #011a27;
     margin-left: -4rem;
   }
 `

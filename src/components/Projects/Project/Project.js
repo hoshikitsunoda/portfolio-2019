@@ -65,6 +65,7 @@ const FlexContainer = styled.div`
   padding: 1rem;
   box-shadow: inset 20px 20px 60px #d9b641, inset -20px -20px 60px #fff659;
   border-radius: 2rem;
+  background-color: #ffd64d;
 
   @media (min-width: 960px) {
     flex-direction: row;
@@ -104,11 +105,13 @@ const LinkWrapper = styled.div`
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: 0% 100%;
-    transition: 0.2s ease-in;
+    transition: 0.1s ease-in;
 
     &:hover {
       background-size: 100% 100%;
       color: #031c27;
+      box-shadow: 0 8px 10px -6px rgba(0, 0, 0, 0.6);
+      transform: scale(1.08);
     }
   }
 `

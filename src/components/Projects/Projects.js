@@ -59,12 +59,12 @@ const Projects = () => {
 
 const Wrapper = styled.section`
   overflow: auto;
-  height: 42vh;
-  padding: 0 1rem 2rem;
+  height: 50vh;
+  padding: 1.25rem 1rem;
 
   @media (min-width: 768px) {
-    height: 60vh;
-    padding: 0 4rem 2rem;
+    height: 65vh;
+    padding: 1.25rem 4rem;
   }
 `
 

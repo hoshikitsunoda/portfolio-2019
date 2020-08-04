@@ -5,7 +5,9 @@ import styled from "styled-components"
 const Resume = () => {
   return (
     <div>
-      <Heading>RESUMERESUMERESUMERESUMERESUMERESUMERESUME</Heading>
+      <Heading>
+        RESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUME
+      </Heading>
     </div>
   )
 }

@@ -49,6 +49,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: 500px) {
+    justify-content: flex-end;
+  }
 `
 
 export default Image

@@ -102,6 +102,7 @@ const IconWrapper = styled.div`
 
   @media (min-width: 768px) {
     align-items: center;
+    justify-content: space-around;
     margin-left: 1rem;
     margin-bottom: 1rem;
     padding: 0.75rem;

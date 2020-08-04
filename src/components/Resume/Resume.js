@@ -47,10 +47,12 @@ const Resume = () => {
 
 const StyledBackground = styled(BackgroundImage)`
   width: 100%;
+  max-width: 960px;
   height: 100%;
   background-position: top center;
   background-repeat: no-repeat;
   background-size: contain;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     &::before {

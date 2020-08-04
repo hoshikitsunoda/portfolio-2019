@@ -92,7 +92,7 @@ const IconWrapper = styled.div`
   flex: 0 1 90%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   padding: 0.2rem 0.5rem;
   min-height: 50px;
   background-color: rgba(0, 0, 0, 0.3);

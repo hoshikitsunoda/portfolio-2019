@@ -151,9 +151,10 @@ const List = styled.ul`
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
 
   & li {
     padding: 0 0.5rem;
@@ -161,6 +162,11 @@ const List = styled.ul`
     font-size: 14px;
     border: 3px solid #011a27;
     text-transform: capitalize;
+  }
+
+  @media (min-width: 600px) {
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 `
 

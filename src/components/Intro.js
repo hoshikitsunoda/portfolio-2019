@@ -63,7 +63,7 @@ const ProfileImg = styled(Img)`
 const TextWrapper = styled.div`
   background-color: rgba(77, 77, 77, 0.3);
   text-align: center;
-  padding: 1.55rem 0.5rem 1rem;
+  padding: 1.55rem 0.5rem 0.7rem;
 
   p {
     color: #fff;

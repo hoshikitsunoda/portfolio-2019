@@ -43,7 +43,12 @@ const Icons = styled(Img)`
     transition: 0.2s ease-in-out;
     border-radius: 50%;
 
-    @media (min-width: 1200px) {
+    @media (min-width: 768px) {
+      width: 50px !important;
+      height: 50px !important;
+    }
+
+    @media (min-width: 1024px) {
       width: 60px !important;
       height: 60px !important;
     }
@@ -63,6 +68,11 @@ const Icons = styled(Img)`
     border-radius: 50%;
     transition: 0.2s ease-in-out;
     z-index: 1;
+
+    @media (min-width: 768px) {
+      width: 50px !important;
+      height: 50px !important;
+    }
 
     @media (min-width: 1024px) {
       width: 74px !important;

@@ -17,7 +17,7 @@ const Icon = ({ section, href, fixed, alt }) => {
 export const socialImage = graphql`
   fragment socialImage on File {
     childImageSharp {
-      fixed(width: 60, height: 60) {
+      fixed(width: 35, height: 35) {
         ...GatsbyImageSharpFixed
       }
     }
@@ -38,18 +38,19 @@ const Icons = styled(Img)`
   ${({ section }) =>
     section === "social" &&
     `
-    width: 42px !important;
-    height: 42px !important;
     transition: 0.2s ease-in-out;
     border-radius: 50%;
-
-    @media (min-width: 1200px) {
-      width: 60px !important;
-      height: 60px !important;
-    }
+    margin: 0; 
+    opacity: 0.5;
 
     &:hover {
-      border: 3px solid #011a27;
+      transform: scale(1.05);
+      box-shadow: 0 6px 8px -5px rgba(0, 0, 0, 0.5);
+      opacity: 1;
+    }
+
+    @media (min-width: 500px) {
+      margin: 0 0 0 0.8rem;
     }
   `}
 
@@ -63,14 +64,14 @@ const Icons = styled(Img)`
     transition: 0.2s ease-in-out;
     z-index: 1;
 
+    @media (min-width: 768px) {
+      width: 50px !important;
+      height: 50px !important;
+    }
+
     @media (min-width: 1024px) {
       width: 74px !important;
       height: 74px !important;
-    }
-
-    &:hover {
-      border: 3px solid #FFD64D;
-      border-radius: 50%;
     }
   `}
 `

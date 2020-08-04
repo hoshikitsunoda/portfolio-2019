@@ -92,7 +92,7 @@ const IconWrapper = styled.div`
   flex: 0 1 90%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   padding: 0.2rem 0.5rem;
   min-height: 50px;
   background-color: rgba(0, 0, 0, 0.3);
@@ -102,6 +102,7 @@ const IconWrapper = styled.div`
 
   @media (min-width: 768px) {
     align-items: center;
+    justify-content: space-around;
     margin-left: 1rem;
     margin-bottom: 1rem;
     padding: 0.75rem;
@@ -114,6 +115,7 @@ const MenuItem = styled.div`
   outline: none;
   opacity: 0.5;
   transition: 0.1s ease-in;
+  cursor: pointer;
 
   &.resume {
     opacity: ${props => (props.isShowing === "resume" ? 1 : 0.5)};

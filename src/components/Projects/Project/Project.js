@@ -40,7 +40,11 @@ const Project = ({ data, images }) => {
       </ImageWrapper>
       <TextWrapper>
         <Title>{data.title}</Title>
-        <p>{data.description}</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: data.description,
+          }}
+        />
         <SubHeading>technologies used:</SubHeading>
         <List>
           {data.technologies.map(tech => {
@@ -57,6 +61,11 @@ const FlexContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  box-shadow: inset 20px 20px 60px #d9b641, inset -20px -20px 60px #fff659;
+  border-radius: 2rem;
+  background-color: #ffd64d;
 
   @media (min-width: 960px) {
     flex-direction: row;
@@ -65,7 +74,7 @@ const FlexContainer = styled.div`
 
 const ImageWrapper = styled.div`
   width: 100%;
-  padding-bottom: 1rem;
+  padding: 0 1rem;
 
   @media (min-width: 960px) {
     width: 50%;
@@ -81,7 +90,7 @@ const LinkWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-family: "Coda", cursive;
-  margin-top: 1rem;
+  margin: 1rem 0;
 
   & a {
     padding: 0 0.5rem;
@@ -96,11 +105,13 @@ const LinkWrapper = styled.div`
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: 0% 100%;
-    transition: 0.2s ease-in;
+    transition: 0.1s ease-in;
 
     &:hover {
       background-size: 100% 100%;
       color: #031c27;
+      box-shadow: 0 8px 10px -6px rgba(0, 0, 0, 0.6);
+      transform: scale(1.08);
     }
   }
 `
@@ -140,9 +151,10 @@ const List = styled.ul`
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
 
   & li {
     padding: 0 0.5rem;
@@ -150,6 +162,11 @@ const List = styled.ul`
     font-size: 14px;
     border: 3px solid #011a27;
     text-transform: capitalize;
+  }
+
+  @media (min-width: 600px) {
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 `
 

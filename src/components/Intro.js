@@ -35,7 +35,7 @@ const Intro = () => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 5.5rem;
+  margin-top: 4rem;
 
   @media (min-width: 768px) {
     display: flex;
@@ -63,16 +63,16 @@ const ProfileImg = styled(Img)`
 const TextWrapper = styled.div`
   background-color: rgba(77, 77, 77, 0.3);
   text-align: center;
-  padding: 1.55rem 0.5rem 1.5rem;
+  padding: 1.55rem 0.5rem 0.7rem;
 
   p {
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 800;
     font-family: "Open Sans", sans-serif;
     margin-bottom: 0;
     letter-spacing: 0.05rem;
-    line-height: 1.5rem;
+    line-height: 1.3rem;
 
     .accent-text {
       font-family: "Coda", cursive;

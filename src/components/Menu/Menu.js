@@ -17,10 +17,24 @@ const Menu = () => {
     setIsSelected(text.toLowerCase().slice(0, text.length - 1))
   }
 
+  let selectedMenu = null
+
+  switch (isSelected) {
+    case "skills":
+      selectedMenu = <Skills />
+      break
+    case "resume":
+      selectedMenu = <Resume />
+      break
+    case "blog":
+      selectedMenu = <h1>BLOG</h1>
+      break
+  }
+
   return (
     <Background>
       <ul>
-        {["skills", "resume"].map(item => {
+        {["skills", "blog", "resume"].map(item => {
           return (
             <li key={item}>
               <MenuItem
@@ -37,9 +51,7 @@ const Menu = () => {
           )
         })}
       </ul>
-      <IconWrapper>
-        {isSelected === "skills" ? <Skills /> : <Resume />}
-      </IconWrapper>
+      <IconWrapper>{selectedMenu}</IconWrapper>
     </Background>
   )
 }

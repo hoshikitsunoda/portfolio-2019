@@ -66,10 +66,19 @@ const Container = styled.div`
 `
 
 const Flex = styled.div`
-  @media (min-width: 1024px) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  @media (min-width: 500px) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
   }
 `
 

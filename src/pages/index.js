@@ -53,6 +53,22 @@ const IndexPage = () => {
     ? desktop.childImageSharp.fluid
     : mobile.childImageSharp.fluid
 
+  let selectedView = null
+
+  switch (isSelected) {
+    case "skills":
+      selectedView = <Projects />
+      break
+    case "resume":
+      selectedView = <Resume />
+      break
+    case "blog":
+      selectedView = <h1>BLOG</h1>
+      break
+    default:
+      break
+  }
+
   return (
     <MenuContext.Provider value={value}>
       <StyledBackground
@@ -60,7 +76,7 @@ const IndexPage = () => {
         fluid={imageData}
         backgroundColor={`#FFD64D`}
       >
-        <Layout>{isSelected === "skills" ? <Projects /> : <Resume />}</Layout>
+        <Layout>{selectedView}</Layout>
       </StyledBackground>
     </MenuContext.Provider>
   )

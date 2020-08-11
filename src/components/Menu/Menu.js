@@ -29,6 +29,8 @@ const Menu = () => {
     case "blog":
       selectedMenu = <h1>BLOG</h1>
       break
+    default:
+      break
   }
 
   return (

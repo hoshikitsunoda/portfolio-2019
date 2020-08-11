@@ -144,6 +144,13 @@ const MenuItem = styled.div`
       opacity: 1;
     }
   }
+
+  &.blog {
+    opacity: ${props => (props.isShowing === "blog" ? 1 : 0.5)};
+    &:hover {
+      opacity: 1;
+    }
+  }
 `
 
 export default Menu

@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../hoc/Layout/layout"
 import Resume from "../components/Resume/Resume"
 import Projects from "../components/Projects/Projects"
+import Blog from "../components/Blog/Blog"
 
 import styled from "styled-components"
 import { MenuContext } from "../context/menu"
@@ -63,7 +64,7 @@ const IndexPage = () => {
       selectedView = <Resume />
       break
     case "blog":
-      selectedView = <h1>BLOG</h1>
+      selectedView = <Blog />
       break
     default:
       break

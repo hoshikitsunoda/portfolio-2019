@@ -36,12 +36,14 @@ const Intro = () => {
 
 const Wrapper = styled.div`
   margin-top: 4rem;
+  width: 100%;
 
   @media (min-width: 768px) {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-top: 0;
+    width: auto;
   }
 `
 

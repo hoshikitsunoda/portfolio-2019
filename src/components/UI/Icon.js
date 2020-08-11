@@ -40,17 +40,13 @@ const Icons = styled(Img)`
     `
     transition: 0.2s ease-in-out;
     border-radius: 50%;
-    margin: 0; 
-    opacity: 0.5;
+    margin: 0 0.4rem; 
+    opacity: 0.7;
 
     &:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 8px -5px rgba(0, 0, 0, 0.5);
       opacity: 1;
-    }
-
-    @media (min-width: 500px) {
-      margin: 0 0 0 0.8rem;
     }
   `}
 

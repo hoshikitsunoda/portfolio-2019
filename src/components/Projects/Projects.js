@@ -8,7 +8,10 @@ import styled from "styled-components"
 const Projects = () => {
   const { allMarkdownRemark, allFile } = useStaticQuery(graphql`
     query Project {
-      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/(project)/" } }
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
         edges {
           node {
             id

@@ -62,13 +62,14 @@ const FlexContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 2rem;
-  padding: 1rem;
-  box-shadow: inset 20px 20px 60px #d9b641, inset -20px -20px 60px #fff659;
+  padding: 2rem;
+  box-shadow: inset 10px 10px 30px #d9b641, inset -10px -10px 30px #fff659;
   border-radius: 2rem;
   background-color: #ffd64d;
 
   @media (min-width: 960px) {
     flex-direction: row;
+    padding: 2.5rem;
   }
 `
 
@@ -82,7 +83,7 @@ const ImageWrapper = styled.div`
 `
 
 const FeaturedImage = styled(Img)`
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 15px rgba(0, 0, 0, 0.3);
 `
 
 const LinkWrapper = styled.div`
@@ -95,7 +96,7 @@ const LinkWrapper = styled.div`
   & a {
     padding: 0 0.5rem;
     margin: 0 0.25rem;
-    font-size: 14px;
+    font-size: 12px;
     border: 3px solid #f52549;
     color: #f52549;
     text-decoration: none;
@@ -112,6 +113,10 @@ const LinkWrapper = styled.div`
       color: #031c27;
       box-shadow: 0 8px 10px -6px rgba(0, 0, 0, 0.6);
       transform: scale(1.08);
+    }
+
+    @media (min-width: 960px) {
+      font-size: 14px;
     }
   }
 `

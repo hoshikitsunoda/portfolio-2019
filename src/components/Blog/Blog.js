@@ -27,21 +27,19 @@ const Blog = () => {
 
   return (
     <Wrapper className="project-wrapper">
-      {allMarkdownRemark.edges.map(item => {
+      {allMarkdownRemark.edges.map(({ node }) => {
         return (
-          <div key={item.node.frontmatter.slug}>
+          <div key={node.frontmatter.slug}>
             <div>
-              <time dateTime={item.node.frontmatter.date}>
-                {item.node.frontmatter.date}
+              <time dateTime={node.frontmatter.date}>
+                {node.frontmatter.date}
               </time>
             </div>
             <h2>
-              <a href={item.node.frontmatter.slug}>
-                {item.node.frontmatter.title}
-              </a>
+              <a href={node.frontmatter.slug}>{node.frontmatter.title}</a>
             </h2>
-            <p>{item.node.excerpt}</p>
-            <a href={item.node.frontmatter.slug}>Read more...</a>
+            <p>{node.excerpt}</p>
+            <a href={node.frontmatter.slug}>Read more...</a>
           </div>
         )
       })}

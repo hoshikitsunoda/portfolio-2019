@@ -7,9 +7,9 @@ import "./layout.css"
 
 import styled from "styled-components"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, page }) => {
   return (
-    <Wrapper>
+    <Wrapper page={page}>
       <Helmet>
         <link
           href="https://fonts.googleapis.com/css?family=Coda:800|Open+Sans:400,600&display=swap"
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
 }
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: ${({ page }) => (page === "blog" ? "auto" : "100vh")};
   outline: none;
   overflow-y: hidden;
   max-width: 1440px;

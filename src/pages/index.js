@@ -2,14 +2,19 @@ import React, { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../hoc/Layout/layout"
+import Header from "../components/Header/header"
+import Intro from "../components/Intro"
+import Menu from "../components/Menu/Menu"
 import Resume from "../components/Resume/Resume"
 import Projects from "../components/Projects/Projects"
 import Blog from "../components/Blog/Blog"
+import SEO from "../components/seo"
 
 import styled from "styled-components"
 import { MenuContext } from "../context/menu"
 
 import BackgroundImage from "gatsby-background-image"
+// import { siteMetadata } from "../../gatsby-config"
 
 const IndexPage = () => {
   const [isDesktop, setIsDesktop] = useState(false)
@@ -77,7 +82,15 @@ const IndexPage = () => {
         fluid={imageData}
         backgroundColor={`#FFD64D`}
       >
-        <Layout>{selectedView}</Layout>
+        <SEO title="Home" />
+        <Layout>
+          <Flex>
+            <Header />
+            <Intro />
+          </Flex>
+          <Menu />
+          {selectedView}
+        </Layout>
       </StyledBackground>
     </MenuContext.Provider>
   )
@@ -92,6 +105,23 @@ const StyledBackground = styled(BackgroundImage)`
 
   @media (min-width: 767px) {
     background-position: top center !important;
+  }
+`
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  @media (min-width: 500px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
   }
 `
 

@@ -69,8 +69,9 @@ const Wrapper = styled.section`
 `
 
 const Panel = styled.div`
-  flex: 0 0 calc(33.333333% - 1rem);
-  margin: 0.5rem;
+  flex: 0 0 100%;
+  max-width: 400px;
+  margin: 0 auto 0.5rem;
   border-radius: 20px;
   background: ${({ theme }) => theme.colors.main1};
   box-shadow: inset 7px 7px 15px ${({ theme }) => theme.colors.main2},
@@ -78,6 +79,11 @@ const Panel = styled.div`
 
   > * {
     font-family: ${({ theme }) => theme.fonts.main};
+  }
+
+  @media (min-width: 900px) {
+    flex: 0 0 calc(33.333333% - 1rem);
+    margin: 0.5rem;
   }
 `
 

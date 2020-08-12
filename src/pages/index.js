@@ -14,7 +14,6 @@ import styled from "styled-components"
 import { MenuContext } from "../context/menu"
 
 import BackgroundImage from "gatsby-background-image"
-// import { siteMetadata } from "../../gatsby-config"
 
 const IndexPage = () => {
   const [isDesktop, setIsDesktop] = useState(false)

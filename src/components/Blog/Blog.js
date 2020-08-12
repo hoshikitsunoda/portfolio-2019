@@ -29,7 +29,7 @@ const Blog = () => {
     <Wrapper className="project-wrapper">
       {allMarkdownRemark.edges.map(({ node }) => {
         return (
-          <div key={node.frontmatter.slug}>
+          <Panel key={node.frontmatter.slug}>
             <div>
               <time dateTime={node.frontmatter.date}>
                 {node.frontmatter.date}
@@ -40,7 +40,7 @@ const Blog = () => {
             </h2>
             <p>{node.excerpt}</p>
             <a href={node.frontmatter.slug}>Read more...</a>
-          </div>
+          </Panel>
         )
       })}
     </Wrapper>
@@ -48,14 +48,30 @@ const Blog = () => {
 }
 
 const Wrapper = styled.section`
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-start;
   overflow: auto;
   height: 50vh;
   padding: 1.25rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     height: 65vh;
     padding: 1.25rem 4rem;
   }
+`
+
+const Panel = styled.div`
+  flex: 0 0 calc(33.333333% - 1rem);
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: ${({ theme }) => theme.colors.main1};
+  box-shadow: inset 17px 17px 25px ${({ theme }) => theme.colors.main2},
+    inset -17px -17px 25px ${({ theme }) => theme.colors.main3};
 `
 
 export default Blog

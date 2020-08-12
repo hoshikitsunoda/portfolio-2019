@@ -13,10 +13,10 @@ const Resume = () => {
 }
 
 const Heading = styled.h2`
-  font-family: "Coda", cursive;
+  font-family: ${({ theme }) => theme.fonts.bold};
   margin: 0;
   padding: 0.125rem 0.125rem 0.125rem 0;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.textAccent};
   font-size: 16px;
   margin-left: -2rem;
 

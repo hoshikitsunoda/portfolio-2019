@@ -1,34 +1,43 @@
 import React from "react"
-
 import { Link, graphql } from "gatsby"
 
+import Layout from "../hoc/Layout/layout"
+import SEO from "../components/seo"
+
+import styled from "styled-components"
+
 const Tags = ({ pageContext, data }) => {
-  console.log(data)
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+  const tagHeader = (
+    <h1>
+      {totalCount} post{totalCount === 1 ? "" : "s"} tagged with "
+      <span>{tag.toLowerCase()}</span>"
+    </h1>
+  )
 
   return (
-    <div>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { title, slug } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
-      <Link to="/tags">All tags</Link>
-    </div>
+    <Layout>
+      <SEO title={tag.toLowerCase()} />
+      <TagsWrapper>
+        <Container>
+          <Heading>{tagHeader}</Heading>
+          <ListWrapper>
+            {edges.map(({ node }) => {
+              const { title, slug } = node.frontmatter
+              return (
+                <li key={slug}>
+                  <Link to={slug.toLowerCase()}>{title}</Link>
+                </li>
+              )
+            })}
+          </ListWrapper>
+          <AllTags to="/tags">All tags</AllTags>
+        </Container>
+      </TagsWrapper>
+    </Layout>
   )
 }
-
-export default Tags
 
 export const pageQuery = graphql`
   query($tag: String) {
@@ -50,3 +59,67 @@ export const pageQuery = graphql`
     }
   }
 `
+
+const TagsWrapper = styled.div`
+  padding: 3.5rem 1rem 5rem;
+  box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
+  max-width: 1000px;
+  margin: 2rem auto;
+`
+
+const Container = styled.div`
+  max-width: 840px;
+  margin: 0 auto;
+`
+
+const Heading = styled.div`
+  font-family: ${({ theme }) => theme.fonts.main};
+
+  span {
+    color: ${({ theme }) => theme.colors.textAccent};
+    font-family: ${({ theme }) => theme.fonts.bold};
+    padding: 0.25rem 1.5rem;
+    background-color: ${({ theme }) => theme.colors.accent};
+  }
+`
+
+const ListWrapper = styled.ul`
+  list-style-type: none;
+  margin: 3.5rem 0;
+
+  li {
+    margin: 1rem 0 1rem 0.25rem;
+
+    &:before {
+      content: "-";
+    }
+
+    a {
+      font-family: ${({ theme }) => theme.fonts.main};
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.dark1};
+      transition: 0.2s ease-in;
+      margin-left: 0.5rem;
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.textAccent};
+      }
+    }
+  }
+`
+
+const AllTags = styled(Link)`
+  font-family: ${({ theme }) => theme.fonts.main};
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.dark1};
+  transition: 0.2s ease-in;
+  margin-left: 0.2rem;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.textAccent};
+  }
+`
+
+export default Tags

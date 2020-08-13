@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../hoc/Layout/layout"
 import SEO from "../components/seo"
@@ -9,6 +9,7 @@ import styled from "styled-components"
 const Template = ({ data }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
+
   return (
     <Layout page="blog">
       <SEO title={frontmatter.title} />
@@ -17,6 +18,15 @@ const Template = ({ data }) => {
       </Button>
       <PostWrapper className="blog-post">
         <HeadingWrapper>
+          <ListWrapper>
+            {frontmatter.tags.map(tag => (
+              <li key={tag}>
+                <Link to={`/tags/${tag.toLowerCase()}`}>
+                  #{tag.toUpperCase()}
+                </Link>
+              </li>
+            ))}
+          </ListWrapper>
           <Title>{frontmatter.title}</Title>
           <PostDate>{frontmatter.date}</PostDate>
         </HeadingWrapper>
@@ -37,16 +47,42 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         slug
         title
+        tags
       }
     }
   }
 `
 
 const PostWrapper = styled.div`
-  padding: 1.5rem 0.5rem 5rem;
+  padding: 3.5rem 0.5rem 5rem;
   box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
   max-width: 1000px;
   margin: 2rem auto;
+`
+
+const ListWrapper = styled.ul`
+  max-width: 400px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  li {
+    margin: 0;
+
+    a {
+      font-family: ${({ theme }) => theme.fonts.main};
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.dark1};
+      transition: 0.2s ease-in;
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.textAccent};
+      }
+    }
+  }
 `
 
 const HeadingWrapper = styled.div`
@@ -88,14 +124,15 @@ const Button = styled.button`
 `
 
 const Title = styled.h1`
-  font-size: 3rem;
+  font-size: 3.5rem;
   text-align: center;
   font-family: ${({ theme }) => theme.fonts.bold};
-  margin-top: 4rem;
+  margin-top: 3.5rem;
 `
 
 const PostDate = styled.p`
   font-family: ${({ theme }) => theme.fonts.main};
+  font-size: 0.9rem;
 `
 
 const MainContent = styled.div`

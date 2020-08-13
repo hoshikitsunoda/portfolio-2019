@@ -9,19 +9,21 @@ import styled from "styled-components"
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
+
   const tagHeader = (
-    <h1>
+    <h3>
       {totalCount} post{totalCount === 1 ? "" : "s"} tagged with "
       <span>{tag.toLowerCase()}</span>"
-    </h1>
+    </h3>
   )
 
   return (
     <Layout>
-      <SEO title={tag.toLowerCase()} />
+      <SEO title={`${tag.toLowerCase()}`} />
       <TagsWrapper>
         <Container>
-          <Heading>{tagHeader}</Heading>
+          <Heading>Result</Heading>
+          <TextWrapper>{tagHeader}</TextWrapper>
           <ListWrapper>
             {edges.map(({ node }) => {
               const { title, slug } = node.frontmatter
@@ -72,8 +74,17 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
-const Heading = styled.div`
-  font-family: ${({ theme }) => theme.fonts.main};
+const Heading = styled.h1`
+  font-family: ${({ theme }) => theme.fonts.bold};
+  font-size: 2rem;
+  line-height: 2.8rem;
+`
+
+const TextWrapper = styled.div`
+  h3 {
+    font-family: ${({ theme }) => theme.fonts.main};
+    margin: 0;
+  }
 
   span {
     color: ${({ theme }) => theme.colors.textAccent};
@@ -85,7 +96,7 @@ const Heading = styled.div`
 
 const ListWrapper = styled.ul`
   list-style-type: none;
-  margin: 3.5rem 0;
+  margin: 2.5rem 0;
 
   li {
     margin: 1rem 0 1rem 0.25rem;
@@ -96,7 +107,7 @@ const ListWrapper = styled.ul`
 
     a {
       font-family: ${({ theme }) => theme.fonts.main};
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: bold;
       color: ${({ theme }) => theme.colors.dark1};
       transition: 0.2s ease-in;
@@ -111,7 +122,7 @@ const ListWrapper = styled.ul`
 
 const AllTags = styled(Link)`
   font-family: ${({ theme }) => theme.fonts.main};
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.dark1};
   transition: 0.2s ease-in;

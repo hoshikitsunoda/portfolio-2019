@@ -1,10 +1,10 @@
 ---
-slug: "/blog/my-first-post"
-date: "2020-08-11"
-title: "My first blog post"
+slug: "/blog/my-second-post"
+date: "2020-08-12"
+title: "My second blog post"
 tags:
-  - JavaScript
-  - WebDev
+  - development
+  - gatsbyjs
   - reactjs
 ---
 

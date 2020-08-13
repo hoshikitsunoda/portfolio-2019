@@ -75,16 +75,19 @@ const Inner = styled.div`
       top: 3.5rem;
       margin: 0 auto;
       padding: 0.8rem 1rem;
-      border: 0.3rem solid #f52549;
+      border: 0.3rem solid ${({ theme }) => theme.colors.accent};
       background: transparent;
-      color: #f52549;
+      color: ${({ theme }) => theme.colors.accent};
       font-family: "Coda", cursive;
       text-transform: uppercase;
       font-size: 2.2rem;
       line-height: 2.9rem;
       outline: none;
       cursor: pointer;
-      background-image: linear-gradient(#f52549, #f52549);
+      background-image: linear-gradient(
+        ${({ theme }) => theme.colors.accent},
+        ${({ theme }) => theme.colors.accent}
+      );
       background-position: 50% 50%;
       background-repeat: no-repeat;
       background-size: 0% 100%;
@@ -92,7 +95,7 @@ const Inner = styled.div`
 
       &:hover {
         background-size: 100% 100%;
-        color: #031c27;
+        color: ${({ theme }) => theme.colors.dark2};
       }
 
       @media (min-width: 768px) {

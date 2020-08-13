@@ -51,33 +51,33 @@ const ProfileImg = styled(Img)`
   display: block !important;
   margin: 0 auto -1rem;
   border-radius: 0.2rem;
-  border: 0.1rem solid #011a27;
+  border: 0.1rem solid ${({ theme }) => theme.colors.dark1};
 
   @media (min-width: 768px) {
     margin: -12px 0 0 -6px;
     border-radius: 0 0 0 0;
-    box-shadow: 6px 6px 0 #011a27;
+    box-shadow: 6px 6px 0 ${({ theme }) => theme.colors.dark1};
     margin-left: -6px;
     margin-top: -12px;
   }
 `
 
 const TextWrapper = styled.div`
-  background-color: rgba(77, 77, 77, 0.3);
+  background-color: ${({ theme }) => theme.colors.opaqueBg2};
   text-align: center;
   padding: 1.55rem 0.5rem 0.7rem;
 
   p {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.textAccent};
     font-size: 1rem;
     font-weight: 800;
-    font-family: "Open Sans", sans-serif;
+    font-family: ${({ theme }) => theme.fonts.main};
     margin-bottom: 0;
     letter-spacing: 0.05rem;
     line-height: 1.3rem;
 
     .accent-text {
-      font-family: "Coda", cursive;
+      font-family: ${({ theme }) => theme.fonts.bold};
     }
   }
 

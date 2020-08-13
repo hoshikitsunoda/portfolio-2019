@@ -1,51 +1,28 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "../../components/Header/header"
-import Intro from "../../components/Intro"
-import Menu from "../../components/Menu/Menu"
 import { Helmet } from "react-helmet"
-import SEO from "../../components/seo"
 
 import "./layout.css"
 
 import styled from "styled-components"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout = ({ children, page }) => {
   return (
-    <Wrapper>
+    <Wrapper page={page}>
       <Helmet>
         <link
           href="https://fonts.googleapis.com/css?family=Coda:800|Open+Sans:400,600&display=swap"
           rel="stylesheet"
         />
       </Helmet>
-      <Container>
-        <SEO title="Home" />
-        <Flex>
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <Intro />
-        </Flex>
-        <Menu />
-        {children}
-      </Container>
+      <Container>{children}</Container>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: ${({ page }) => (page === "blog" ? "auto" : "100vh")};
   outline: none;
   overflow-y: hidden;
   max-width: 1440px;
@@ -62,23 +39,6 @@ const Container = styled.div`
 
   @media (min-width: 768px) {
     padding-top: 2.5rem;
-  }
-`
-
-const Flex = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-
-  @media (min-width: 500px) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  @media (min-width: 1024px) {
-    flex-direction: row;
   }
 `
 

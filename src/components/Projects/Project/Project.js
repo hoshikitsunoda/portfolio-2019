@@ -63,9 +63,10 @@ const FlexContainer = styled.div`
   align-items: center;
   margin-bottom: 2rem;
   padding: 2rem;
-  box-shadow: inset 10px 10px 30px #d9b641, inset -10px -10px 30px #fff659;
+  box-shadow: inset 10px 10px 30px ${({ theme }) => theme.colors.main2},
+    inset -10px -10px 30px ${({ theme }) => theme.colors.main3};
   border-radius: 2rem;
-  background-color: #ffd64d;
+  background-color: ${({ theme }) => theme.colors.main1};
 
   @media (min-width: 960px) {
     flex-direction: row;
@@ -83,26 +84,29 @@ const ImageWrapper = styled.div`
 `
 
 const FeaturedImage = styled(Img)`
-  box-shadow: 0 12px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 15px ${({ theme }) => theme.colors.opaqueBg1};
 `
 
 const LinkWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Coda", cursive;
+  font-family: ${({ theme }) => theme.fonts.bold};
   margin: 1rem 0;
 
   & a {
     padding: 0 0.5rem;
     margin: 0 0.25rem;
     font-size: 12px;
-    border: 3px solid #f52549;
-    color: #f52549;
+    border: 3px solid ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.accent};
     text-decoration: none;
     outline: none;
     cursor: pointer;
-    background-image: linear-gradient(#f52549, #f52549);
+    background-image: linear-gradient(
+      ${({ theme }) => theme.colors.accent},
+      ${({ theme }) => theme.colors.accent}
+    );
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: 0% 100%;
@@ -110,8 +114,8 @@ const LinkWrapper = styled.div`
 
     &:hover {
       background-size: 100% 100%;
-      color: #031c27;
-      box-shadow: 0 8px 10px -6px rgba(0, 0, 0, 0.6);
+      color: ${({ theme }) => theme.colors.dark2};
+      box-shadow: 0 8px 10px -6px ${({ theme }) => theme.colors.opaqueBg1};
       transform: scale(1.08);
     }
 
@@ -126,13 +130,8 @@ const TextWrapper = styled.div`
   padding: 0;
 
   & * {
-    font-family: "Coda", cursive;
-    color: #011a27;
-  }
-
-  & p {
-    font-family: "Coda", cursive;
-    font-weight: 200;
+    font-family: ${({ theme }) => theme.fonts.bold};
+    color: ${({ theme }) => theme.colors.dark1};
   }
 
   @media (min-width: 960px) {
@@ -142,8 +141,7 @@ const TextWrapper = styled.div`
 `
 
 const Title = styled.h2`
-  font-family: "Coda", cursive;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.textAccent};
   margin: 0 0 0.5rem 0;
 `
 
@@ -165,7 +163,7 @@ const List = styled.ul`
     padding: 0 0.5rem;
     margin: 0.25rem 0;
     font-size: 14px;
-    border: 3px solid #011a27;
+    border: 3px solid ${({ theme }) => theme.colors.dark1};
     text-transform: capitalize;
   }
 

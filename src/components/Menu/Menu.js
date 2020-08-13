@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 
 import Skills from "./MenuItem/Skills"
 import Resume from "./MenuItem/Resume"
+import Blog from "./MenuItem/Blog"
 
 import { MenuContext } from "../../context/menu"
 
@@ -17,10 +18,26 @@ const Menu = () => {
     setIsSelected(text.toLowerCase().slice(0, text.length - 1))
   }
 
+  let selectedMenu = null
+
+  switch (isSelected) {
+    case "skills":
+      selectedMenu = <Skills />
+      break
+    case "resume":
+      selectedMenu = <Resume />
+      break
+    case "blog":
+      selectedMenu = <Blog />
+      break
+    default:
+      break
+  }
+
   return (
     <Background>
       <ul>
-        {["skills", "resume"].map(item => {
+        {["skills", "blog", "resume"].map(item => {
           return (
             <li key={item}>
               <MenuItem
@@ -37,9 +54,7 @@ const Menu = () => {
           )
         })}
       </ul>
-      <IconWrapper>
-        {isSelected === "skills" ? <Skills /> : <Resume />}
-      </IconWrapper>
+      <IconWrapper>{selectedMenu}</IconWrapper>
     </Background>
   )
 }
@@ -48,7 +63,7 @@ const Background = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: rgba(77, 77, 77, 0.3);
+  background-color: ${({ theme }) => theme.colors.opaqueBg2};
   padding: 0 0.75rem 0.5rem;
 
   ul {
@@ -60,18 +75,18 @@ const Background = styled.div`
 
     h2 {
       flex: 0 1 10%;
-      font-family: "Coda", cursive;
+      font-family: ${({ theme }) => theme.fonts.bold};
       font-size: 1.2rem;
-      color: #fff;
+      color: ${({ theme }) => theme.colors.textAccent};
       margin: 0;
-      text-shadow: 3px 3px 0 #011a27;
+      text-shadow: 3px 3px 0 ${({ theme }) => theme.colors.dark1};
     }
 
     @media (min-width: 768px) {
       flex-direction: column;
 
       h2 {
-        text-shadow: 6px 6px 0 #011a27;
+        text-shadow: 6px 6px 0 ${({ theme }) => theme.colors.dark1};
       }
     }
   }
@@ -95,9 +110,9 @@ const IconWrapper = styled.div`
   align-items: center;
   padding: 0.2rem 0.5rem;
   min-height: 50px;
-  background-color: rgba(0, 0, 0, 0.3);
-  box-shadow: 3px 3px 0 #011a27;
-  border: 0.025rem solid #011a27;
+  background-color: ${({ theme }) => theme.colors.opaqueBg1};
+  box-shadow: 3px 3px 0 ${({ theme }) => theme.colors.dark1};
+  border: 0.025rem solid ${({ theme }) => theme.colors.dark1};
   overflow: hidden;
 
   @media (min-width: 768px) {
@@ -107,7 +122,7 @@ const IconWrapper = styled.div`
     margin-bottom: 1rem;
     padding: 0.75rem;
     min-height: 105px;
-    box-shadow: 6px 6px 0 #011a27;
+    box-shadow: 6px 6px 0 ${({ theme }) => theme.colors.dark1};
   }
 `
 
@@ -126,6 +141,13 @@ const MenuItem = styled.div`
 
   &.skills {
     opacity: ${props => (props.isShowing === "skills" ? 1 : 0.5)};
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.blog {
+    opacity: ${props => (props.isShowing === "blog" ? 1 : 0.5)};
     &:hover {
       opacity: 1;
     }

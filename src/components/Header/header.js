@@ -19,9 +19,10 @@ const Wrapper = styled.header`
   transform: translate(-50%, 0);
   width: 90%;
   margin: 0.5rem auto;
-  box-shadow: inset 5px 5px 9px #d9b641, inset -5px -5px 9px #fff659;
+  box-shadow: inset 5px 5px 9px ${({ theme }) => theme.colors.main2},
+    inset -5px -5px 9px ${({ theme }) => theme.colors.main3};
   border-radius: 2rem;
-  background-color: #ffd64d;
+  background-color: ${({ theme }) => theme.colors.main1};
   z-index: 10;
 
   @media (min-width: 500px) {

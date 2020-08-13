@@ -2,11 +2,11 @@ import React from "react"
 
 import styled from "styled-components"
 
-const Resume = () => {
+const Blog = () => {
   return (
     <div>
       <Heading>
-        RESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUMERESUME
+        BLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOGBLOG
       </Heading>
     </div>
   )
@@ -27,4 +27,4 @@ const Heading = styled.h2`
   }
 `
 
-export default Resume
+export default Blog

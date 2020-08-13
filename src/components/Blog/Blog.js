@@ -59,7 +59,6 @@ const Wrapper = styled.section`
   overflow: auto;
   height: 50vh;
   padding: 1.25rem 1rem;
-  max-width: 1000px;
   margin: 0 auto;
 
   @media (min-width: 768px) {
@@ -70,7 +69,6 @@ const Wrapper = styled.section`
 
 const Panel = styled.div`
   flex: 0 0 100%;
-  max-width: 400px;
   margin: 0 auto 0.5rem;
   border-radius: 20px;
   background: ${({ theme }) => theme.colors.main1};
@@ -82,7 +80,7 @@ const Panel = styled.div`
   }
 
   @media (min-width: 900px) {
-    flex: 0 0 calc(33.333333% - 1rem);
+    flex: 0 0 calc(50% - 1rem);
     margin: 0.5rem;
   }
 `
@@ -110,6 +108,7 @@ const Title = styled.h2`
   font-family: ${({ theme }) => theme.fonts.bold};
   margin: 0.2rem 0 1rem;
   transition: all 0.2s ease-in;
+  min-height: 3.5rem;
 
   > a {
     color: ${({ theme }) => theme.colors.dark1};

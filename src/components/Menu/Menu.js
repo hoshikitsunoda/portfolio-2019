@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 
 import Skills from "./MenuItem/Skills"
 import Resume from "./MenuItem/Resume"
+import Blog from "./MenuItem/Blog"
 
 import { MenuContext } from "../../context/menu"
 
@@ -27,7 +28,7 @@ const Menu = () => {
       selectedMenu = <Resume />
       break
     case "blog":
-      selectedMenu = <h1>BLOG</h1>
+      selectedMenu = <Blog />
       break
     default:
       break

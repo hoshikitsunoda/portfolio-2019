@@ -54,10 +54,14 @@ export const pageQuery = graphql`
 `
 
 const PostWrapper = styled.div`
-  padding: 3.5rem 0.5rem 5rem;
+  padding: 2.5rem 0.5rem 2rem;
   box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
   max-width: 1000px;
   margin: 2rem auto;
+
+  @media (min-width: 768px) {
+    padding: 3.5rem 0.5rem 5rem;
+  }
 `
 
 const ListWrapper = styled.ul`
@@ -67,6 +71,7 @@ const ListWrapper = styled.ul`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  padding: 0 2rem;
 
   li {
     margin: 0;
@@ -124,10 +129,15 @@ const Button = styled.button`
 `
 
 const Title = styled.h1`
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   text-align: center;
   font-family: ${({ theme }) => theme.fonts.bold};
   margin-top: 3.5rem;
+  padding: 0 1rem;
+
+  @media (min-width: 1024px) {
+    font-size: 3.5rem;
+  }
 `
 
 const PostDate = styled.p`
@@ -137,8 +147,19 @@ const PostDate = styled.p`
 
 const MainContent = styled.div`
   max-width: 800px;
-  margin: 3.5rem auto 0;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
   font-family: ${({ theme }) => theme.fonts.main};
+
+  @media (min-width: 768px) {
+    margin: 3.5rem auto 0;
+    padding: 0 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 1rem;
+    padding: 0;
+  }
 `
 
 export default Template

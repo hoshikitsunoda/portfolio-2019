@@ -63,7 +63,12 @@ const StyledBackground = styled(BackgroundImage)`
 
 const Inner = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 50vh;
+
+  @media (min-width: 768px) {
+    height: 65vh;
+    padding: 1.25rem 4rem;
+  }
 
   a {
     text-decoration: none;

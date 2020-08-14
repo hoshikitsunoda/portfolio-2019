@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { Router } from "@reach/router"
 
 import Layout from "../hoc/Layout/layout"
 import Header from "../components/Header/header"
 import Intro from "../components/Intro"
 import Menu from "../components/Menu/Menu"
-import Resume from "../components/Resume/Resume"
 import Projects from "../components/Projects/Projects"
-import Blog from "../components/Blog/Blog"
+import Spinner from "../components/UI/Spinner"
 import SEO from "../components/seo"
 
 import styled from "styled-components"
-import { MenuContext } from "../context/menu"
 
 import BackgroundImage from "gatsby-background-image"
 
-const IndexPage = () => {
+const Blog = React.lazy(() => import("../components/Blog/Blog"))
+const Resume = React.lazy(() => import("../components/Resume/Resume"))
+
+const LazyComponent = ({ Component, ...props }) => (
+  <React.Suspense fallback={Spinner}>
+    <Component {...props} />
+  </React.Suspense>
+)
+
+const IndexPage = ({ location }) => {
   const [isDesktop, setIsDesktop] = useState(false)
-  const [isSelected, setIsSelected] = useState("skills")
-  const value = { isSelected, setIsSelected }
+
+  const urlParam = location.pathname
 
   const checkWindowWidth = () => {
     setIsDesktop(window.innerWidth > 767)
@@ -58,24 +66,8 @@ const IndexPage = () => {
     ? desktop.childImageSharp.fluid
     : mobile.childImageSharp.fluid
 
-  let selectedView = null
-
-  switch (isSelected) {
-    case "skills":
-      selectedView = <Projects />
-      break
-    case "resume":
-      selectedView = <Resume />
-      break
-    case "blog":
-      selectedView = <Blog />
-      break
-    default:
-      break
-  }
-
   return (
-    <MenuContext.Provider value={value}>
+    <>
       <StyledBackground
         Tag="section"
         fluid={imageData}
@@ -87,11 +79,15 @@ const IndexPage = () => {
             <Header />
             <Intro />
           </Flex>
-          <Menu />
-          {selectedView}
+          <Menu urlParam={urlParam} />
+          <CustomRouter>
+            <Projects path="/" />
+            <LazyComponent Component={Blog} path="/blog" />
+            <LazyComponent Component={Resume} path="resume" />
+          </CustomRouter>
         </Layout>
       </StyledBackground>
-    </MenuContext.Provider>
+    </>
   )
 }
 
@@ -105,6 +101,10 @@ const StyledBackground = styled(BackgroundImage)`
   @media (min-width: 767px) {
     background-position: top center !important;
   }
+`
+
+const CustomRouter = styled(Router)`
+  height: 100%;
 `
 
 const Flex = styled.div`

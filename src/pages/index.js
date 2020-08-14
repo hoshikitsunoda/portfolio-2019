@@ -7,6 +7,7 @@ import Header from "../components/Header/header"
 import Intro from "../components/Intro"
 import Menu from "../components/Menu/Menu"
 import Projects from "../components/Projects/Projects"
+import Spinner from "../components/UI/Spinner"
 import SEO from "../components/seo"
 
 import styled from "styled-components"
@@ -17,7 +18,7 @@ const Blog = React.lazy(() => import("../components/Blog/Blog"))
 const Resume = React.lazy(() => import("../components/Resume/Resume"))
 
 const LazyComponent = ({ Component, ...props }) => (
-  <React.Suspense fallback={"<p>Loading...</p>"}>
+  <React.Suspense fallback={Spinner}>
     <Component {...props} />
   </React.Suspense>
 )

@@ -6,15 +6,14 @@ import Layout from "../hoc/Layout/layout"
 import Header from "../components/Header/header"
 import Intro from "../components/Intro"
 import Menu from "../components/Menu/Menu"
-import Blog from "../components/Blog/Blog"
+import Projects from "../components/Projects/Projects"
 import SEO from "../components/seo"
 
 import styled from "styled-components"
-import { MenuContext } from "../context/menu"
 
 import BackgroundImage from "gatsby-background-image"
 
-const Projects = React.lazy(() => import("../components/Projects/Projects"))
+const Blog = React.lazy(() => import("../components/Blog/Blog"))
 const Resume = React.lazy(() => import("../components/Resume/Resume"))
 
 const LazyComponent = ({ Component, ...props }) => (
@@ -26,12 +25,7 @@ const LazyComponent = ({ Component, ...props }) => (
 const IndexPage = ({ location }) => {
   const [isDesktop, setIsDesktop] = useState(false)
 
-  const [isSelected, setIsSelected] = useState("skills")
-  const value = { isSelected, setIsSelected }
-
   const urlParam = location.pathname
-
-  console.log(urlParam)
 
   const checkWindowWidth = () => {
     setIsDesktop(window.innerWidth > 767)
@@ -71,24 +65,8 @@ const IndexPage = ({ location }) => {
     ? desktop.childImageSharp.fluid
     : mobile.childImageSharp.fluid
 
-  // let selectedView = null
-  // console.log(isSelected)
-  // switch (isSelected) {
-  //   case "skills":
-  //     selectedView = <Projects path="/skills" />
-  //     break
-  //   case "resume":
-  //     selectedView = <Resume path="/resume" />
-  //     break
-  //   case "blog":
-  //     selectedView = <Blog path="/blog" />
-  //     break
-  //   default:
-  //     break
-  // }
-
   return (
-    <MenuContext.Provider value={value}>
+    <>
       <StyledBackground
         Tag="section"
         fluid={imageData}
@@ -101,15 +79,14 @@ const IndexPage = ({ location }) => {
             <Intro />
           </Flex>
           <Menu urlParam={urlParam} />
-          {/* {selectedView} */}
-          <Router>
-            <Blog path="blog" />
-            <LazyComponent Component={Projects} path="/" />
+          <CustomRouter>
+            <Projects path="/" />
+            <LazyComponent Component={Blog} path="/blog" />
             <LazyComponent Component={Resume} path="resume" />
-          </Router>
+          </CustomRouter>
         </Layout>
       </StyledBackground>
-    </MenuContext.Provider>
+    </>
   )
 }
 
@@ -123,6 +100,10 @@ const StyledBackground = styled(BackgroundImage)`
   @media (min-width: 767px) {
     background-position: top center !important;
   }
+`
+
+const CustomRouter = styled(Router)`
+  height: 100%;
 `
 
 const Flex = styled.div`

@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Link } from "@reach/router"
 
 import Skills from "./MenuItem/Skills"
@@ -8,13 +8,6 @@ import Blog from "./MenuItem/Blog"
 import styled from "styled-components"
 
 const Menu = ({ urlParam }) => {
-  // const clickHandler = event => {
-  //   event.preventDefault()
-  //   event.stopPropagation()
-  //   const text = event.target.innerHTML
-  //   setIsSelected(text.toLowerCase().slice(0, text.length - 1))
-  // }
-
   let selectedMenu = null
 
   switch (urlParam) {
@@ -41,8 +34,6 @@ const Menu = ({ urlParam }) => {
               <MenuItem
                 role="button"
                 tabIndex={0}
-                // onClick={event => clickHandler(event)}
-                // onKeyDown={event => clickHandler(event)}
                 isShowing={urlParam}
                 className={item}
               >
@@ -132,8 +123,7 @@ const MenuItem = styled.div`
   cursor: pointer;
 
   &.resume {
-    opacity: ${props =>
-      props.isShowing === "/gatsby-node.jsresume" ? 1 : 0.5};
+    opacity: ${props => (props.isShowing === "/resume" ? 1 : 0.5)};
     &:hover {
       opacity: 1;
     }

@@ -1,33 +1,30 @@
 import React, { useContext } from "react"
+import { Link } from "@reach/router"
 
 import Skills from "./MenuItem/Skills"
 import Resume from "./MenuItem/Resume"
 import Blog from "./MenuItem/Blog"
 
-import { MenuContext } from "../../context/menu"
-
 import styled from "styled-components"
 
-const Menu = () => {
-  const { isSelected, setIsSelected } = useContext(MenuContext)
-
-  const clickHandler = event => {
-    event.preventDefault()
-    event.stopPropagation()
-    const text = event.target.innerHTML
-    setIsSelected(text.toLowerCase().slice(0, text.length - 1))
-  }
+const Menu = ({ urlParam }) => {
+  // const clickHandler = event => {
+  //   event.preventDefault()
+  //   event.stopPropagation()
+  //   const text = event.target.innerHTML
+  //   setIsSelected(text.toLowerCase().slice(0, text.length - 1))
+  // }
 
   let selectedMenu = null
 
-  switch (isSelected) {
-    case "skills":
+  switch (urlParam) {
+    case "/":
       selectedMenu = <Skills />
       break
-    case "resume":
+    case "/resume":
       selectedMenu = <Resume />
       break
-    case "blog":
+    case "/blog":
       selectedMenu = <Blog />
       break
     default:
@@ -37,18 +34,19 @@ const Menu = () => {
   return (
     <Background>
       <ul>
-        {["skills", "blog", "resume"].map(item => {
+        {["projects", "blog", "resume"].map(item => {
+          const href = item === "projects" ? "" : item
           return (
             <li key={item}>
               <MenuItem
                 role="button"
                 tabIndex={0}
-                onClick={event => clickHandler(event)}
-                onKeyDown={event => clickHandler(event)}
-                isShowing={isSelected}
+                // onClick={event => clickHandler(event)}
+                // onKeyDown={event => clickHandler(event)}
+                isShowing={urlParam}
                 className={item}
               >
-                <h2>{item.toUpperCase()}:</h2>
+                <CustomLink to={`/${href}`}>{item.toUpperCase()}:</CustomLink>
               </MenuItem>
             </li>
           )
@@ -73,21 +71,8 @@ const Background = styled.div`
     justify-content: space-between;
     margin: 0;
 
-    h2 {
-      flex: 0 1 10%;
-      font-family: ${({ theme }) => theme.fonts.bold};
-      font-size: 1.2rem;
-      color: ${({ theme }) => theme.colors.textAccent};
-      margin: 0;
-      text-shadow: 3px 3px 0 ${({ theme }) => theme.colors.dark1};
-    }
-
     @media (min-width: 768px) {
       flex-direction: column;
-
-      h2 {
-        text-shadow: 6px 6px 0 ${({ theme }) => theme.colors.dark1};
-      }
     }
   }
 
@@ -100,6 +85,20 @@ const Background = styled.div`
     h1 {
       font-size: 1rem;
     }
+  }
+`
+
+const CustomLink = styled(Link)`
+  flex: 0 1 10%;
+  font-family: ${({ theme }) => theme.fonts.bold};
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.colors.textAccent};
+  margin: 0;
+  text-shadow: 3px 3px 0 ${({ theme }) => theme.colors.dark1};
+  text-decoration: none;
+
+  @media (min-width: 768px) {
+    text-shadow: 6px 6px 0 ${({ theme }) => theme.colors.dark1};
   }
 `
 
@@ -133,21 +132,22 @@ const MenuItem = styled.div`
   cursor: pointer;
 
   &.resume {
-    opacity: ${props => (props.isShowing === "resume" ? 1 : 0.5)};
+    opacity: ${props =>
+      props.isShowing === "/gatsby-node.jsresume" ? 1 : 0.5};
     &:hover {
       opacity: 1;
     }
   }
 
-  &.skills {
-    opacity: ${props => (props.isShowing === "skills" ? 1 : 0.5)};
+  &.projects {
+    opacity: ${props => (props.isShowing === "/" ? 1 : 0.5)};
     &:hover {
       opacity: 1;
     }
   }
 
   &.blog {
-    opacity: ${props => (props.isShowing === "blog" ? 1 : 0.5)};
+    opacity: ${props => (props.isShowing === "/blog" ? 1 : 0.5)};
     &:hover {
       opacity: 1;
     }

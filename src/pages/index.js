@@ -74,7 +74,7 @@ const IndexPage = ({ location }) => {
         backgroundColor={`#FFD64D`}
       >
         <SEO title="Home" />
-        <Layout>
+        <Layout page={urlParam}>
           <Flex>
             <Header />
             <Intro />

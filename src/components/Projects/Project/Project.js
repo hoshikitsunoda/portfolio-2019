@@ -40,7 +40,7 @@ const Project = ({ data, images }) => {
       </ImageWrapper>
       <TextWrapper>
         <Title>{data.title}</Title>
-        <p
+        <Description
           dangerouslySetInnerHTML={{
             __html: data.description,
           }}
@@ -79,7 +79,7 @@ const ImageWrapper = styled.div`
   padding: 0 1rem;
 
   @media (min-width: 960px) {
-    width: 50%;
+    width: 60%;
   }
 `
 
@@ -135,18 +135,24 @@ const TextWrapper = styled.div`
   }
 
   @media (min-width: 960px) {
-    width: 50%;
+    width: 40%;
     padding: 1.25rem;
   }
 `
 
 const Title = styled.h2`
   color: ${({ theme }) => theme.colors.textAccent};
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 1.5rem 0;
 `
 
 const SubHeading = styled.p`
   margin: 0;
+`
+
+const Description = styled.p`
+  font-size: 0.9rem;
+  font-family: ${({ theme }) => theme.fonts.main};
+  font-weight: bold;
 `
 
 const List = styled.ul`

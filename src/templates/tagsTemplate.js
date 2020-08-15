@@ -21,7 +21,7 @@ const Tags = ({ pageContext, data }) => {
     <Layout>
       <SEO title={`${tag.toLowerCase()}`} />
       <Button>
-        <a href="/blog">All Posts</a>
+        <Link to="/blog/list">All Posts</Link>
       </Button>
       <TagsWrapper>
         <Container>

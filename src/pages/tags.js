@@ -14,7 +14,7 @@ const TagsPage = ({
   <Layout>
     <SEO title={`Tags`} />
     <Button>
-      <a href="/blog">All Posts</a>
+      <Link to="/blog/list">All Posts</Link>
     </Button>
     <TagsWrapper>
       <Container>

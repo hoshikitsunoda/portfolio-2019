@@ -14,7 +14,7 @@ const Template = ({ data }) => {
     <Layout page="blog">
       <SEO title={frontmatter.title} />
       <Button>
-        <a href="/blog">All Posts</a>
+        <Link to="/blog/list">All Posts</Link>
       </Button>
       <PostWrapper className="blog-post">
         <HeadingWrapper>

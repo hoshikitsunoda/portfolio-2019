@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import styled from "styled-components"
 
@@ -37,12 +37,12 @@ const Blog = () => {
                 </Time>
               </div>
               <Title>
-                <a href={node.frontmatter.slug}>{node.frontmatter.title}</a>
+                <Link to={node.frontmatter.slug}>{node.frontmatter.title}</Link>
               </Title>
             </PanelTop>
             <PanelBottom>
               <Excerpt>{node.excerpt}</Excerpt>
-              <Link href={node.frontmatter.slug}>Read more...</Link>
+              <CustomLink to={node.frontmatter.slug}>Read more...</CustomLink>
             </PanelBottom>
           </Panel>
         )
@@ -129,7 +129,7 @@ const Excerpt = styled.p`
   font-size: 1rem;
 `
 
-const Link = styled.a`
+const CustomLink = styled(Link)`
   color: ${({ theme }) => theme.colors.dark1};
   text-decoration: none;
   transition: all 0.2s ease-in;

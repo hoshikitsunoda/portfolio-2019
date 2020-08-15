@@ -22,10 +22,11 @@ const Layout = ({ children, page }) => {
 }
 
 const Wrapper = styled.div`
-  height: ${({ page }) => (page === "blog" ? "auto" : "100vh")};
+  height: ${({ page }) =>
+    page !== "/" || page !== "/resume" ? "auto" : "100vh"};
   outline: none;
   overflow-y: hidden;
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
 
   @media (min-width: 767px) {

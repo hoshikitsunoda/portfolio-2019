@@ -1,130 +1,77 @@
-import React, { useState, useEffect } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import React from "react"
+import { graphql, useStaticQuery, Link } from "gatsby"
 
 import Layout from "../../hoc/Layout/layout"
 import SEO from "../../components/seo"
 
 import styled from "styled-components"
 
-import BackgroundImage from "gatsby-background-image"
-
-const BlogListPage = () => {
-  const [isDesktop, setIsDesktop] = useState(false)
-
-  const checkWindowWidth = () => {
-    setIsDesktop(window.innerWidth > 767)
-  }
-
-  useEffect(() => {
-    checkWindowWidth()
-    window.addEventListener("resize", checkWindowWidth())
-  }, [])
-
-  useEffect(() => {
-    window.removeEventListener("resize", checkWindowWidth())
-  }, [])
-
-  const data = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/(blog)/" } }
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ) {
-        edges {
-          node {
-            id
-            excerpt(pruneLength: 80)
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              slug
-              title
-            }
-          }
-        }
-      }
-      mobile: file(relativePath: { eq: "bg-mobile.png" }) {
-        childImageSharp {
-          fluid(quality: 90, maxWidth: 500) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      desktop: file(relativePath: { eq: "bg-desktop.png" }) {
-        childImageSharp {
-          fluid(quality: 90, maxWidth: 1440) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
-
-  const {
-    desktop,
-    mobile,
+const BlogListPage = ({
+  data: {
     allMarkdownRemark: { edges },
-  } = data
-
-  const imageData = isDesktop
-    ? desktop.childImageSharp.fluid
-    : mobile.childImageSharp.fluid
-
+  },
+}) => {
   return (
     <>
-      <StyledBackground
-        Tag="section"
-        fluid={imageData}
-        backgroundColor={`#FFD64D`}
-      >
-        <SEO title="Blog" />
-        <Layout>
-          <Button>
-            <a href="/">Go Back</a>
-          </Button>
-          <TagsWrapper>
-            <Container>
-              <div>
-                <Heading>All Posts</Heading>
-                <ListWrapper>
-                  {edges.map(({ node: { excerpt, frontmatter } }) => {
-                    return (
-                      <Panel key={frontmatter.slug}>
-                        <PanelTop>
-                          <div>
-                            <Time dateTime={frontmatter.date}>
-                              {frontmatter.date}
-                            </Time>
-                          </div>
-                          <Title>
-                            <a href={frontmatter.slug}>{frontmatter.title}</a>
-                          </Title>
-                        </PanelTop>
-                        <PanelBottom>
-                          <Excerpt>{excerpt}</Excerpt>
-                          <Link href={frontmatter.slug}>Read more...</Link>
-                        </PanelBottom>
-                      </Panel>
-                    )
-                  })}
-                </ListWrapper>
-              </div>
-            </Container>
-          </TagsWrapper>
-        </Layout>
-      </StyledBackground>
+      <SEO title="Blog" />
+      <Layout>
+        <Button>
+          <Link to="/">Go Back</Link>
+        </Button>
+        <TagsWrapper>
+          <Container>
+            <div>
+              <Heading>All Posts</Heading>
+              <ListWrapper>
+                {edges.map(({ node: { excerpt, frontmatter } }) => {
+                  return (
+                    <Panel key={frontmatter.slug}>
+                      <PanelTop>
+                        <div>
+                          <Time dateTime={frontmatter.date}>
+                            {frontmatter.date}
+                          </Time>
+                        </div>
+                        <Title>
+                          <Link to={frontmatter.slug}>{frontmatter.title}</Link>
+                        </Title>
+                      </PanelTop>
+                      <PanelBottom>
+                        <Excerpt>{excerpt}</Excerpt>
+                        <CustomLink to={frontmatter.slug}>
+                          Read more...
+                        </CustomLink>
+                      </PanelBottom>
+                    </Panel>
+                  )
+                })}
+              </ListWrapper>
+            </div>
+          </Container>
+        </TagsWrapper>
+      </Layout>
     </>
   )
 }
 
-const StyledBackground = styled(BackgroundImage)`
-  width: 100%;
-  height: 100%;
-  background-position: center center;
-  background-repeat: repeat-y;
-  background-size: cover;
-
-  @media (min-width: 767px) {
-    background-position: top center !important;
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/(blog)/" } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 80)
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            slug
+            title
+          }
+        }
+      }
+    }
   }
 `
 
@@ -268,7 +215,7 @@ const Excerpt = styled.p`
   font-size: 1rem;
 `
 
-const Link = styled.a`
+const CustomLink = styled(Link)`
   color: ${({ theme }) => theme.colors.dark1};
   text-decoration: none;
   transition: all 0.2s ease-in;

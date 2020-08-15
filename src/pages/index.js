@@ -18,7 +18,7 @@ const Blog = React.lazy(() => import("../components/Blog/Blog"))
 const Resume = React.lazy(() => import("../components/Resume/Resume"))
 
 const LazyComponent = ({ Component, ...props }) => (
-  <React.Suspense fallback={Spinner}>
+  <React.Suspense fallback={<Spinner />}>
     <Component {...props} />
   </React.Suspense>
 )

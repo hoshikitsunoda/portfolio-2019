@@ -6,9 +6,32 @@ import SEO from "../components/seo"
 
 import styled from "styled-components"
 
-const Template = ({ data }) => {
+const Template = ({ data, pageContext }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
+
+  const previousPost = pageContext.prev
+    ? {
+        url: `${pageContext.prev.frontmatter.slug}`,
+        title: pageContext.prev.frontmatter.title,
+      }
+    : null
+
+  const nextPost = pageContext.next
+    ? {
+        url: `${pageContext.next.frontmatter.slug}`,
+        title: pageContext.next.frontmatter.title,
+      }
+    : null
+
+  const navigation =
+    previousPost && nextPost
+      ? "both"
+      : previousPost
+      ? "prev"
+      : nextPost
+      ? "next"
+      : null
 
   return (
     <Layout page="blog">
@@ -35,6 +58,14 @@ const Template = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </PostWrapper>
+      <Flex navigation={navigation}>
+        {previousPost && (
+          <CustomLink to={previousPost.url}>← {previousPost.title}</CustomLink>
+        )}
+        {nextPost && (
+          <CustomLink to={nextPost.url}>{nextPost.title} →</CustomLink>
+        )}
+      </Flex>
     </Layout>
   )
 }
@@ -159,6 +190,30 @@ const MainContent = styled.div`
   @media (min-width: 1024px) {
     margin-bottom: 1rem;
     padding: 0;
+  }
+`
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: ${({ navigation }) =>
+    navigation === "both"
+      ? "space-between"
+      : navigation === "next"
+      ? "flex-end"
+      : "flex-start"};
+  align-items: center;
+  margin: 3rem 0;
+`
+
+const CustomLink = styled(Link)`
+  font-family: ${({ theme }) => theme.fonts.bold};
+  text-align: center;
+  color: ${({ theme }) => theme.colors.dark1};
+  transition: 0.2s ease-out;
+  margin: 0 1rem;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.textAccent};
   }
 `
 

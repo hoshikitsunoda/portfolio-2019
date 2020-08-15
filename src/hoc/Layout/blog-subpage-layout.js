@@ -14,7 +14,7 @@ const BlogSubpageLayout = ({ children, page, tagHeader }) => {
       <Link to="/blog/list">All Posts</Link>
     )
   return (
-    <Layout>
+    <Layout page={page}>
       <SEO title={page} />
       <Button>{button}</Button>
       <TagsWrapper>

@@ -2,6 +2,7 @@
 slug: "/blog/my-first-post"
 date: "2020-08-11"
 title: "My first blog post"
+featuredImage: ../../images/blog/blog-1-img.jpg
 tags:
   - JavaScript
   - WebDev

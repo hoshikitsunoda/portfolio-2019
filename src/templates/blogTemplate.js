@@ -16,9 +16,11 @@ const Template = ({ data, pageContext }) => {
   return (
     <Layout page="blog">
       <SEO title={frontmatter.title} />
-      <Button>
-        <Link to="/blog/list">All Posts</Link>
-      </Button>
+      <ButtonWrapper>
+        <Button>
+          <Link to="/blog/list">All Posts</Link>
+        </Button>
+      </ButtonWrapper>
       <AccentBox />
       <PostWrapper className="blog-post">
         <HeadingWrapper>
@@ -58,6 +60,11 @@ export const pageQuery = graphql`
   }
 `
 
+const ButtonWrapper = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+`
+
 const AccentBox = styled.div`
   background-color: ${({ theme }) => theme.colors.dark1};
   height: 25rem;
@@ -71,9 +78,9 @@ const AccentBox = styled.div`
 const PostWrapper = styled.div`
   background: ${({ theme }) => theme.colors.textAccent};
   padding: 2.5rem 0.5rem 0.5rem;
-  box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
   max-width: 1000px;
   margin: 2rem auto 2rem;
+  border: 3px solid ${({ theme }) => theme.colors.dark1};
 `
 
 const ListWrapper = styled.ul`

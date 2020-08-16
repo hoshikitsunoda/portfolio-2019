@@ -63,7 +63,7 @@ const FlexContainer = styled.div`
   align-items: center;
   margin-bottom: 2rem;
   padding: 2rem;
-  border: 5px solid ${({ theme }) => theme.colors.dark1};
+  border: 3px solid ${({ theme }) => theme.colors.dark1};
   background-color: ${({ theme }) => theme.colors.textAccent};
 
   @media (min-width: 960px) {

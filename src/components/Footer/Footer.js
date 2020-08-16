@@ -11,7 +11,7 @@ const Footer = ({ page, pageContext }) => {
     <Wrapper>
       <Container>
         <Flex>
-          <Intro />
+          <Intro page={page} />
           <SocialIcons />
         </Flex>
         {page === "blog" ? <PostNavigation pageContext={pageContext} /> : null}
@@ -39,6 +39,7 @@ const Container = styled.div`
 
 const Flex = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: ${({ navigation }) =>
     navigation === "both" || !navigation
       ? "space-between"
@@ -46,8 +47,13 @@ const Flex = styled.div`
       ? "flex-end"
       : "flex-start"};
   align-items: center;
-  margin: ${({ navigation }) =>
-    !navigation ? "3rem 0.5rem 0 auto" : "3rem auto 0"};
+  margin: 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    margin: ${({ navigation }) =>
+      !navigation ? "3rem 0.5rem 0 auto" : "3rem auto 0"};
+  }
 `
 
 export default Footer

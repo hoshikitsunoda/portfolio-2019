@@ -18,7 +18,9 @@ const BlogSubpageLayout = ({ children, page, tagHeader }) => {
   return (
     <Layout page={page}>
       <SEO title={page.charAt(0).toUpperCase() + page.slice(1)} />
-      <Button>{button}</Button>
+      <ButtonWrapper>
+        <Button>{button}</Button>
+      </ButtonWrapper>
       <AccentBox />
       <Wrapper>
         <Container>
@@ -33,6 +35,11 @@ const BlogSubpageLayout = ({ children, page, tagHeader }) => {
   )
 }
 
+const ButtonWrapper = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+`
+
 const AccentBox = styled.div`
   background-color: ${({ theme }) => theme.colors.dark1};
   height: 25rem;
@@ -46,7 +53,7 @@ const AccentBox = styled.div`
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.textAccent};
   padding: 3.5rem 0.5rem 0.5rem;
-  box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
+  border: 3px solid ${({ theme }) => theme.colors.dark1};
   max-width: 1000px;
   margin: 2rem auto;
 `

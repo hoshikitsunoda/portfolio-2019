@@ -2,13 +2,37 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../hoc/Layout/layout"
+import Button from "../components/UI/Button"
 import SEO from "../components/seo"
 
 import styled from "styled-components"
 
-const Template = ({ data }) => {
+const Template = ({ data, pageContext }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
+
+  const previousPost = pageContext.prev
+    ? {
+        url: `${pageContext.prev.frontmatter.slug}`,
+        title: pageContext.prev.frontmatter.title,
+      }
+    : null
+
+  const nextPost = pageContext.next
+    ? {
+        url: `${pageContext.next.frontmatter.slug}`,
+        title: pageContext.next.frontmatter.title,
+      }
+    : null
+
+  const navigation =
+    previousPost && nextPost
+      ? "both"
+      : previousPost
+      ? "prev"
+      : nextPost
+      ? "next"
+      : null
 
   return (
     <Layout page="blog">
@@ -16,6 +40,7 @@ const Template = ({ data }) => {
       <Button>
         <Link to="/blog/list">All Posts</Link>
       </Button>
+      <AccentBox />
       <PostWrapper className="blog-post">
         <HeadingWrapper>
           <ListWrapper>
@@ -35,6 +60,14 @@ const Template = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </PostWrapper>
+      <Flex navigation={navigation}>
+        {previousPost && (
+          <CustomLink to={previousPost.url}>← {previousPost.title}</CustomLink>
+        )}
+        {nextPost && (
+          <CustomLink to={nextPost.url}>{nextPost.title} →</CustomLink>
+        )}
+      </Flex>
     </Layout>
   )
 }
@@ -53,7 +86,18 @@ export const pageQuery = graphql`
   }
 `
 
+const AccentBox = styled.div`
+  background-color: ${({ theme }) => theme.colors.dark1};
+  height: 25rem;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+`
+
 const PostWrapper = styled.div`
+  background: ${({ theme }) => theme.colors.main1};
   padding: 2.5rem 0.5rem 2rem;
   box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
   max-width: 1000px;
@@ -94,40 +138,6 @@ const HeadingWrapper = styled.div`
   text-align: center;
 `
 
-const Button = styled.button`
-  font-family: ${({ theme }) => theme.fonts.bold};
-  margin: 0 auto 0 0;
-  display: block;
-  background: none;
-  border: 3px solid ${({ theme }) => theme.colors.accent};
-  outline: none;
-  cursor: pointer;
-  background-image: linear-gradient(
-    ${({ theme }) => theme.colors.accent},
-    ${({ theme }) => theme.colors.accent}
-  );
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  transition: background-size 0.3s, color 0.5s;
-
-  > a {
-    color: ${({ theme }) => theme.colors.accent};
-    text-decoration: none;
-    font-size: 0.9rem;
-    display: block;
-    padding: 0.25rem 0.75rem;
-  }
-
-  &:hover {
-    background-size: 100% 100%;
-
-    > a {
-      color: ${({ theme }) => theme.colors.dark2};
-    }
-  }
-`
-
 const Title = styled.h1`
   font-size: 2.5rem;
   text-align: center;
@@ -159,6 +169,30 @@ const MainContent = styled.div`
   @media (min-width: 1024px) {
     margin-bottom: 1rem;
     padding: 0;
+  }
+`
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: ${({ navigation }) =>
+    navigation === "both"
+      ? "space-between"
+      : navigation === "next"
+      ? "flex-end"
+      : "flex-start"};
+  align-items: center;
+  margin: 3rem 0;
+`
+
+const CustomLink = styled(Link)`
+  font-family: ${({ theme }) => theme.fonts.bold};
+  text-align: center;
+  color: ${({ theme }) => theme.colors.dark1};
+  transition: 0.2s ease-out;
+  margin: 0 1rem;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.textAccent};
   }
 `
 

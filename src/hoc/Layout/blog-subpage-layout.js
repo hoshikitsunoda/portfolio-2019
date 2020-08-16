@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "./layout"
+import Button from "../../components/UI/Button"
 import SEO from "../../components/seo"
 
 import styled from "styled-components"
@@ -15,21 +16,33 @@ const BlogSubpageLayout = ({ children, page, tagHeader }) => {
     )
   return (
     <Layout page={page}>
-      <SEO title={page} />
+      <SEO title={page.charAt(0).toUpperCase() + page.slice(1)} />
       <Button>{button}</Button>
-      <TagsWrapper>
+      <AccentBox />
+      <Wrapper>
         <Container>
           <Heading>{page}</Heading>
           {tagHeader ? <TextWrapper>{tagHeader}</TextWrapper> : null}
           <ListWrapper page={page}>{children}</ListWrapper>
           {page === "result" ? <AllTags to="/tags">All tags</AllTags> : null}
         </Container>
-      </TagsWrapper>
+      </Wrapper>
     </Layout>
   )
 }
 
-const TagsWrapper = styled.div`
+const AccentBox = styled.div`
+  background-color: ${({ theme }) => theme.colors.dark1};
+  height: 25rem;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+`
+
+const Wrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.main1};
   padding: 3.5rem 1rem 5rem;
   box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
   max-width: 1000px;
@@ -39,40 +52,6 @@ const TagsWrapper = styled.div`
 const Container = styled.div`
   max-width: 840px;
   margin: 0 auto;
-`
-
-const Button = styled.button`
-  font-family: ${({ theme }) => theme.fonts.bold};
-  margin: 0 auto 0 0;
-  display: block;
-  background: none;
-  border: 3px solid ${({ theme }) => theme.colors.accent};
-  outline: none;
-  cursor: pointer;
-  background-image: linear-gradient(
-    ${({ theme }) => theme.colors.accent},
-    ${({ theme }) => theme.colors.accent}
-  );
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  transition: background-size 0.3s, color 0.5s;
-
-  > a {
-    color: ${({ theme }) => theme.colors.accent};
-    text-decoration: none;
-    font-size: 0.9rem;
-    display: block;
-    padding: 0.25rem 0.75rem;
-  }
-
-  &:hover {
-    background-size: 100% 100%;
-
-    > a {
-      color: ${({ theme }) => theme.colors.dark2};
-    }
-  }
 `
 
 const Heading = styled.div`

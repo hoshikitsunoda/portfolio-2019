@@ -29,15 +29,12 @@ const Blog = () => {
 
   return (
     <Wrapper className="project-wrapper">
+      {allMarkdownRemark.edges.map((props, i) => {
+        return <BlogPost key={i} {...props} />
+      })}
       <LinkWrapper>
         <CustomLink to="/blog/list">View All</CustomLink>
       </LinkWrapper>
-      {allMarkdownRemark.edges.map((props, i) => {
-        return <BlogPost key={i} {...props} />
-      })}
-      {allMarkdownRemark.edges.map((props, i) => {
-        return <BlogPost key={i} {...props} />
-      })}
     </Wrapper>
   )
 }
@@ -60,12 +57,11 @@ const Wrapper = styled.section`
 
 const LinkWrapper = styled.div`
   position: fixed;
-  padding: 1.5rem 0 3rem;
+  padding: 1.5rem 0 2rem;
   width: 100%;
   left: 0;
   bottom: 0;
   text-align: center;
-  background-color: ${({ theme }) => theme.colors.main1};
 
   @media (min-width: 768px) {
     width: 80%;
@@ -78,6 +74,16 @@ const CustomLink = styled(Link)`
   color: ${({ theme }) => theme.colors.dark1};
   font-family: ${({ theme }) => theme.fonts.bold};
   text-transform: capitalize;
+  padding: 0.5rem 0.75rem;
+  background-color: #fff;
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+  border: 3px solid ${({ theme }) => theme.colors.dark1};
+
+  @media (min-width: 768px) {
+    margin: -4rem auto 0;
+  }
 `
 
 export default Blog

@@ -77,7 +77,7 @@ const IndexPage = ({ location }) => {
         <Layout page={urlParam}>
           <Flex>
             <Header />
-            <Intro />
+            <Intro page="index" />
           </Flex>
           <Menu urlParam={urlParam} />
           <CustomRouter>
@@ -112,11 +112,16 @@ const Flex = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  margin-top: 4rem;
 
   @media (min-width: 500px) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 0;
   }
 
   @media (min-width: 1024px) {

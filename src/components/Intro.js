@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 
 import styled from "styled-components"
 
-const Intro = () => {
+const Intro = ({ page }) => {
   const data = useStaticQuery(graphql`
     query {
       profile: file(relativePath: { eq: "profile.png" }) {
@@ -17,7 +17,7 @@ const Intro = () => {
     }
   `)
   return (
-    <Wrapper>
+    <Wrapper page={page}>
       <ProfileImg fixed={data.profile.childImageSharp.fixed} alt="Profile" />
       <TextWrapper>
         <p>
@@ -35,8 +35,8 @@ const Intro = () => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 4rem;
   width: 100%;
+  margin-bottom: ${({ page }) => (page === "index" ? 0 : "2.5rem")};
 
   @media (min-width: 768px) {
     display: flex;

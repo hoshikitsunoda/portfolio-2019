@@ -3,6 +3,8 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../hoc/Layout/layout"
 import Button from "../components/UI/Button"
+import Footer from "../components/Footer/Footer"
+// import PostNavigation from "../components/PostNavigation/PostNavigation"
 import SEO from "../components/seo"
 
 import styled from "styled-components"
@@ -11,35 +13,14 @@ const Template = ({ data, pageContext }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
 
-  const previousPost = pageContext.prev
-    ? {
-        url: `${pageContext.prev.frontmatter.slug}`,
-        title: pageContext.prev.frontmatter.title,
-      }
-    : null
-
-  const nextPost = pageContext.next
-    ? {
-        url: `${pageContext.next.frontmatter.slug}`,
-        title: pageContext.next.frontmatter.title,
-      }
-    : null
-
-  const navigation =
-    previousPost && nextPost
-      ? "both"
-      : previousPost
-      ? "prev"
-      : nextPost
-      ? "next"
-      : null
-
   return (
     <Layout page="blog">
       <SEO title={frontmatter.title} />
-      <Button>
-        <Link to="/blog/list">All Posts</Link>
-      </Button>
+      <ButtonWrapper>
+        <Button>
+          <Link to="/blog/list">All Posts</Link>
+        </Button>
+      </ButtonWrapper>
       <AccentBox />
       <PostWrapper className="blog-post">
         <HeadingWrapper>
@@ -59,15 +40,8 @@ const Template = ({ data, pageContext }) => {
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <Footer pageContext={pageContext} page="blog" />
       </PostWrapper>
-      <Flex navigation={navigation}>
-        {previousPost && (
-          <CustomLink to={previousPost.url}>← {previousPost.title}</CustomLink>
-        )}
-        {nextPost && (
-          <CustomLink to={nextPost.url}>{nextPost.title} →</CustomLink>
-        )}
-      </Flex>
     </Layout>
   )
 }
@@ -86,6 +60,11 @@ export const pageQuery = graphql`
   }
 `
 
+const ButtonWrapper = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+`
+
 const AccentBox = styled.div`
   background-color: ${({ theme }) => theme.colors.dark1};
   height: 25rem;
@@ -97,15 +76,11 @@ const AccentBox = styled.div`
 `
 
 const PostWrapper = styled.div`
-  background: ${({ theme }) => theme.colors.main1};
-  padding: 2.5rem 0.5rem 2rem;
-  box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
+  background: ${({ theme }) => theme.colors.textAccent};
+  padding: 2.5rem 0.5rem 0.5rem;
   max-width: 1000px;
-  margin: 2rem auto;
-
-  @media (min-width: 768px) {
-    padding: 3.5rem 0.5rem 5rem;
-  }
+  margin: 2rem auto 2rem;
+  border: 3px solid ${({ theme }) => theme.colors.dark1};
 `
 
 const ListWrapper = styled.ul`
@@ -128,7 +103,7 @@ const ListWrapper = styled.ul`
       transition: 0.2s ease-in;
 
       &:hover {
-        color: ${({ theme }) => theme.colors.textAccent};
+        color: ${({ theme }) => theme.colors.main1};
       }
     }
   }
@@ -167,32 +142,8 @@ const MainContent = styled.div`
   }
 
   @media (min-width: 1024px) {
-    margin-bottom: 1rem;
+    margin-bottom: 5rem;
     padding: 0;
-  }
-`
-
-const Flex = styled.div`
-  display: flex;
-  justify-content: ${({ navigation }) =>
-    navigation === "both"
-      ? "space-between"
-      : navigation === "next"
-      ? "flex-end"
-      : "flex-start"};
-  align-items: center;
-  margin: 3rem 0;
-`
-
-const CustomLink = styled(Link)`
-  font-family: ${({ theme }) => theme.fonts.bold};
-  text-align: center;
-  color: ${({ theme }) => theme.colors.dark1};
-  transition: 0.2s ease-out;
-  margin: 0 1rem;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.textAccent};
   }
 `
 

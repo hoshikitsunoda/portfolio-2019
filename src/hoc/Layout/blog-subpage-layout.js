@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 import Layout from "./layout"
 import Button from "../../components/UI/Button"
+import Footer from "../../components/Footer/Footer"
 import SEO from "../../components/seo"
 
 import styled from "styled-components"
@@ -17,7 +18,9 @@ const BlogSubpageLayout = ({ children, page, tagHeader }) => {
   return (
     <Layout page={page}>
       <SEO title={page.charAt(0).toUpperCase() + page.slice(1)} />
-      <Button>{button}</Button>
+      <ButtonWrapper>
+        <Button>{button}</Button>
+      </ButtonWrapper>
       <AccentBox />
       <Wrapper>
         <Container>
@@ -26,10 +29,16 @@ const BlogSubpageLayout = ({ children, page, tagHeader }) => {
           <ListWrapper page={page}>{children}</ListWrapper>
           {page === "result" ? <AllTags to="/tags">All tags</AllTags> : null}
         </Container>
+        <Footer />
       </Wrapper>
     </Layout>
   )
 }
+
+const ButtonWrapper = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+`
 
 const AccentBox = styled.div`
   background-color: ${({ theme }) => theme.colors.dark1};
@@ -42,16 +51,16 @@ const AccentBox = styled.div`
 `
 
 const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.main1};
-  padding: 3.5rem 1rem 5rem;
-  box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
+  background-color: ${({ theme }) => theme.colors.textAccent};
+  padding: 3.5rem 0.5rem 0.5rem;
+  border: 3px solid ${({ theme }) => theme.colors.dark1};
   max-width: 1000px;
   margin: 2rem auto;
 `
 
 const Container = styled.div`
   max-width: 840px;
-  margin: 0 auto;
+  margin: 0 auto 5rem;
 `
 
 const Heading = styled.div`
@@ -81,7 +90,7 @@ const ListWrapper = styled.ul`
       margin-left: 0.5rem;
 
       &:hover {
-        color: ${({ theme }) => theme.colors.textAccent};
+        color: ${({ theme }) => theme.colors.main1};
       }
     }
   }
@@ -111,7 +120,7 @@ const AllTags = styled(Link)`
   margin-left: 0.2rem;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.textAccent};
+    color: ${({ theme }) => theme.colors.main1};
   }
 `
 

@@ -39,6 +39,7 @@ const Template = ({ data, pageContext }) => {
       <Button>
         <Link to="/blog/list">All Posts</Link>
       </Button>
+      <AccentBox />
       <PostWrapper className="blog-post">
         <HeadingWrapper>
           <ListWrapper>
@@ -84,7 +85,18 @@ export const pageQuery = graphql`
   }
 `
 
+const AccentBox = styled.div`
+  background-color: ${({ theme }) => theme.colors.dark1};
+  height: 25rem;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+`
+
 const PostWrapper = styled.div`
+  background: ${({ theme }) => theme.colors.main1};
   padding: 2.5rem 0.5rem 2rem;
   box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
   max-width: 1000px;

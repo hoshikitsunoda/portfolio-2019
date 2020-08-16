@@ -15,21 +15,33 @@ const BlogSubpageLayout = ({ children, page, tagHeader }) => {
     )
   return (
     <Layout page={page}>
-      <SEO title={page} />
+      <SEO title={page.charAt(0).toUpperCase() + page.slice(1)} />
       <Button>{button}</Button>
-      <TagsWrapper>
+      <AccentBox />
+      <Wrapper>
         <Container>
           <Heading>{page}</Heading>
           {tagHeader ? <TextWrapper>{tagHeader}</TextWrapper> : null}
           <ListWrapper page={page}>{children}</ListWrapper>
           {page === "result" ? <AllTags to="/tags">All tags</AllTags> : null}
         </Container>
-      </TagsWrapper>
+      </Wrapper>
     </Layout>
   )
 }
 
-const TagsWrapper = styled.div`
+const AccentBox = styled.div`
+  background-color: ${({ theme }) => theme.colors.dark1};
+  height: 25rem;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+`
+
+const Wrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.main1};
   padding: 3.5rem 1rem 5rem;
   box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
   max-width: 1000px;

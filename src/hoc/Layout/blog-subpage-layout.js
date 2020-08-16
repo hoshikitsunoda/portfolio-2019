@@ -44,7 +44,7 @@ const AccentBox = styled.div`
 `
 
 const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.main1};
+  background-color: ${({ theme }) => theme.colors.textAccent};
   padding: 3.5rem 0.5rem 0.5rem;
   box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
   max-width: 1000px;
@@ -83,7 +83,7 @@ const ListWrapper = styled.ul`
       margin-left: 0.5rem;
 
       &:hover {
-        color: ${({ theme }) => theme.colors.textAccent};
+        color: ${({ theme }) => theme.colors.main1};
       }
     }
   }
@@ -113,7 +113,7 @@ const AllTags = styled(Link)`
   margin-left: 0.2rem;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.textAccent};
+    color: ${({ theme }) => theme.colors.main1};
   }
 `
 

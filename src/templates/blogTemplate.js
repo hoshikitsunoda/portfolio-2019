@@ -39,7 +39,6 @@ const Template = ({ data, pageContext }) => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <Footer pageContext={pageContext} page="blog" />
-        {/* <PostNavigation pageContext={pageContext} /> */}
       </PostWrapper>
     </Layout>
   )
@@ -70,7 +69,7 @@ const AccentBox = styled.div`
 `
 
 const PostWrapper = styled.div`
-  background: ${({ theme }) => theme.colors.main1};
+  background: ${({ theme }) => theme.colors.textAccent};
   padding: 2.5rem 0.5rem 0.5rem;
   box-shadow: 0px 30px 50px 0px rgba(1, 1, 1, 0.15);
   max-width: 1000px;
@@ -97,7 +96,7 @@ const ListWrapper = styled.ul`
       transition: 0.2s ease-in;
 
       &:hover {
-        color: ${({ theme }) => theme.colors.textAccent};
+        color: ${({ theme }) => theme.colors.main1};
       }
     }
   }

@@ -27,10 +27,8 @@ const BlogPost = ({ node: { excerpt, frontmatter } }) => {
 const Panel = styled.div`
   flex: 0 0 100%;
   margin: 0 auto 0.5rem;
-  border-radius: 20px;
-  background: ${({ theme }) => theme.colors.main1};
-  box-shadow: inset 7px 7px 15px ${({ theme }) => theme.colors.main2},
-    inset -7px -7px 15px ${({ theme }) => theme.colors.main3};
+  border: 3px solid ${({ theme }) => theme.colors.dark1};
+  background: ${({ theme }) => theme.colors.textAccent};
 
   > * {
     font-family: ${({ theme }) => theme.fonts.main};
@@ -47,10 +45,8 @@ const PanelTop = styled.div`
 `
 
 const PanelBottom = styled.div`
-  border-radius: 0 0 20px 20px;
   padding: 0.5rem 1rem 1rem;
   background-color: ${({ theme }) => theme.colors.opaqueBg1};
-  box-shadow: 0 -6px 10px -6px ${({ theme }) => theme.colors.opaqueBg1};
 
   > * {
     color: ${({ theme }) => theme.colors.textAccent};
@@ -77,7 +73,7 @@ const Title = styled.div`
 
   &:hover {
     > a {
-      color: ${({ theme }) => theme.colors.textAccent};
+      color: ${({ theme }) => theme.colors.main1};
     }
   }
 `

@@ -63,10 +63,8 @@ const FlexContainer = styled.div`
   align-items: center;
   margin-bottom: 2rem;
   padding: 2rem;
-  box-shadow: inset 10px 10px 30px ${({ theme }) => theme.colors.main2},
-    inset -10px -10px 30px ${({ theme }) => theme.colors.main3};
-  border-radius: 2rem;
-  background-color: ${({ theme }) => theme.colors.main1};
+  border: 5px solid ${({ theme }) => theme.colors.dark1};
+  background-color: ${({ theme }) => theme.colors.textAccent};
 
   @media (min-width: 960px) {
     flex-direction: row;
@@ -141,7 +139,7 @@ const TextWrapper = styled.div`
 `
 
 const Title = styled.h2`
-  color: ${({ theme }) => theme.colors.textAccent};
+  color: ${({ theme }) => theme.colors.dark1};
   margin: 0 0 1.5rem 0;
 `
 

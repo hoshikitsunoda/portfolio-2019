@@ -35,9 +35,6 @@ const Blog = () => {
       {allMarkdownRemark.edges.map((props, i) => {
         return <BlogPost key={i} {...props} />
       })}
-      {allMarkdownRemark.edges.map((props, i) => {
-        return <BlogPost key={i} {...props} />
-      })}
     </Wrapper>
   )
 }

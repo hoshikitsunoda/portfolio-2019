@@ -29,17 +29,19 @@ const PostNavigation = ({ pageContext }) => {
 
   return (
     <Wrapper>
-      <Container>
-        <Flex navigation={navigation}>
-          {previousPost && (
-            <CustomLink to={previousPost.url}>
-              ← {previousPost.title}
-            </CustomLink>
-          )}
-          {nextPost && (
-            <CustomLink to={nextPost.url}>{nextPost.title} →</CustomLink>
-          )}
-        </Flex>
+      <Container navigation={navigation}>
+        {previousPost && (
+          <CustomLink to={previousPost.url}>
+            <p>PREVIOUS</p>
+            <Title>{previousPost.title}</Title>
+          </CustomLink>
+        )}
+        {nextPost && (
+          <CustomLink to={nextPost.url}>
+            <p>NEXT</p>
+            <Title>{nextPost.title}</Title>
+          </CustomLink>
+        )}
       </Container>
     </Wrapper>
   )
@@ -55,29 +57,28 @@ const Container = styled.div`
   max-width: calc(1000px + 2rem);
 `
 
-const Flex = styled.div`
-  display: flex;
-  justify-content: ${({ navigation }) =>
-    navigation === "both" || !navigation
-      ? "space-between"
-      : navigation === "next"
-      ? "flex-end"
-      : "flex-start"};
-  align-items: center;
-  margin: ${({ navigation }) =>
-    !navigation ? "3rem 0.5rem 4rem auto" : "0 auto 4rem"};
-`
-
 const CustomLink = styled(Link)`
-  font-family: ${({ theme }) => theme.fonts.bold};
-  text-align: center;
+  display: block;
+  font-family: ${({ theme }) => theme.fonts.main};
+  text-decoration: none;
   color: ${({ theme }) => theme.colors.main1};
   transition: 0.2s ease-out;
   margin: 0 1rem;
+  padding: 1rem 0;
+  border-bottom: 5px solid ${({ theme }) => theme.colors.main1};
 
   &:hover {
     color: ${({ theme }) => theme.colors.textAccent};
   }
+
+  p {
+    margin: 1.45rem 0 1rem;
+    font-size: 0.8rem;
+  }
+`
+
+const Title = styled.h3`
+  font-family: ${({ theme }) => theme.fonts.bold};
 `
 
 export default PostNavigation

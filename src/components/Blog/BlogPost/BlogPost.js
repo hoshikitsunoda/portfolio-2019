@@ -61,9 +61,10 @@ const Time = styled.time`
   font-size: 0.75rem;
 `
 
-const Title = styled.h2`
+const Title = styled.div`
+  width: fit-content;
   font-family: ${({ theme }) => theme.fonts.bold};
-  margin: 0.2rem 0 1rem;
+  margin: 0.5rem 0 0;
   transition: all 0.2s ease-in;
   min-height: 3.5rem;
 

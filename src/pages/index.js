@@ -77,7 +77,7 @@ const IndexPage = ({ location }) => {
         <Layout page={urlParam}>
           <Flex>
             <Header />
-            <Intro />
+            <Intro page="index" />
           </Flex>
           <Menu urlParam={urlParam} />
           <CustomRouter>

@@ -36,7 +36,7 @@ const Intro = ({ page }) => {
 
 const Wrapper = styled.div`
   width: 100%;
-  margin-bottom: ${({ page }) => (page === "blog" ? "2.5rem" : 0)};
+  margin-bottom: ${({ page }) => (page === "index" ? 0 : "2.5rem")};
 
   @media (min-width: 768px) {
     display: flex;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Router } from "@reach/router"
 
 import Layout from "../hoc/Layout/layout"
 import Header from "../components/Header/header"
@@ -8,6 +7,7 @@ import Intro from "../components/Intro"
 import Menu from "../components/Menu/Menu"
 import Projects from "../components/Projects/Projects"
 import Spinner from "../components/UI/Spinner"
+import PosedRouter from "../hoc/Router/PosedRouter"
 import SEO from "../components/seo"
 
 import styled from "styled-components"
@@ -103,7 +103,7 @@ const StyledBackground = styled(BackgroundImage)`
   }
 `
 
-const CustomRouter = styled(Router)`
+const CustomRouter = styled(PosedRouter)`
   height: 100%;
 `
 

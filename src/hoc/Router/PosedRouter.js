@@ -23,7 +23,7 @@ const PosedRouter = ({ children }) => (
   <Location>
     {({ location }) => (
       <PoseGroup>
-        <RouteContainer key={location.key}>
+        <RouteContainer key={location.pathname}>
           <Router location={location}>{children}</Router>
         </RouteContainer>
       </PoseGroup>

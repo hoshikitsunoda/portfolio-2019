@@ -121,7 +121,12 @@ const ListWrapper = styled.ul`
 
 const HeadingWrapper = styled.div`
   text-align: center;
-  padding: 0 2rem;
+  padding: 0;
+
+  @media (min-width: 768px) {
+    margin: 3.5rem auto 0;
+    padding: 0 2rem;
+  }
 `
 
 const Title = styled.h1`

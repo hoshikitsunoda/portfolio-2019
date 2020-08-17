@@ -84,7 +84,7 @@ const Title = styled.div`
 `
 
 const CustomImg = styled(Img)`
-  height: 10rem;
+  height: 6rem;
 `
 
 const Excerpt = styled.p`

@@ -25,11 +25,7 @@ const Wrapper = styled.div`
   left: 0;
   bottom: 0;
   background-color: ${({ theme }) => theme.colors.dark1};
-  padding: 2rem 0 3rem;
-
-  @media (min-width: 768px) {
-    padding-top: 0;
-  }
+  padding: 0 0 1.5rem;
 `
 
 const Container = styled.div`

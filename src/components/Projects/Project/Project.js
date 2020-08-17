@@ -141,6 +141,8 @@ const TextWrapper = styled.div`
 const Title = styled.h2`
   color: ${({ theme }) => theme.colors.dark1};
   margin: 0 0 1.5rem 0;
+  text-decoration: underline;
+  text-decoration-color: ${({ theme }) => theme.colors.accent};
 `
 
 const SubHeading = styled.p`

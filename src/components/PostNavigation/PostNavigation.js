@@ -63,7 +63,7 @@ const CustomLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.main1};
   transition: 0.2s ease-out;
-  margin: 0 1rem;
+  margin: 0 1.5rem;
   padding: 1rem 0;
   border-bottom: 5px solid ${({ theme }) => theme.colors.main1};
 

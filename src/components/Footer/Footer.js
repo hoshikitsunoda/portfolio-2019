@@ -25,7 +25,11 @@ const Wrapper = styled.div`
   left: 0;
   bottom: 0;
   background-color: ${({ theme }) => theme.colors.dark1};
-  padding: 2rem 0 5rem;
+  padding: 2rem 0 3rem;
+
+  @media (min-width: 768px) {
+    padding-top: 0;
+  }
 `
 
 const Container = styled.div`
@@ -33,7 +37,7 @@ const Container = styled.div`
   margin: 1rem auto 0;
 
   @media (min-width: 768px) {
-    margin: 3rem auto 0;
+    margin: 0 auto;
   }
 `
 
@@ -51,8 +55,7 @@ const Flex = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    margin: ${({ navigation }) =>
-      !navigation ? "3rem 0.5rem 0 auto" : "3rem auto 0"};
+    margin: ${({ navigation }) => (!navigation ? "0 0.5rem 0 auto" : "0 auto")};
   }
 `
 

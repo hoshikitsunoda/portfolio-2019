@@ -87,7 +87,7 @@ const AccentBox = styled.div`
 
 const PostWrapper = styled.div`
   background: ${({ theme }) => theme.colors.textAccent};
-  padding: 2.5rem 0.5rem 0.5rem;
+  padding: 2.5rem 1rem 1rem;
   max-width: 1000px;
   margin: 2rem auto 2rem;
   border: 3px solid ${({ theme }) => theme.colors.dark1};

@@ -52,7 +52,7 @@ const AccentBox = styled.div`
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.textAccent};
-  padding: 3.5rem 0.5rem 0.5rem;
+  padding: 3.5rem 1rem 1rem;
   border: 3px solid ${({ theme }) => theme.colors.dark1};
   max-width: 1000px;
   margin: 2rem auto;

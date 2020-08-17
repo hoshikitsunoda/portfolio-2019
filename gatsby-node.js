@@ -45,8 +45,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         slug: node.frontmatter.slug,
         title: node.frontmatter.title,
-        prev: index === 0 ? null : posts[index - 1].node,
-        next: index === posts.length - 1 ? null : posts[index + 1].node,
+        prev: index === posts.length - 1 ? null : posts[index + 1].node,
+        next: index === 0 ? null : posts[index - 1].node,
       },
     })
   })

@@ -2,6 +2,7 @@
 slug: "/blog/my-third-post"
 date: "2020-08-14"
 title: "My third blog post"
+featuredImage: ../../images/blog/blog-3-img.jpg
 tags:
   - career
   - webdev

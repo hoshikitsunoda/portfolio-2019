@@ -2,6 +2,7 @@
 slug: "/blog/my-second-post"
 date: "2020-08-12"
 title: "My second blog post"
+featuredImage: ../../images/blog/blog-2-img.jpg
 tags:
   - development
   - gatsbyjs

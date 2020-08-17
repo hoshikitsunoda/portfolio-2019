@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../hoc/Layout/layout"
 import Button from "../components/UI/Button"
 import Footer from "../components/Footer/Footer"
-// import PostNavigation from "../components/PostNavigation/PostNavigation"
+import Img from "gatsby-image"
 import SEO from "../components/seo"
 
 import styled from "styled-components"
@@ -12,6 +12,8 @@ import styled from "styled-components"
 const Template = ({ data, pageContext }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
+
+  let fluidImg = frontmatter.featuredImage.childImageSharp.fluid
 
   return (
     <Layout page="blog">
@@ -35,6 +37,7 @@ const Template = ({ data, pageContext }) => {
           </ListWrapper>
           <Title>{frontmatter.title}</Title>
           <PostDate>{frontmatter.date}</PostDate>
+          <HeaderImg fluid={fluidImg} alt={frontmatter.title} />
         </HeadingWrapper>
         <MainContent
           className="blog-post-content"
@@ -54,6 +57,13 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         slug
         title
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         tags
       }
     }
@@ -77,7 +87,7 @@ const AccentBox = styled.div`
 
 const PostWrapper = styled.div`
   background: ${({ theme }) => theme.colors.textAccent};
-  padding: 2.5rem 0.5rem 0.5rem;
+  padding: 2.5rem 1rem 1rem;
   max-width: 1000px;
   margin: 2rem auto 2rem;
   border: 3px solid ${({ theme }) => theme.colors.dark1};
@@ -111,6 +121,7 @@ const ListWrapper = styled.ul`
 
 const HeadingWrapper = styled.div`
   text-align: center;
+  padding: 0 2rem;
 `
 
 const Title = styled.h1`
@@ -128,6 +139,10 @@ const Title = styled.h1`
 const PostDate = styled.p`
   font-family: ${({ theme }) => theme.fonts.main};
   font-size: 0.9rem;
+`
+
+const HeaderImg = styled(Img)`
+  height: 20rem;
 `
 
 const MainContent = styled.div`

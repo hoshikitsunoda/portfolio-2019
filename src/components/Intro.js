@@ -43,6 +43,7 @@ const Wrapper = styled.div`
     justify-content: flex-start;
     align-items: center;
     margin-top: 0;
+    margin-bottom: 0;
     width: auto;
   }
 `

@@ -1,9 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 import styled from "styled-components"
 
 const BlogPost = ({ node: { excerpt, frontmatter } }) => {
+  let fluidImg = frontmatter.featuredImage.childImageSharp.fluid
+
+  console.log(fluidImg)
   return (
     <>
       <Panel key={frontmatter.slug}>
@@ -14,6 +18,7 @@ const BlogPost = ({ node: { excerpt, frontmatter } }) => {
           <Title>
             <Link to={frontmatter.slug}>{frontmatter.title}</Link>
           </Title>
+          <CustomImg fluid={fluidImg} alt={frontmatter.title} />
         </PanelTop>
         <PanelBottom>
           <Excerpt>{excerpt}</Excerpt>
@@ -76,6 +81,10 @@ const Title = styled.div`
       color: ${({ theme }) => theme.colors.main1};
     }
   }
+`
+
+const CustomImg = styled(Img)`
+  height: 10rem;
 `
 
 const Excerpt = styled.p`

@@ -19,7 +19,7 @@ const BlogListPage = ({
     currentPage - 1 === 1 ? "" : (currentPage - 1).toString()
   }`
   const nextPage = `/blog/list/${(currentPage + 1).toString()}`
-
+  console.log(edges)
   return (
     <BlogSubpageLayout page="posts">
       {edges.map((props, i) => {
@@ -57,6 +57,13 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             slug
             title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

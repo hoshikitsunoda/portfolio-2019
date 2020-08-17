@@ -20,6 +20,13 @@ const Blog = () => {
               date(formatString: "MMMM DD, YYYY")
               slug
               title
+              featuredImage {
+                childImageSharp {
+                  fluid(maxWidth: 800) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }

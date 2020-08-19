@@ -11,7 +11,7 @@ export default {
     dark2: "#031c27",
     textAccent: "#fff",
     opaqueBg1: "rgba(0, 0, 0, 0.3)",
-    opaqueBg2: "rgba(77, 77, 77, 0.3)",
+    opaqueBg2: "rgba(77, 77, 77, 0.7)",
     accent: "#f52549",
   },
 }

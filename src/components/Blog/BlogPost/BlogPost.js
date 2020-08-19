@@ -6,8 +6,6 @@ import styled from "styled-components"
 
 const BlogPost = ({ node: { excerpt, frontmatter } }) => {
   let fluidImg = frontmatter.featuredImage.childImageSharp.fluid
-
-  console.log(fluidImg)
   return (
     <>
       <Panel key={frontmatter.slug}>

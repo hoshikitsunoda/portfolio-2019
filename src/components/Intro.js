@@ -21,13 +21,15 @@ const Intro = ({ page }) => {
       <ProfileImg fixed={data.profile.childImageSharp.fixed} alt="Profile" />
       <TextWrapper>
         <p>
-          My name is<span className="accent-text"> Hosh’ki Tsunoda</span>.{" "}
-          <br></br>
+          <span className="accent-text">Hosh’ki Tsunoda</span>. <br></br>
           <span className="accent-text">Front End</span> Developer.{" "}
           <br className="break"></br>
           <span className="accent-text">UI</span> Developer.
           <br></br>Based in{" "}
-          <span className="white-text">Orange County, CA</span>.
+          <span className="white-text">
+            Orange County, <span className="accent-text">CA</span>
+          </span>
+          .
         </p>
       </TextWrapper>
     </Wrapper>
@@ -64,7 +66,7 @@ const ProfileImg = styled(Img)`
 `
 
 const TextWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.opaqueBg2};
+  background-color: ${({ theme }) => theme.colors.dark1};
   text-align: center;
   padding: 1.55rem 0.5rem 0.7rem;
 

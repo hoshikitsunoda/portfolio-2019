@@ -19,7 +19,7 @@ const BlogListPage = ({
     currentPage - 1 === 1 ? "" : (currentPage - 1).toString()
   }`
   const nextPage = `/blog/list/${(currentPage + 1).toString()}`
-  console.log(edges)
+
   return (
     <BlogSubpageLayout page="posts">
       {edges.map((props, i) => {

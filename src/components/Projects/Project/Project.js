@@ -68,7 +68,6 @@ const FlexContainer = styled.div`
 
   @media (min-width: 960px) {
     flex-direction: row;
-    padding: 2.5rem;
   }
 `
 

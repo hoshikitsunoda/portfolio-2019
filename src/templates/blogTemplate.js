@@ -87,10 +87,14 @@ const AccentBox = styled.div`
 
 const PostWrapper = styled.div`
   background: ${({ theme }) => theme.colors.textAccent};
-  padding: 2.5rem 1rem 1rem;
+  padding: 2.5rem 0.5rem 1rem;
   max-width: 1000px;
   margin: 2rem auto 2rem;
   border: 3px solid ${({ theme }) => theme.colors.dark1};
+
+  @media (min-width: 768px) {
+    padding: 2.5rem 1rem 1rem;
+  }
 `
 
 const ListWrapper = styled.ul`
@@ -147,7 +151,11 @@ const PostDate = styled.p`
 `
 
 const HeaderImg = styled(Img)`
-  height: 20rem;
+  height: 12rem;
+
+  @media (min-width: 768px) {
+    height: 20rem;
+  }
 `
 
 const MainContent = styled.div`

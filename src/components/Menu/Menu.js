@@ -52,7 +52,7 @@ const Background = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.opaqueBg2};
+  background-color: ${({ theme }) => theme.colors.dark1};
   padding: 0 0.75rem 0.5rem;
 
   ul {
@@ -100,7 +100,7 @@ const IconWrapper = styled.div`
   align-items: center;
   padding: 0.2rem 0.5rem;
   min-height: 50px;
-  background-color: ${({ theme }) => theme.colors.opaqueBg1};
+  background-color: ${({ theme }) => theme.colors.opaqueBg2};
   box-shadow: 3px 3px 0 ${({ theme }) => theme.colors.dark1};
   border: 0.025rem solid ${({ theme }) => theme.colors.dark1};
   overflow: hidden;

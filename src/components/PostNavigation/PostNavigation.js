@@ -6,14 +6,14 @@ import styled from "styled-components"
 const PostNavigation = ({ pageContext }) => {
   const previousPost = pageContext.prev
     ? {
-        url: `${pageContext.prev.frontmatter.slug}`,
+        url: `/blog${pageContext.prev.fields.slug}`,
         title: pageContext.prev.frontmatter.title,
       }
     : null
 
   const nextPost = pageContext.next
     ? {
-        url: `${pageContext.next.frontmatter.slug}`,
+        url: `/blog${pageContext.next.fields.slug}`,
         title: pageContext.next.frontmatter.title,
       }
     : null

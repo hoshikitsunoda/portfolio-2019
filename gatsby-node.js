@@ -16,6 +16,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       ) {
         edges {
           node {
+            fields {
+              slug
+            }
             frontmatter {
               slug
               title
@@ -37,10 +40,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   const posts = result.data.postsRemark.edges
-
   posts.forEach(({ node }, index) => {
     createPage({
-      path: node.frontmatter.slug,
+      path: `/blog${node.fields.slug}`,
       component: blogPostTemplate,
       context: {
         slug: node.frontmatter.slug,

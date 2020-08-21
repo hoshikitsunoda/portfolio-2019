@@ -4,10 +4,9 @@ import Img from "gatsby-image"
 
 import styled from "styled-components"
 
-const BlogPost = ({ node: { excerpt, frontmatter } }) => {
+const BlogPost = ({ node: { excerpt, frontmatter, fields } }) => {
   let fluidImg = frontmatter.featuredImage.childImageSharp.fluid
 
-  console.log(fluidImg)
   return (
     <>
       <Panel key={frontmatter.slug}>
@@ -16,13 +15,13 @@ const BlogPost = ({ node: { excerpt, frontmatter } }) => {
             <Time dateTime={frontmatter.date}>{frontmatter.date}</Time>
           </div>
           <Title>
-            <Link to={frontmatter.slug}>{frontmatter.title}</Link>
+            <Link to={`/blog${fields.slug}`}>{frontmatter.title}</Link>
           </Title>
           <CustomImg fluid={fluidImg} alt={frontmatter.title} />
         </PanelTop>
         <PanelBottom>
           <Excerpt>{excerpt}</Excerpt>
-          <CustomLink to={frontmatter.slug}>Read more...</CustomLink>
+          <CustomLink to={`/blog${fields.slug}`}>Read more...</CustomLink>
         </PanelBottom>
       </Panel>
     </>

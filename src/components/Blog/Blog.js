@@ -28,6 +28,9 @@ const Blog = () => {
                 }
               }
             }
+            fields {
+              slug
+            }
           }
         }
       }

@@ -66,6 +66,9 @@ export const pageQuery = graphql`
         }
         tags
       }
+      fields {
+        slug
+      }
     }
   }
 `

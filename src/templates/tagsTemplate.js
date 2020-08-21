@@ -17,10 +17,11 @@ const Tags = ({ pageContext, data }) => {
   return (
     <BlogSubpageLayout page="result" tagHeader={tagHeader}>
       {edges.map(({ node }) => {
-        const { title, slug } = node.frontmatter
+        const { title } = node.frontmatter
+        const { slug } = node.fields
         return (
           <li key={slug}>
-            <Link to={slug.toLowerCase()}>{title}</Link>
+            <Link to={`/blog${slug}`}>{title}</Link>
           </li>
         )
       })}
@@ -42,6 +43,9 @@ export const pageQuery = graphql`
             slug
             title
             tags
+          }
+          fields {
+            slug
           }
         }
       }

@@ -2,7 +2,7 @@
 slug: Using Gatsby like an SPA
 date: 2020-08-21T22:36:05.309Z
 title: Using Gatsby like an SPA
-featuredImage: /assets/images/spa-react-gatsby.png
+featuredImage: /assets/images/spa-08-22-20.png
 tags:
   - gatsby
   - react

@@ -123,21 +123,21 @@ const MenuItem = styled.div`
   cursor: pointer;
 
   &.resume {
-    opacity: ${props => (props.isShowing === "/resume" ? 1 : 0.5)};
+    opacity: ${({ isShowing }) => (isShowing === "/resume" ? 1 : 0.5)};
     &:hover {
       opacity: 1;
     }
   }
 
   &.projects {
-    opacity: ${props => (props.isShowing === "/" ? 1 : 0.5)};
+    opacity: ${({ isShowing }) => (isShowing === "/" ? 1 : 0.5)};
     &:hover {
       opacity: 1;
     }
   }
 
   &.blog {
-    opacity: ${props => (props.isShowing === "/blog" ? 1 : 0.5)};
+    opacity: ${({ isShowing }) => (isShowing === "/blog" ? 1 : 0.5)};
     &:hover {
       opacity: 1;
     }

@@ -5,13 +5,23 @@ import Layout from "../hoc/Layout/layout"
 import Button from "../components/UI/Button"
 import Footer from "../components/Footer/Footer"
 import Img from "gatsby-image"
+import Share from "../components/UI/Share"
 import SEO from "../components/seo"
 
 import styled from "styled-components"
 
 const Template = ({ data, pageContext }) => {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const {
+    markdownRemark,
+    site: { siteMetadata },
+  } = data
+  const { frontmatter, html, fields } = markdownRemark
+  const { twitterHandle, url } = siteMetadata
+
+  const tagArray = []
+  frontmatter.tags.map(tag => {
+    return tagArray.push(tag)
+  })
 
   let fluidImg = frontmatter.featuredImage.childImageSharp.fluid
 
@@ -37,12 +47,21 @@ const Template = ({ data, pageContext }) => {
           </ListWrapper>
           <Title>{frontmatter.title}</Title>
           <PostDate>{frontmatter.date}</PostDate>
-          <HeaderImg fluid={fluidImg} alt={frontmatter.title} />
+          <Img fluid={fluidImg} alt={frontmatter.title} />
         </HeadingWrapper>
         <MainContent
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <ShareWrapper>
+          <p>Share this post on:</p>
+          <Share
+            tags={tagArray}
+            url={`${url}/blog${fields.slug}`}
+            twitterHandle={twitterHandle}
+            title={frontmatter.title}
+          />
+        </ShareWrapper>
         <Footer pageContext={pageContext} page="blog" />
       </PostWrapper>
     </Layout>
@@ -51,6 +70,13 @@ const Template = ({ data, pageContext }) => {
 
 export const pageQuery = graphql`
   query($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        twitterHandle
+        url
+      }
+    }
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
@@ -153,14 +179,6 @@ const PostDate = styled.p`
   font-size: 0.9rem;
 `
 
-const HeaderImg = styled(Img)`
-  height: 12rem;
-
-  @media (min-width: 768px) {
-    height: 20rem;
-  }
-`
-
 const MainContent = styled.div`
   max-width: 800px;
   margin: 2rem auto 0;
@@ -175,6 +193,25 @@ const MainContent = styled.div`
   @media (min-width: 1024px) {
     margin-bottom: 5rem;
     padding: 0;
+  }
+`
+
+const ShareWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0 0 0;
+
+  p {
+    margin: 0 0 0.4rem 0;
+    padding: 0;
+    font-family: ${({ theme }) => theme.fonts.bold};
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 0 0 1rem 0;
   }
 `
 

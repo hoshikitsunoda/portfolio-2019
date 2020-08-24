@@ -8,12 +8,12 @@ const RouteContainer = posed.div({
     opacity: 1,
     delay: 300,
     transition: {
-      y: { type: "spring", stiffness: 100, damping: 15 },
+      y: { type: "spring", stiffness: 100, damping: 0 },
       default: { duration: 300 },
     },
   },
   exit: {
-    y: 300,
+    y: 0,
     opacity: 1,
     transition: { duration: 10 },
   },

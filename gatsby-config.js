@@ -10,6 +10,8 @@ module.exports = {
       "https://twitter.com/hoshkitsunoda",
     ],
     resumeUrl: "https://bit.ly/2CjRVmV",
+    twitterHandle: "hoshkitsunoda",
+    url: "http://hoshki.me",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -72,6 +74,17 @@ module.exports = {
     },
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-158770402-2",
+        head: false,
+        defer: false,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: "hoshki.me",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

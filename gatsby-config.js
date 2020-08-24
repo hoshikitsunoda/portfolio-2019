@@ -10,6 +10,8 @@ module.exports = {
       "https://twitter.com/hoshkitsunoda",
     ],
     resumeUrl: "https://bit.ly/2CjRVmV",
+    twitterHandle: "hoshkitsunoda",
+    url: "http://hoshki.me",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

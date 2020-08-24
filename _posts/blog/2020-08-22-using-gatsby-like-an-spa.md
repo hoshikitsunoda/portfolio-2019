@@ -10,7 +10,7 @@ tags:
 ---
 Upon creating this portfolio site, I had no intention to have a blog on here. This site was supposed to be just a page where you can download my resume and find my contact info. 
 
-Only recently, I began realizing how beneficial it is to have a tech blog as a developer which eventually led me to decide to adding a blog section.
+Only recently, I began to realize how beneficial it is to have a tech blog as a developer which eventually led me to decide on adding a blog section.
 
 ## Identifying the problem
 
@@ -21,11 +21,11 @@ Gatsby generates a page for each route. It means Gatsby generates an html file f
 * update a section of index page based on the menu item that was clicked
 * update the path for a history purpose so the user can navigate with 'go back' and 'go forward' button on the browser
 
-while staying on the same(index) page. 
+while staying on the same index page. 
 
 With my initial implementation, it would update the path on click and an UI updates as intended, but hitting go back button wouldn't switch back the component. 
 
-So the problem was somewhere in routing. It needed a client-side only routing because updating the URL path triggers Gatsby to use backend routing.
+So the problem was somewhere in the routing. It needed a client-side only routing because updating the URL path triggers Gatsby to use backend routing.
 
 ## Tell Gatsby to stay in the page
 
@@ -47,7 +47,7 @@ Gatsby comes with pre-defined `Link` and `Router` components, which utilizes [`@
 
 The `/` (root) path shows a list of projects. `/blog` will render a list of recent blog posts. And `/resume` path for resume download view.
 
-This created an unknown path issue. Every time a menu item was clicked, it would end up in 404 page. It is because Gatsby tries to find a page file that's corresponding to the path that is updated to. 
+This created an unknown path issue. Every time a menu item was clicked, it would end up in 404 page. It is because Gatsby tries to find a page file that's corresponding to a new path that is updated to.
 
 The solution for this was actually fairly simple, you just need to add following to your `gatsby-node.js` so Gatsby knows it needs to stay inside `index.html`.
 

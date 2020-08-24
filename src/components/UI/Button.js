@@ -2,13 +2,14 @@ import React from "react"
 
 import styled from "styled-components"
 
-const Button = ({ children }) => {
-  return <CustomButton>{children}</CustomButton>
+const Button = ({ children, blogList }) => {
+  console.log(blogList)
+  return <CustomButton blogList={blogList}>{children}</CustomButton>
 }
 
 const CustomButton = styled.button`
   font-family: ${({ theme }) => theme.fonts.bold};
-  margin: 0 auto 0 0;
+  margin: ${({ blogList }) => (blogList ? "0 auto" : "0 auto 0 0")};
   display: block;
   background: none;
   border: 3px solid ${({ theme }) => theme.colors.accent};

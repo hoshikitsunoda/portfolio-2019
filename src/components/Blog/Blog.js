@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
 import BlogPost from "./BlogPost/BlogPost"
+import Button from "../UI/Button"
 
 import styled from "styled-components"
 
@@ -43,7 +44,9 @@ const Blog = () => {
         return <BlogPost key={i} {...props} />
       })}
       <LinkWrapper>
-        <CustomLink to="/blog/list">View All</CustomLink>
+        <Button blogList>
+          <Link to="/blog/list">View All</Link>
+        </Button>
       </LinkWrapper>
     </Wrapper>
   )
@@ -70,29 +73,13 @@ const LinkWrapper = styled.div`
   padding: 1.5rem 0 2rem;
   width: 100%;
   left: 0;
-  bottom: 0;
+  bottom: 1rem;
   text-align: center;
 
   @media (min-width: 768px) {
     width: 80%;
     left: 50%;
     transform: translateX(-50%);
-  }
-`
-
-const CustomLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.dark1};
-  font-family: ${({ theme }) => theme.fonts.bold};
-  text-transform: capitalize;
-  padding: 0.5rem 0.75rem;
-  background-color: #fff;
-  display: block;
-  margin: 0 auto;
-  width: 40%;
-  border: 3px solid ${({ theme }) => theme.colors.dark1};
-
-  @media (min-width: 768px) {
-    margin: -4rem auto 0;
   }
 `
 

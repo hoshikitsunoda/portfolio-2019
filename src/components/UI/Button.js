@@ -3,7 +3,6 @@ import React from "react"
 import styled from "styled-components"
 
 const Button = ({ children, blogList }) => {
-  console.log(blogList)
   return <CustomButton blogList={blogList}>{children}</CustomButton>
 }
 

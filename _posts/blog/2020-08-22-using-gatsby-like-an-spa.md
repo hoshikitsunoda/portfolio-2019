@@ -27,9 +27,9 @@ With my initial implementation, it would update the path on click and an UI upda
 
 So the problem was somewhere in the routing. It needed a client-side only routing because updating the URL path triggers Gatsby to use backend routing.
 
-## Tell Gatsby to stay in the page
+## Tell Gatsby to stay on the page
 
-Gatsby comes with pre-defined `Link` and `Router` components, which utilizes [`@reach/router`](https://reach.tech/router/) behind the scene. So you can use them like this:
+Gatsby comes with pre-defined `Link` and `Router` components, which utilizes [`@reach/router`](https://reach.tech/router/) behind the scene. You can use them like this:
 
 ```
 // pages/index.js
@@ -45,7 +45,7 @@ Gatsby comes with pre-defined `Link` and `Router` components, which utilizes [`@
 <Link to="/resume">
 ```
 
-The `/` (root) path shows a list of projects. `/blog` will render a list of recent blog posts. And `/resume` path for resume download view.
+The `/` (root) path shows a list of projects. The `/blog` path will render a list of recent blog posts. And the `/resume` path for resume download view.
 
 This created an unknown path issue. Every time a menu item was clicked, it would end up in 404 page. It is because Gatsby tries to find a page file that's corresponding to a new path that is updated to.
 

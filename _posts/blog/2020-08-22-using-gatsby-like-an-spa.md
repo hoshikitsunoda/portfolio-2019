@@ -8,28 +8,28 @@ tags:
   - react
   - spa
 ---
-Upon creating this portfolio site, I had no intention to have a blog on here. This site was supposed to be just a page where you can download my resume and find my contact info. 
+Upon creating this portfolio site, I had no intention to have a blog here. This site was supposed to be just a page where you can download my resume and find my contact info. 
 
-Only recently, I began to realize how beneficial it is to have a tech blog as a developer which eventually led me to decide on adding a blog section.
+Only recently, I began to realize benefits of having a tech blog as a developer which eventually led me to decide on adding a blog section.
 
 ## Identifying the problem
 
-This website is made with Gatsbyjs which is a static site generator. Checkout their [website](https://www.gatsbyjs.com) if you aren't familiar with it. 
+This website is made with Gatsbyjs, Blazing fast static site generator for React. Checkout their [website](https://www.gatsbyjs.com) if you aren't familiar with it. 
 
-Gatsby generates a page for each URL path. It means Gatsby generates an html file for each corresponding page file( e.g. `index.js` -> `index.html` ). But what I want to achieve is:
+Gatsby generates a page for each URL path, meaning, Gatsby generates an html file for each corresponding page file( e.g. `index.js` -> `index.html` ). But what I want to achieve is:
 
 * update a section of index page based on the menu item that is clicked
 * update URL path and push it to history so the user can navigate with 'go back' and 'go forward' button on the browser
 
 while staying on the same index page. 
 
-With my initial implementation, it would update the path on click and an UI updates as intended, but hitting go back button wouldn't switch back the component. 
+With my initial implementation, UI gets updated however the path stays the same.
 
-The problem is somewhere in the routing. It needs a client-side only routing because updating the URL path triggers Gatsby to use backend routing.
+The problem is somewhere in the routing. It needs a routing but only on client-side because updating the URL path triggers Gatsby to use backend routing by default and a new page gets generated.
 
 ## Tell Gatsby to stay on the page
 
-Gatsby comes with pre-defined `Link` and `Router` components, which utilizes [`@reach/router`](https://reach.tech/router/) behind the scene. You can use them like this:
+Gatsby comes with `Link` and `Router` components which are provided by [`@reach/router`](https://reach.tech/router/). These components enables internal linking. You can use them like this:
 
 ```
 // pages/index.js

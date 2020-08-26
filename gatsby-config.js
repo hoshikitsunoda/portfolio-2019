@@ -95,7 +95,7 @@ module.exports = {
               title: "hoshki.me",
               separator: "|",
               author: "Hosh'ki Tsunoda",
-              background: "#ffd64d",
+              background: require.resolve("./src/images/card-background.png"),
               fontColor: "#011a27",
               titleFontSize: 96,
               subtitleFontSize: 60,

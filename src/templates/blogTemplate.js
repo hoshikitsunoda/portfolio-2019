@@ -54,7 +54,7 @@ const Template = ({ data, pageContext }) => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <ShareWrapper>
-          <p>Share this post on:</p>
+          <p>Share this on:</p>
           <Share
             tags={tagArray}
             url={`${url}/blog${fields.slug}`}

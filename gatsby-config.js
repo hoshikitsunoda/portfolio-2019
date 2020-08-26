@@ -85,6 +85,26 @@ module.exports = {
         cookieDomain: "hoshki.me",
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-twitter-cards`,
+            options: {
+              title: "hoshki.me",
+              separator: "|",
+              author: "Hosh'ki Tsunoda",
+              background: "#011a27",
+              fontColor: "#fff",
+              titleFontSize: 96,
+              subtitleFontSize: 60,
+              fontStyle: "monospace",
+            },
+          },
+        ],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

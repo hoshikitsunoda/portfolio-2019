@@ -27,7 +27,7 @@ const Template = ({ data, pageContext }) => {
 
   return (
     <Layout page="blog">
-      <SEO title={frontmatter.title} />
+      <SEO title={frontmatter.title} url={`${url}${fields.slug}`} />
       <ButtonWrapper>
         <Button>
           <Link to="/blog/list">All Posts</Link>

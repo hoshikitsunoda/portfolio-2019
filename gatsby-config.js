@@ -14,6 +14,14 @@ module.exports = {
     url: "http://hoshki.me",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: `UA-158770402-2`,
+        head: false,
+        anonymize: true,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cms-paths`,
     {
@@ -74,17 +82,6 @@ module.exports = {
     },
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-netlify`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-158770402-2",
-        head: false,
-        defer: false,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "hoshki.me",
-      },
-    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

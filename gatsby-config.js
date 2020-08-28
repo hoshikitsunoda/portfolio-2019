@@ -11,7 +11,7 @@ module.exports = {
     ],
     resumeUrl: "https://bit.ly/2CjRVmV",
     twitterHandle: "hoshkitsunoda",
-    url: "http://hoshki.me",
+    url: "https://hoshki.me",
   },
   plugins: [
     {

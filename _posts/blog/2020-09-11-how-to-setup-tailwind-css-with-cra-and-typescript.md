@@ -14,7 +14,7 @@ I'm working on a little side project and decided to use Tailwind CSS although it
 
 ## Add to React/TypeScript Project
 
-This is going to be a React + TypeScript project, and with this approach, you don’t need to eject the CRA to use Tailwind.
+This is going to be a React + TypeScript project, and with this approach shown below, you don’t need to eject the CRA to use Tailwind.
 
 First, let’s create the project by running:
 
@@ -28,9 +28,9 @@ Once you are in the root directory, run the following to install dependency pack
 
 `yarn add tailwindcss`
 
-`tailwindcss` package will add Tailwind to your project and enables its own CLI tool. I also add [`classnames`] (<https://github.com/JedWatson/classnames#readme>) package which is a utility package that allows you to be more flexible when you conditionally add class names to divs. But it's totally optional.
+`tailwindcss` package will add Tailwind to your project and enables its own CLI tool.
 
-Next step is to set up Tailwind with in the project so you can actually use it. To do so, let’s first run the following command to create a config file:
+Next step is to set up Tailwind within the project so you can actually use it. To do so, let’s first run the following command to create a config file:
 
 `npx tailwind init`
 
@@ -46,8 +46,9 @@ module.exports = {
   variants: {},
   plugins: [],
 }
-
 ```
+
+This is where you store plugins and theme setting etc. but we are not going to touch it this time.
 
 After that, you need to create `src/tailwind.css` file and add following:
 

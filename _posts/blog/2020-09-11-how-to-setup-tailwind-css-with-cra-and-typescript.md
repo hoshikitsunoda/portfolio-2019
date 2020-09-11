@@ -1,7 +1,7 @@
 ---
 slug: How to setup Tailwind CSS with CRA and TypeScript
 date: 2020-09-11T20:14:18.469Z
-title: How to setup Tailwind CSS with CRA and TypeScript
+title: How to setup Tailwind CSS with React and TypeScript
 featuredImage: /assets/images/tailwind-with-rca-ts.png
 tags:
   - react

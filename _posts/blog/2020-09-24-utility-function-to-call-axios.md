@@ -104,7 +104,6 @@ const config: Params = {
 }
 
 export default axios.create(config)
-
 ```
 
 `axios.create` lets you create a new instance of axios with a custom config meaning you can call this exported function to perform CRUD operations like GET, POST, DELETE and PUT.
@@ -159,7 +158,7 @@ const fetchVideosHandler = useCallback<(keyword: string) => Promise<void>>(
 )
 ```
 
-What's happening here is `api` function we imported from `utils/api.tsx` is exporting axios.create which allows you to use axios methods, `.get()` in this case, and we are passing `/search` path. This `/search` will be combined with the baseURL we set in `api.tsx` and becomes a complete endpoint URL. And the `paramsu` object that contains a keyword(search term) also gets passed to API and then returns video data. axios.create gives you ability to create all kinds of instances. More on it [here](https://github.com/axios/axios#creating-an-instance).
+What's happening here is `api` function we imported from `utils/api.tsx` is exporting axios.create which allows you to create axios instances, `.get()` in this case, with `/search` path passed in. This `/search` will be combined with the baseURL we set in `api.tsx` and becomes a complete endpoint URL. And the `params` object that contains a keyword(search term) also gets passed to API and then returns video data. `axios.create()` gives you the ability to create all kinds of instances. More on it [here](https://github.com/axios/axios#creating-an-instance).
 
 As you can see, this `fetchVideosHandler` function takes `keyword` as an argument. You can add input to your UI and create another handler to read input value and set it as a state then pass to `fetchVideosHandler` like this:
 

@@ -1,8 +1,8 @@
 ---
-slug: Utility-Function-to-Call-Axios
+slug: Utility-Function-to-Make-Axios-Requests
 date: 2020-09-24T23:11:10.198Z
-title: Utility Function to Call Axios
-featuredImage: /assets/images/axios-util-09-24-20.png
+title: Utility Function to Make Axios Requests
+featuredImage: /assets/images/axios-util-09-24-20-dev.png
 tags:
   - react
   - typescript

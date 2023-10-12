@@ -7,10 +7,10 @@ module.exports = {
       "mailto: contact@hoshki.me",
       "https://github.com/hoshikitsunoda",
       "https://www.linkedin.com/in/hoshki-tsunoda/",
-      "https://twitter.com/hoshkitsunoda",
+      "https://twitter.com/FKA_hoshiki",
     ],
-    resumeUrl: "https://bit.ly/2CjRVmV",
-    twitterHandle: "hoshkitsunoda",
+    resumeUrl: "https://www.hoshki.me/assets/images/Resume_Hoshki_Tsunoda.pdf",
+    twitterHandle: "FKA_hoshiki",
     url: "https://hoshki.me",
   },
   plugins: [
